@@ -52,170 +52,98 @@ public class insertProductoMayorista extends javax.swing.JFrame {
         btn_BuscarFoto = new javax.swing.JButton();
         tfd_URLFoto = new javax.swing.JTextField();
         btn_InsertOProducto = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_InsertProduct.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         lbl_InsertProduct.setForeground(new java.awt.Color(0, 102, 102));
         lbl_InsertProduct.setText("Insert Producto Mayorista");
+        getContentPane().add(lbl_InsertProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 465, 51));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_ID1.setForeground(new java.awt.Color(0, 102, 102));
         lbl_ID1.setText("ID");
+        getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 69, 45, 39));
 
         lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_ID2.setForeground(new java.awt.Color(0, 102, 102));
         lbl_ID2.setText("jLabel3");
+        getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 69, 73, 39));
 
         lbl_Nombre.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         lbl_Nombre.setForeground(new java.awt.Color(0, 102, 102));
         lbl_Nombre.setText("Nombre");
+        getContentPane().add(lbl_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 126, 100, 36));
+        getContentPane().add(tfd_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 137, 255, -1));
 
         lbl_UnidadMedida.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_UnidadMedida.setForeground(new java.awt.Color(0, 102, 102));
         lbl_UnidadMedida.setText("Unidad de Medida");
+        getContentPane().add(lbl_UnidadMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 189, -1, -1));
+        getContentPane().add(tfd_UnidadMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 194, 255, -1));
 
         lbl_ValorUnidad.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_ValorUnidad.setForeground(new java.awt.Color(0, 102, 102));
         lbl_ValorUnidad.setText("Valor de Unidad");
+        getContentPane().add(lbl_ValorUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 247, -1, -1));
+        getContentPane().add(tfd_ValorUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 252, 255, -1));
 
         lbl_PesoTotal.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_PesoTotal.setForeground(new java.awt.Color(0, 102, 102));
         lbl_PesoTotal.setText("Peso Total");
+        getContentPane().add(lbl_PesoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 312, 137, -1));
+        getContentPane().add(tfd_PesoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 317, 255, -1));
 
         lbl_Descripcion.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_Descripcion.setForeground(new java.awt.Color(0, 102, 102));
         lbl_Descripcion.setText("Descripcion");
+        getContentPane().add(lbl_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 377, -1, -1));
+        getContentPane().add(tfd_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 382, 255, -1));
 
         lbl_IDLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_IDLote.setForeground(new java.awt.Color(0, 102, 102));
         lbl_IDLote.setText("ID Lote");
+        getContentPane().add(lbl_IDLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 459, -1, -1));
+        getContentPane().add(tfd_IDLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 464, 255, -1));
 
         lbl_IDCategoria.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_IDCategoria.setForeground(new java.awt.Color(0, 102, 102));
         lbl_IDCategoria.setText("ID Categoria");
+        getContentPane().add(lbl_IDCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 528, -1, -1));
+        getContentPane().add(tfd_IDCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 533, 255, -1));
 
         lbl_PrecioTotal.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_PrecioTotal.setForeground(new java.awt.Color(0, 102, 102));
         lbl_PrecioTotal.setText("Precio Total");
+        getContentPane().add(lbl_PrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 596, -1, -1));
+        getContentPane().add(tfd_precioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 601, 255, -1));
 
         lbl_Fotografia.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_Fotografia.setForeground(new java.awt.Color(0, 102, 102));
         lbl_Fotografia.setText("Fotografia");
+        getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 661, -1, -1));
 
         lbl_FOTO.setText("jLabel13");
+        getContentPane().add(lbl_FOTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 760, 173, 100));
 
         btn_BuscarFoto.setBackground(new java.awt.Color(153, 153, 153));
         btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         btn_BuscarFoto.setForeground(new java.awt.Color(0, 102, 102));
         btn_BuscarFoto.setText("Buscar Fotografia");
+        getContentPane().add(btn_BuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 661, -1, -1));
+        getContentPane().add(tfd_URLFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 723, 362, 31));
 
         btn_InsertOProducto.setBackground(new java.awt.Color(153, 153, 153));
         btn_InsertOProducto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         btn_InsertOProducto.setForeground(new java.awt.Color(0, 102, 102));
         btn_InsertOProducto.setText("Insertar");
+        getContentPane().add(btn_InsertOProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 904, 276, 63));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(lbl_InsertProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_UnidadMedida)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lbl_PesoTotal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lbl_ValorUnidad, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(lbl_Descripcion)
-                                    .addComponent(lbl_IDLote)
-                                    .addComponent(lbl_IDCategoria)
-                                    .addComponent(lbl_PrecioTotal)
-                                    .addComponent(lbl_Fotografia))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(87, 87, 87)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(lbl_ID2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tfd_Nombre)
-                                            .addComponent(tfd_UnidadMedida)
-                                            .addComponent(tfd_ValorUnidad)
-                                            .addComponent(tfd_precioTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                                            .addComponent(btn_BuscarFoto)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tfd_PesoTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tfd_Descripcion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tfd_IDLote, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tfd_IDCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(lbl_FOTO, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addComponent(btn_InsertOProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tfd_URLFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(lbl_InsertProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_ID1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_ID2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfd_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_UnidadMedida)
-                    .addComponent(tfd_UnidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_ValorUnidad)
-                    .addComponent(tfd_ValorUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_PesoTotal)
-                    .addComponent(tfd_PesoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_Descripcion)
-                    .addComponent(tfd_Descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_IDLote)
-                    .addComponent(tfd_IDLote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_IDCategoria)
-                    .addComponent(tfd_IDCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_PrecioTotal)
-                    .addComponent(tfd_precioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_Fotografia)
-                    .addComponent(btn_BuscarFoto))
-                .addGap(28, 28, 28)
-                .addComponent(tfd_URLFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_FOTO, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(btn_InsertOProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 1030));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,6 +186,7 @@ public class insertProductoMayorista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_BuscarFoto;
     private javax.swing.JButton btn_InsertOProducto;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_Descripcion;
     private javax.swing.JLabel lbl_FOTO;
     private javax.swing.JLabel lbl_Fotografia;
