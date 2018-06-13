@@ -5,6 +5,13 @@
  */
 package Interface;
 
+import java.awt.Image;
+import java.io.File;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Melvin
@@ -16,6 +23,8 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
      */
     public insertUnidadTransporte() {
         initComponents();
+        lbl_ID2.setText("1");
+        tfd_URLFoto.setEnabled(false);
     }
 
     /**
@@ -28,7 +37,7 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
     private void initComponents() {
 
         lbl_UnidadTransporte = new javax.swing.JLabel();
-        lbl_ID = new javax.swing.JLabel();
+        lbl_ID1 = new javax.swing.JLabel();
         lbl_ID2 = new javax.swing.JLabel();
         lbl_Placa = new javax.swing.JLabel();
         tfd_Placa = new javax.swing.JTextField();
@@ -48,9 +57,9 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
         lbl_UnidadTransporte.setText("Insert Unidad Transporte");
         getContentPane().add(lbl_UnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 33, -1, -1));
 
-        lbl_ID.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_ID.setText("ID");
-        getContentPane().add(lbl_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 133, -1, -1));
+        lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID1.setText("ID");
+        getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 133, -1, -1));
 
         lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_ID2.setText("jLabel3");
@@ -62,10 +71,10 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
         getContentPane().add(tfd_Placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 210, 220, -1));
 
         lbl_Capacidad.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_Capacidad.setText("Capacidad");
-        getContentPane().add(lbl_Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 279, -1, -1));
+        lbl_Capacidad.setText("Capacidad Toneladas");
+        getContentPane().add(lbl_Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
-        cb_Capacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_Capacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 -1", "1-5", "5-10", "10-30" }));
         getContentPane().add(cb_Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 269, 145, -1));
 
         lbl_Fotografia.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -73,23 +82,55 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
         getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 377, -1, -1));
 
         lbl_Foto.setText("jLabel7");
-        getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 490, 155, 66));
+        getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 340, 180));
 
         btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         btn_BuscarFoto.setText("Buscar Foto");
+        btn_BuscarFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BuscarFotoActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_BuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 370, 145, 39));
         getContentPane().add(tfd_URLFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 435, 353, 37));
 
         btn_InsertUnidadTransporte.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn_InsertUnidadTransporte.setText("Insertar Unidad Transporte");
-        getContentPane().add(btn_InsertUnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 574, 253, 62));
+        getContentPane().add(btn_InsertUnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 720, 253, 62));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 660));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_BuscarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarFotoActionPerformed
+        // TODO add your handling code here:
+            JFileChooser fileChooser = new JFileChooser("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Camiones");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
+        FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif", "png");
+        fileChooser.setFileFilter(imgFilter);
+
+        int result = fileChooser.showOpenDialog(this);
+
+        if (result != JFileChooser.CANCEL_OPTION) {
+
+            File fileName = fileChooser.getSelectedFile();
+
+            if ((fileName == null) || (fileName.getName().equals(""))) {
+                tfd_URLFoto.setText("...");
+            } else {
+                tfd_URLFoto.setText(fileName.getAbsolutePath());
+            }
+        }
+
+        ImageIcon icon = new ImageIcon(tfd_URLFoto.getText());
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_Foto.getWidth(), lbl_Foto.getHeight(), Image.SCALE_DEFAULT));
+        lbl_Foto.setIcon(icon2);
+        this.repaint();
+    }//GEN-LAST:event_btn_BuscarFotoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,7 +175,7 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Capacidad;
     private javax.swing.JLabel lbl_Foto;
     private javax.swing.JLabel lbl_Fotografia;
-    private javax.swing.JLabel lbl_ID;
+    private javax.swing.JLabel lbl_ID1;
     private javax.swing.JLabel lbl_ID2;
     private javax.swing.JLabel lbl_Placa;
     private javax.swing.JLabel lbl_UnidadTransporte;

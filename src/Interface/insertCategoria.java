@@ -5,6 +5,12 @@
  */
 package Interface;
 
+import Domain.Categoria;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.UnsupportedLookAndFeelException;
+
 /**
  *
  * @author Melvin
@@ -16,6 +22,7 @@ public class insertCategoria extends javax.swing.JFrame {
      */
     public insertCategoria() {
         initComponents();
+        lbl_ID2.setText("1");
     }
 
     /**
@@ -27,43 +34,64 @@ public class insertCategoria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        lbl_InsertCategoria = new javax.swing.JLabel();
+        lbl_ID1 = new javax.swing.JLabel();
+        lbl_ID2 = new javax.swing.JLabel();
+        lbl_Nombre = new javax.swing.JLabel();
+        tft_Nombre = new javax.swing.JTextField();
+        lbl_Descripcion = new javax.swing.JLabel();
+        tfd_Descripcion = new javax.swing.JTextField();
+        btn_InsertCategoria = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
-        jLabel1.setText("Insert Categoria");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 12, -1, -1));
+        lbl_InsertCategoria.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_InsertCategoria.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_InsertCategoria.setText("Insert Categoria");
+        getContentPane().add(lbl_InsertCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 12, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel2.setText("ID");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 84, -1, -1));
+        lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID1.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_ID1.setText("ID");
+        getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 84, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 84, -1, -1));
+        lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID2.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_ID2.setText("jLabel3");
+        getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 84, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel4.setText("Nombre");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 161, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 161, 140, -1));
+        lbl_Nombre.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Nombre.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_Nombre.setText("Nombre");
+        getContentPane().add(lbl_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 161, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel5.setText("Descripcion");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 232, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 237, 140, -1));
+        tft_Nombre.setBackground(new java.awt.Color(0, 0, 0));
+        tft_Nombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tft_Nombre.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(tft_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 161, 140, -1));
 
-        jButton1.setText("Insertar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 165, 57));
+        lbl_Descripcion.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Descripcion.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_Descripcion.setText("Descripcion");
+        getContentPane().add(lbl_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 232, -1, -1));
+
+        tfd_Descripcion.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Descripcion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        tfd_Descripcion.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(tfd_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 237, 140, -1));
+
+        btn_InsertCategoria.setBackground(new java.awt.Color(102, 102, 102));
+        btn_InsertCategoria.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_InsertCategoria.setForeground(new java.awt.Color(0, 102, 102));
+        btn_InsertCategoria.setText("Insertar");
+        btn_InsertCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InsertCategoriaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_InsertCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 165, 57));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
@@ -71,6 +99,22 @@ public class insertCategoria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_InsertCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertCategoriaActionPerformed
+        // TODO add your handling code here:
+        
+        if(tfd_Descripcion.getText().equals("")||tft_Nombre.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Complete todos los espacios por favor");
+        }else{
+            try{
+                Categoria categoria = new Categoria(Integer.parseInt(lbl_ID2.getText()) , tft_Nombre.getText(), tfd_Descripcion.getText());
+                System.out.println(categoria.getId()+" "+categoria.getNombre()+" "+categoria.getDescripcion());
+            }catch(Exception e){
+                System.out.println("Problemas");
+            }
+        }
+        
+    }//GEN-LAST:event_btn_InsertCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,9 +137,10 @@ public class insertCategoria extends javax.swing.JFrame {
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(insertCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
+           // java.util.logging.Logger.getLogger(insertCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, jLabel1      } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(insertCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(insertCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(insertCategoria.class.getName()).log(Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -108,14 +153,14 @@ public class insertCategoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton btn_InsertCategoria;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel lbl_Descripcion;
+    private javax.swing.JLabel lbl_ID1;
+    private javax.swing.JLabel lbl_ID2;
+    private javax.swing.JLabel lbl_InsertCategoria;
+    private javax.swing.JLabel lbl_Nombre;
+    private javax.swing.JTextField tfd_Descripcion;
+    private javax.swing.JTextField tft_Nombre;
     // End of variables declaration//GEN-END:variables
 }
