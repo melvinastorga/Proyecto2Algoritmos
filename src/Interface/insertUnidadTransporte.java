@@ -10,6 +10,7 @@ import java.io.File;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -96,6 +97,11 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
 
         btn_InsertUnidadTransporte.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btn_InsertUnidadTransporte.setText("Insertar Unidad Transporte");
+        btn_InsertUnidadTransporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InsertUnidadTransporteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_InsertUnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 720, 253, 62));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
@@ -131,6 +137,15 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
         lbl_Foto.setIcon(icon2);
         this.repaint();
     }//GEN-LAST:event_btn_BuscarFotoActionPerformed
+
+    private void btn_InsertUnidadTransporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertUnidadTransporteActionPerformed
+        // TODO add your handling code here:
+        
+        if(tfd_Placa.getText().equals("")|| tfd_URLFoto.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Complete todos los espacios por favor");
+        }
+        
+    }//GEN-LAST:event_btn_InsertUnidadTransporteActionPerformed
 
     /**
      * @param args the command line arguments

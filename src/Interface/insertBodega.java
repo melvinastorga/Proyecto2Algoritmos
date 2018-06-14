@@ -5,6 +5,8 @@
  */
 package Interface;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Melvin
@@ -27,74 +29,79 @@ public class insertBodega extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        lbl_InsertBodega = new javax.swing.JLabel();
+        lbl_ID1 = new javax.swing.JLabel();
+        lbl_ID2 = new javax.swing.JLabel();
+        lbl_Nombre = new javax.swing.JLabel();
+        tfd_Nombre = new javax.swing.JTextField();
+        lbl_Latitud = new javax.swing.JLabel();
+        tfd_Latitud = new javax.swing.JTextField();
+        lbl_Longitud = new javax.swing.JLabel();
+        tfd_Longitud = new javax.swing.JTextField();
+        lbl_Distancia = new javax.swing.JLabel();
+        tfd_Distancia = new javax.swing.JTextField();
+        lbl_Fotografia = new javax.swing.JLabel();
+        btn_BuscarFoto = new javax.swing.JButton();
+        tfd_Foto = new javax.swing.JTextField();
+        lbl_Foto = new javax.swing.JLabel();
+        btn_InsertBodega = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
-        jLabel1.setText("Insert Bodega");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 22, -1, -1));
+        lbl_InsertBodega.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_InsertBodega.setText("Insert Bodega");
+        getContentPane().add(lbl_InsertBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 22, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel2.setText("ID");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 117, -1, -1));
+        lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID1.setText("ID");
+        getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 117, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 117, -1, -1));
+        lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID2.setText("jLabel3");
+        getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 117, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel4.setText("Nombre");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 196, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 196, 171, -1));
+        lbl_Nombre.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Nombre.setText("Nombre");
+        getContentPane().add(lbl_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 196, -1, -1));
+        getContentPane().add(tfd_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 196, 171, -1));
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel5.setText("Latitud");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 268, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 273, 171, -1));
+        lbl_Latitud.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Latitud.setText("Latitud");
+        getContentPane().add(lbl_Latitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 268, -1, -1));
+        getContentPane().add(tfd_Latitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 273, 171, -1));
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel6.setText("Longitud");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 353, -1, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 353, 171, -1));
+        lbl_Longitud.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Longitud.setText("Longitud");
+        getContentPane().add(lbl_Longitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 353, -1, -1));
+        getContentPane().add(tfd_Longitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 353, 171, -1));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel7.setText("Distancia Centro Operaciones");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 408, -1, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 310, -1));
+        lbl_Distancia.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Distancia.setText("Distancia Centro Operaciones");
+        getContentPane().add(lbl_Distancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 408, -1, -1));
+        getContentPane().add(tfd_Distancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 310, -1));
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel8.setText("Fotografia");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 506, -1, -1));
+        lbl_Fotografia.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Fotografia.setText("Fotografia");
+        getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 506, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jButton1.setText("Buscar Fotografia");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 501, -1, -1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 553, 317, 30));
+        btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_BuscarFoto.setText("Buscar Fotografia");
+        getContentPane().add(btn_BuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 501, -1, -1));
+        getContentPane().add(tfd_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 553, 317, 30));
 
-        jLabel9.setText("jLabel9");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 609, 160, 98));
+        lbl_Foto.setText("jLabel9");
+        getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 609, 160, 98));
 
-        jButton2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jButton2.setText("Insert Bodega");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 725, 234, 38));
+        btn_InsertBodega.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_InsertBodega.setText("Insert Bodega");
+        btn_InsertBodega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_InsertBodegaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_InsertBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 725, 234, 38));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel10.setText("jLabel10");
@@ -102,6 +109,13 @@ public class insertBodega extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_InsertBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertBodegaActionPerformed
+        // TODO add your handling code here:
+        if(tfd_Distancia.getText().equals("")||tfd_Foto.getText().equals("")||tfd_Latitud.getText().equals("")||tfd_Longitud.getText().equals("")||tfd_Nombre.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Complete todos los espacios por favor");
+        }
+    }//GEN-LAST:event_btn_InsertBodegaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,22 +153,22 @@ public class insertBodega extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_BuscarFoto;
+    private javax.swing.JButton btn_InsertBodega;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel lbl_Distancia;
+    private javax.swing.JLabel lbl_Foto;
+    private javax.swing.JLabel lbl_Fotografia;
+    private javax.swing.JLabel lbl_ID1;
+    private javax.swing.JLabel lbl_ID2;
+    private javax.swing.JLabel lbl_InsertBodega;
+    private javax.swing.JLabel lbl_Latitud;
+    private javax.swing.JLabel lbl_Longitud;
+    private javax.swing.JLabel lbl_Nombre;
+    private javax.swing.JTextField tfd_Distancia;
+    private javax.swing.JTextField tfd_Foto;
+    private javax.swing.JTextField tfd_Latitud;
+    private javax.swing.JTextField tfd_Longitud;
+    private javax.swing.JTextField tfd_Nombre;
     // End of variables declaration//GEN-END:variables
 }
