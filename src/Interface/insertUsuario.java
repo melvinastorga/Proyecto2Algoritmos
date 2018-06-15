@@ -5,6 +5,8 @@
  */
 package Interface;
 
+import Domain.Usuario;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +15,19 @@ import javax.swing.JOptionPane;
  */
 public class insertUsuario extends javax.swing.JFrame {
 
+    LinkedList<Usuario> listaUsuarios;
+    
     /**
      * Creates new form insertUsuario
      */
     public insertUsuario() {
         initComponents();
+        listaUsuarios = new LinkedList<>();
+        if(listaUsuarios.isEmpty()){
         lbl_ID2.setText("1");
+        }else{
+         lbl_ID2.setText(listaUsuarios.getLast().getId()+1+"");
+        }
     }
 
     /**
@@ -107,6 +116,26 @@ public class insertUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(tfd_Contrasena.getText().equals("")||tfd_Nombre.getText().equals("")||tfd_Usuario.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Complete todos los espacios por favor");
+        }else{
+            String rol = "";
+            boolean admin = false;
+            
+            if (cb_ROL.getSelectedIndex()==0){
+                rol = "administrador";
+                admin = true;
+            }
+            if (cb_ROL.getSelectedIndex()==1){
+                  rol = "operador";
+                  admin = false;
+            }
+            
+            Usuario usuario = new Usuario(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), admin, tfd_Usuario.getText(), tfd_Contrasena.getText());
+            listaUsuarios.add(usuario);
+            lbl_ID2.setText(listaUsuarios.getLast().getId()+1+"");
+            tfd_Nombre.setText("");
+            tfd_Contrasena.setText("");
+            tfd_Usuario.setText("");
+            tfd_Nombre.requestFocus();
         }
     }//GEN-LAST:event_btn_InsertUsuarioActionPerformed
 

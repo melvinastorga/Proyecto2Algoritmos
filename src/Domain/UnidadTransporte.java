@@ -6,10 +6,10 @@ public class UnidadTransporte {
     
     int id;
     String placa;
-    int capacidad;
+    String capacidad;
     String urlFoto;
 
-    public UnidadTransporte(int id, String placa, int capacidad, String urlFoto) {
+    public UnidadTransporte(int id, String placa, String capacidad, String urlFoto) {
         this.id = id;
         this.placa = placa;
         this.capacidad = capacidad;
@@ -19,7 +19,7 @@ public class UnidadTransporte {
     public UnidadTransporte() {
         this.id = 0;
         this.placa = "";
-        this.capacidad = 0;
+        this.capacidad = "";
         this.urlFoto = "";
     }
 
@@ -39,11 +39,11 @@ public class UnidadTransporte {
         this.placa = placa;
     }
 
-    public int getCapacidad() {
+    public String getCapacidad() {
         return capacidad;
     }
 
-    public void setCapacidad(int capacidad) {
+    public void setCapacidad(String capacidad) {
         this.capacidad = capacidad;
     }
 

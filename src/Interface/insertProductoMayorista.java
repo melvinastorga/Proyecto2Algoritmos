@@ -164,8 +164,6 @@ public class insertProductoMayorista extends javax.swing.JFrame {
         lbl_Fotografia.setForeground(new java.awt.Color(153, 0, 0));
         lbl_Fotografia.setText("Fotografia");
         getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 661, -1, -1));
-
-        lbl_FOTO.setText("jLabel13");
         getContentPane().add(lbl_FOTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 770, 240, 170));
 
         btn_BuscarFoto.setBackground(new java.awt.Color(153, 153, 153));
@@ -235,12 +233,22 @@ public class insertProductoMayorista extends javax.swing.JFrame {
 
             try {
                 ProductoMayorista producto = new ProductoMayorista(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), unidadMedida, Integer.parseInt(tfd_ValorUnidad.getText()), Integer.parseInt(tfd_PesoTotal.getText()), tfd_Descripcion.getText(), Integer.parseInt(tfd_IDLote.getText()), Integer.parseInt(tfd_IDCategoria.getText()), Double.parseDouble(tfd_precioTotal.getText()), tfd_URLFoto.getText());
-                
-                System.out.println(producto.getId()+" "+producto.getNombre()+" "+producto.getUnidadMedida()+" "+producto.getDescripcion());
+
+                System.out.println(producto.getId() + " " + producto.getNombre() + " " + producto.getUnidadMedida() + " " + producto.getDescripcion());
+                tfd_Descripcion.setText("");
+                tfd_IDCategoria.setText("");
+                tfd_IDLote.setText("");
+                tfd_Nombre.setText("");
+                tfd_PesoTotal.setText("");
+                tfd_URLFoto.setText("");
+                tfd_ValorUnidad.setText("");
+                tfd_precioTotal.setText("");
+                lbl_FOTO.setIcon(null);
+                this.repaint();
+                tfd_Nombre.requestFocus();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Digite numeros en los espacios (Valor de unidad, peso total, IDLote, IDCategoria");
             }
-            
 
         }
 

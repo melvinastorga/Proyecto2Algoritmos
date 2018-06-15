@@ -6,6 +6,8 @@
 package Interface;
 
 import Domain.Categoria;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -17,12 +19,28 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class insertCategoria extends javax.swing.JFrame {
 
+    HashMap<String, Categoria> listaCategoria;
+    int id = 0;
+
     /**
      * Creates new form insertCategoria
      */
     public insertCategoria() {
         initComponents();
-        lbl_ID2.setText("1");
+        listaCategoria = new HashMap<>();
+        id = 0;
+
+        if (listaCategoria.isEmpty()) {
+            lbl_ID2.setText("1");
+        } else {
+            Iterator it = listaCategoria.keySet().iterator();
+            while (it.hasNext()) {
+                String key = "" + it.next();
+                id = listaCategoria.get(key).getId() + 1;
+
+            }
+            lbl_ID2.setText(id + "");
+        }
     }
 
     /**
@@ -102,18 +120,38 @@ public class insertCategoria extends javax.swing.JFrame {
 
     private void btn_InsertCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_InsertCategoriaActionPerformed
         // TODO add your handling code here:
-        
-        if(tfd_Descripcion.getText().equals("")||tft_Nombre.getText().equals("")){
+
+        if (tfd_Descripcion.getText().equals("") || tft_Nombre.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Complete todos los espacios por favor");
-        }else{
-            try{
-                Categoria categoria = new Categoria(Integer.parseInt(lbl_ID2.getText()) , tft_Nombre.getText(), tfd_Descripcion.getText());
-                System.out.println(categoria.getId()+" "+categoria.getNombre()+" "+categoria.getDescripcion());
-            }catch(Exception e){
+        } else {
+            try {
+                Categoria categoria = new Categoria(Integer.parseInt(lbl_ID2.getText()), tft_Nombre.getText(), tfd_Descripcion.getText());
+                //  System.out.println(categoria.getId()+" "+categoria.getNombre()+" "+categoria.getDescripcion());
+
+                listaCategoria.put(categoria.getNombre(), categoria);
+                System.out.println(listaCategoria + " " + listaCategoria.size());
+
+                int idPrueba = 0;
+
+                Iterator it = listaCategoria.keySet().iterator();
+                while (it.hasNext()) {
+
+                    String key = "" + it.next();
+
+                    idPrueba = listaCategoria.get(key).getId() + 1;
+
+                }
+
+                lbl_ID2.setText(idPrueba + "");
+
+                tfd_Descripcion.setText("");
+                tft_Nombre.setText("");
+                tft_Nombre.requestFocus();
+            } catch (Exception e) {
                 System.out.println("Problemas");
             }
         }
-        
+
     }//GEN-LAST:event_btn_InsertCategoriaActionPerformed
 
     /**
@@ -137,7 +175,7 @@ public class insertCategoria extends javax.swing.JFrame {
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(insertCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-           // java.util.logging.Logger.getLogger(insertCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, jLabel1      } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            // java.util.logging.Logger.getLogger(insertCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, jLabel1      } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(insertCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(insertCategoria.class.getName()).log(Level.SEVERE, null, ex);

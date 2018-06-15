@@ -5,8 +5,11 @@
  */
 package Interface;
 
+import Domain.UnidadTransporte;
 import java.awt.Image;
 import java.io.File;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -19,13 +22,26 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class insertUnidadTransporte extends javax.swing.JFrame {
 
+    LinkedHashMap<Integer, UnidadTransporte> listaTransporte;
+    int id;
     /**
      * Creates new form insertUnidadTransporte
      */
     public insertUnidadTransporte() {
         initComponents();
-        lbl_ID2.setText("1");
         tfd_URLFoto.setEnabled(false);
+        listaTransporte = new LinkedHashMap<>();
+        if(listaTransporte.isEmpty()){
+        lbl_ID2.setText("1");
+        }else{
+            Iterator it = listaTransporte.keySet().iterator();
+            while(it.hasNext()){
+                Integer key = (Integer)it.next();
+                id = listaTransporte.get(key).getId()+1;
+               
+            }
+            lbl_ID2.setText(id+"");
+        }
     }
 
     /**
@@ -143,6 +159,36 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
         
         if(tfd_Placa.getText().equals("")|| tfd_URLFoto.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Complete todos los espacios por favor");
+        }else{
+            String capacidad = "";
+            if(cb_Capacidad.getSelectedIndex() == 0){
+                capacidad = "0 - 1";
+            }
+            if(cb_Capacidad.getSelectedIndex() == 1){
+                capacidad = "1 - 5";
+            }
+            if(cb_Capacidad.getSelectedIndex() == 2){
+                capacidad = "5 - 10";
+            }
+            if(cb_Capacidad.getSelectedIndex() == 3){
+                capacidad = "10 - 30";
+            }
+            UnidadTransporte transporte = new UnidadTransporte(Integer.parseInt(lbl_ID2.getText()), tfd_Placa.getText(), capacidad, tfd_URLFoto.getText());
+            listaTransporte.put(Integer.parseInt(lbl_ID2.getText()), transporte);
+            System.out.println(listaTransporte);
+            Iterator it = listaTransporte.keySet().iterator();
+            while(it.hasNext()){
+                Integer key = (Integer)it.next();
+                id = listaTransporte.get(key).getId()+1;
+               
+            }
+            lbl_ID2.setText(id+"");
+            tfd_Placa.setText("");
+            tfd_URLFoto.setText("");
+            lbl_Foto.setText("");
+            lbl_Foto.setIcon(null);
+        this.repaint();
+            tfd_Placa.requestFocus();
         }
         
     }//GEN-LAST:event_btn_InsertUnidadTransporteActionPerformed
