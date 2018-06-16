@@ -77,7 +77,6 @@ public class insertCategoria extends javax.swing.JFrame {
 
         lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_ID2.setForeground(new java.awt.Color(153, 0, 0));
-        lbl_ID2.setText("jLabel3");
         getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 84, -1, -1));
 
         lbl_Nombre.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
