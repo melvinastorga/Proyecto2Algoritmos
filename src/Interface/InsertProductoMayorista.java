@@ -28,6 +28,10 @@ public class InsertProductoMayorista extends javax.swing.JFrame {
      */
     public InsertProductoMayorista() {
         initComponents();
+        ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
+        lbl_LOGO.setIcon(icon2);
+        this.repaint();
         this.setLocationRelativeTo(null);
         tfd_URLFoto.setEnabled(false);
         lbl_ID2.setText("1");
@@ -67,6 +71,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame {
         btn_InsertOProducto = new javax.swing.JButton();
         cb_UnidadMedida = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        lbl_LOGO = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -167,7 +172,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame {
         lbl_Fotografia.setForeground(new java.awt.Color(153, 0, 0));
         lbl_Fotografia.setText("Fotografia");
         getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 661, -1, -1));
-        getContentPane().add(lbl_FOTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 770, 240, 170));
+        getContentPane().add(lbl_FOTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 730, 210, 170));
 
         btn_BuscarFoto.setBackground(new java.awt.Color(153, 153, 153));
         btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -183,7 +188,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame {
         tfd_URLFoto.setBackground(new java.awt.Color(0, 0, 0));
         tfd_URLFoto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         tfd_URLFoto.setForeground(new java.awt.Color(153, 0, 0));
-        getContentPane().add(tfd_URLFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 723, 362, 31));
+        getContentPane().add(tfd_URLFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 700, 362, 31));
 
         btn_InsertOProducto.setBackground(new java.awt.Color(153, 153, 153));
         btn_InsertOProducto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -194,7 +199,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame {
                 btn_InsertOProductoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_InsertOProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 950, 276, 63));
+        getContentPane().add(btn_InsertOProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 900, 276, 63));
 
         cb_UnidadMedida.setBackground(new java.awt.Color(0, 0, 0));
         cb_UnidadMedida.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -208,7 +213,10 @@ public class InsertProductoMayorista extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 950, 220, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 970, 280, 60));
+
+        lbl_LOGO.setText("jLabel2");
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 910, 140, 120));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -352,6 +360,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_IDCategoria;
     private javax.swing.JLabel lbl_IDLote;
     private javax.swing.JLabel lbl_InsertProduct;
+    private javax.swing.JLabel lbl_LOGO;
     private javax.swing.JLabel lbl_Nombre;
     private javax.swing.JLabel lbl_PesoTotal;
     private javax.swing.JLabel lbl_PrecioTotal;

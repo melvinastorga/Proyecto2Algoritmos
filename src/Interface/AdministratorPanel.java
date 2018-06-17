@@ -5,6 +5,9 @@
  */
 package Interface;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -19,6 +22,12 @@ public class AdministratorPanel extends javax.swing.JFrame {
     public AdministratorPanel() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_ICON.getWidth(), lbl_ICON.getHeight(), Image.SCALE_DEFAULT));
+        lbl_ICON.setIcon(icon2);
+        this.repaint();
+        
     }
 
     /**
@@ -34,6 +43,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        lbl_ICON = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -75,6 +85,10 @@ public class AdministratorPanel extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, -1));
+
+        lbl_ICON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.PNG"))); // NOI18N
+        lbl_ICON.setText("jLabel4");
+        getContentPane().add(lbl_ICON, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 630, 130, 120));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -374,6 +388,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lbl_ICON;
     private javax.swing.JMenuItem menu_DeleteUpdateBodega;
     private javax.swing.JMenuItem menu_DeleteUpdateCategoria;
     private javax.swing.JMenuItem menu_DeleteUpdateLote;

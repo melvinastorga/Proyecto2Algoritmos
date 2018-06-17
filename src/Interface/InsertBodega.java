@@ -5,6 +5,9 @@
  */
 package Interface;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +22,10 @@ public class InsertBodega extends javax.swing.JFrame {
     public InsertBodega() {
         initComponents();
         this.setLocationRelativeTo(null);
+        ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
+        lbl_LOGO.setIcon(icon2);
+        this.repaint();
     }
 
     /**
@@ -47,6 +54,7 @@ public class InsertBodega extends javax.swing.JFrame {
         lbl_Foto = new javax.swing.JLabel();
         btn_InsertBodega = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        lbl_LOGO = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -112,11 +120,14 @@ public class InsertBodega extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 720, 160, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 770, 220, 50));
+
+        lbl_LOGO.setText("jLabel1");
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 730, 120, 100));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel10.setText("jLabel10");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 790));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 830));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -182,6 +193,7 @@ public class InsertBodega extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_ID1;
     private javax.swing.JLabel lbl_ID2;
     private javax.swing.JLabel lbl_InsertBodega;
+    private javax.swing.JLabel lbl_LOGO;
     private javax.swing.JLabel lbl_Latitud;
     private javax.swing.JLabel lbl_Longitud;
     private javax.swing.JLabel lbl_Nombre;

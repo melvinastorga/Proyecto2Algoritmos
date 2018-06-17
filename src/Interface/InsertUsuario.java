@@ -6,7 +6,10 @@
 package Interface;
 
 import Domain.Usuario;
+import java.awt.Image;
 import java.util.LinkedList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +25,10 @@ public class InsertUsuario extends javax.swing.JFrame {
      */
     public InsertUsuario() {
         initComponents();
+         ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
+        lbl_LOGO.setIcon(icon2);
+        this.repaint();
         this.setLocationRelativeTo(null);
         listaUsuarios = new LinkedList<>();
         if(listaUsuarios.isEmpty()){
@@ -53,6 +60,7 @@ public class InsertUsuario extends javax.swing.JFrame {
         tfd_Contrasena = new javax.swing.JTextField();
         btn_InsertUsuario = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        lbl_LOGO = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,7 +122,10 @@ public class InsertUsuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 520, 180, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, 180, 40));
+
+        lbl_LOGO.setText("jLabel1");
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 130, 110));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -202,6 +213,7 @@ public class InsertUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_ID1;
     private javax.swing.JLabel lbl_ID2;
     private javax.swing.JLabel lbl_InsertUsuario;
+    private javax.swing.JLabel lbl_LOGO;
     private javax.swing.JLabel lbl_Nombre;
     private javax.swing.JLabel lbl_ROL;
     private javax.swing.JLabel lbl_Usuario;

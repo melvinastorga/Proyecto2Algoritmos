@@ -6,10 +6,13 @@
 package Interface;
 
 import Domain.Categoria;
+import java.awt.Image;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -27,6 +30,10 @@ public class InsertCategoria extends javax.swing.JFrame {
      */
     public InsertCategoria() {
         initComponents();
+         ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
+        lbl_LOGO.setIcon(icon2);
+        this.repaint();
         this.setLocationRelativeTo(null);
        // listaCategoria 
         id = 0;
@@ -62,6 +69,7 @@ public class InsertCategoria extends javax.swing.JFrame {
         tfd_Descripcion = new javax.swing.JTextField();
         btn_InsertCategoria = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        lbl_LOGO = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,11 +127,14 @@ public class InsertCategoria extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 180, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 180, 50));
+
+        lbl_LOGO.setText("jLabel1");
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 110, 80));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 420));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -216,6 +227,7 @@ public class InsertCategoria extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_ID1;
     private javax.swing.JLabel lbl_ID2;
     private javax.swing.JLabel lbl_InsertCategoria;
+    private javax.swing.JLabel lbl_LOGO;
     private javax.swing.JLabel lbl_Nombre;
     private javax.swing.JTextField tfd_Descripcion;
     private javax.swing.JTextField tft_Nombre;

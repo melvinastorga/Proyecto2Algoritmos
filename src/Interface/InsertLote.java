@@ -8,11 +8,14 @@ package Interface;
 import Domain.Lote;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import com.toedter.calendar.JDateChooser;
+import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.TreeMap;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +32,10 @@ public class InsertLote extends javax.swing.JFrame {
      */
     public InsertLote() {
         initComponents();
+        ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
+        lbl_LOGO.setIcon(icon2);
+        this.repaint();
         this.setLocationRelativeTo(null);
         tfd_Empacado.setEnabled(false);
         tfd_Vencimiento.setEnabled(false);
@@ -84,6 +91,7 @@ public class InsertLote extends javax.swing.JFrame {
         tfd_Vencimiento = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        lbl_LOGO = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -141,10 +149,13 @@ public class InsertLote extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 190, 70));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 190, 70));
+
+        lbl_LOGO.setText("jLabel1");
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, 120, 110));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 650));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,6 +262,7 @@ String fechaHora = (""+hourdateFormat.format(date));
     private javax.swing.JLabel lbl_ID1;
     private javax.swing.JLabel lbl_ID2;
     private javax.swing.JLabel lbl_InsertLote;
+    private javax.swing.JLabel lbl_LOGO;
     private javax.swing.JTextField tfd_CodigoLote;
     private javax.swing.JTextField tfd_Empacado;
     private javax.swing.JTextField tfd_Vencimiento;

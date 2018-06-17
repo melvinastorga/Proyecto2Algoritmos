@@ -29,6 +29,10 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
      */
     public InsertUnidadTransporte() {
         initComponents();
+        ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
+        lbl_LOGO.setIcon(icon2);
+        this.repaint();
         this.setLocationRelativeTo(null);
         tfd_URLFoto.setEnabled(false);
         listaTransporte = new LinkedHashMap<>();
@@ -43,6 +47,9 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
             }
             lbl_ID2.setText(id+"");
         }
+        
+        
+        
     }
 
     /**
@@ -67,6 +74,7 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
         tfd_URLFoto = new javax.swing.JTextField();
         btn_InsertUnidadTransporte = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        lbl_LOGO = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,7 +110,7 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
         getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 377, -1, -1));
 
         lbl_Foto.setText("jLabel7");
-        getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 340, 180));
+        getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 340, 180));
 
         btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         btn_BuscarFoto.setText("Buscar Foto");
@@ -121,7 +129,7 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
                 btn_InsertUnidadTransporteActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_InsertUnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 720, 253, 62));
+        getContentPane().add(btn_InsertUnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 253, 62));
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +137,10 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 720, 170, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 740, 170, 60));
+
+        lbl_LOGO.setText("jLabel2");
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 680, 160, 120));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -258,6 +269,7 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Fotografia;
     private javax.swing.JLabel lbl_ID1;
     private javax.swing.JLabel lbl_ID2;
+    private javax.swing.JLabel lbl_LOGO;
     private javax.swing.JLabel lbl_Placa;
     private javax.swing.JLabel lbl_UnidadTransporte;
     private javax.swing.JTextField tfd_Placa;
