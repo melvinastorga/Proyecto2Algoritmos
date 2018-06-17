@@ -5,17 +5,43 @@
  */
 package Interface;
 
-/**
- *
- * @author Melvin
- */
+import Conexiones.Conexion;
+import Conexiones.Query;
+import Domain.Categoria;
+import Domain.Lote;
+import Domain.OrdenDistribucion;
+import Domain.UnidadTransporte;
+import Domain.Usuario;
+import Logica.LinkedBinaryTree;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class LoginPanel extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginPanel
-     */
+    public static HashMap<Integer, Categoria> categoria = Query.categoria();
+    public static LinkedBinaryTree binary = Query.productoMayorista();
+    public static TreeMap<Integer, Lote> lote = Query.lote();
+    public static LinkedHashMap<Integer, UnidadTransporte> transporte = Query.unidadTransporte();
+    public static LinkedList<OrdenDistribucion> orden = Query.ordenDeDistribucion();
+    public static LinkedList<Usuario> usuario = Query.usuario();
+
     public LoginPanel() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -32,11 +58,12 @@ public class LoginPanel extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        JB_Cancel = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
@@ -70,11 +97,16 @@ public class LoginPanel extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 200, 30));
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 0));
-        jButton2.setText("Cancel");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 130, 40));
+        JB_Cancel.setBackground(new java.awt.Color(255, 0, 0));
+        JB_Cancel.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
+        JB_Cancel.setForeground(new java.awt.Color(255, 255, 0));
+        JB_Cancel.setText("Cancel");
+        JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_CancelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 130, 40));
 
         jPasswordField1.setBackground(new java.awt.Color(0, 0, 0));
         jPasswordField1.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 18)); // NOI18N
@@ -89,9 +121,69 @@ public class LoginPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Conexiones.Conexion.getConexion();
-       this.setLocationRelativeTo(null);
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
+        DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+         Date n=null;
+        try {
+           n = format.parse("23-10-2018");
+        } catch (ParseException ex) {
+            Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        lote.put(1, new Lote(1,"44",n,n));
+        String sql = "delete from categoria\n"
+                + "delete from lote\n"
+                + "delete from unidadTransporte\n"
+                + "delete from bodega\n"
+                + "delete from ordenDistribucion\n"
+                + "delete from usuario\n"
+                + "delete from productoMayorista";
+        try {
+            Statement statement = Conexion.getConexion().createStatement();
+            statement.executeUpdate(sql);
+            categoria.forEach((k, v) -> {
+                try {
+                    statement.executeUpdate("insert categoria values(" + v.getId() + ",'" + v.getNombre() + "','" + v.getDescripcion() + "')");
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+            lote.forEach((k, v) -> {
+                try {
+                    statement.executeUpdate("insert lote values(" + v.getId() + ",'" + v.getCodigoLote() + "','" + format.format(v.getFechaEmpacado()) + "','" + format.format(v.getFechaVencimiento()) + "')");
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+            transporte.forEach((k, v) -> {
+                try {
+                    statement.executeUpdate("insert unidadTransporte values(" + v.getId() + ",'" + v.getPlaca() + "','" + v.getCapacidad() + "','" + v.getUrlFoto() + "')");
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+            for (Usuario u : usuario) {
+                try {
+                    statement.executeUpdate("insert usuario values(" + u.getId() + ",'" + u.getNombre() + "','" + u.isAdministrador() + "','" + u.getUsuario() + "','" + u.getContraseña() + "')");
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            for (OrdenDistribucion o : orden) {
+                try {
+                    statement.executeUpdate("insert ordenDistribucion values("+o.getId()+","+o.getIdBodegaPocedencia()+","+o.getIdBodegaDestino()+","+o.getMontoTotal()+","+o.getPesoTotal()+","+o.getIdOperador()+")");
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        System.exit(0);
+    }//GEN-LAST:event_JB_CancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,8 +221,8 @@ public class LoginPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Cancel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

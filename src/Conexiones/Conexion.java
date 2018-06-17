@@ -12,25 +12,21 @@ import java.util.logging.Logger;
 public class Conexion {
 
     static Connection contacto = null;
-    public static Connection getConexion() 
-        {
-            String url = "jdbc:sqlserver://163.178.107.130:1433;databaseName=Proyecto_2_Algoritmos";
-            try 
-                {
-                    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                } catch (ClassNotFoundException e) 
-                    {
-                        JOptionPane.showMessageDialog(null, "No se pudo establecer la conexion... revisar el Driver" + e.getMessage(),"Error de Conexion", JOptionPane.ERROR_MESSAGE);
-                    }
-                    try 
-                        {
-                            contacto = DriverManager.getConnection(url, "sqlserver", "Saucr.118");
-                        } catch (SQLException e) 
-                            {
-                                JOptionPane.showMessageDialog(null, "Error:" + e.getMessage(), "Error de Conexion",JOptionPane.ERROR_MESSAGE);
-                            }
-            return contacto;
+
+    public static Connection getConexion() {
+        String url = "jdbc:sqlserver://163.178.107.130:1433;databaseName=Proyecto_2_Algoritmos";
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        } catch (ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "No se pudo establecer la conexion... revisar el Driver" + e.getMessage(), "Error de Conexion", JOptionPane.ERROR_MESSAGE);
         }
+        try {
+            contacto = DriverManager.getConnection(url, "sqlserver", "Saucr.118");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error:" + e.getMessage(), "Error de Conexion", JOptionPane.ERROR_MESSAGE);
+        }
+        return contacto;
+    }
 
     public static ResultSet Consulta(String consulta) {
         Connection con = getConexion();
