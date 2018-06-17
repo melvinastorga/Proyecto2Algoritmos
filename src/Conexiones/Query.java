@@ -29,12 +29,12 @@ import java.util.logging.Logger;
  */
 public class Query {
 
-    public ResultSet res;
+    public static ResultSet res;
 /**
  * retorna la lista de productosMayorista desde la base de datos en un arbol binario
  * @return LinkedBinaryTree
  */
-    public LinkedBinaryTree productoMayorista() {
+    public static LinkedBinaryTree productoMayorista() {
         LinkedBinaryTree tree = new LinkedBinaryTree();
         try {
             res = Conexion.Consulta("select * from productoMayorista");
@@ -53,7 +53,7 @@ public class Query {
  * retorna la lista de categorias desde la base de datos
  * @return HashMap
  */
-    public HashMap categoria() {
+    public static HashMap categoria() {
         res = Conexion.Consulta("select * from categoria");
         HashMap<Integer, Categoria> hash = new HashMap<>();
         try {
@@ -69,14 +69,17 @@ public class Query {
  * retorna todos los lotes desde la base de datos
  * @return TreeMap
  */
-    public TreeMap lote() {
+    public static TreeMap lote() {
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         res = Conexion.Consulta("select * from lote");
         TreeMap<Integer, Lote> tree = new TreeMap<>();
         try {
             while (res.next()) {
-                tree.put(res.getInt(1), new Lote(res.getInt(1), res.getString(2), res.getDate(3), res.getDate(4)));
+                tree.put(res.getInt(1), new Lote(res.getInt(1), res.getString(2), format.parse(res.getString(3)), format.parse(res.getString(4))));
             }
         } catch (SQLException ex) {
+            Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
         }
         return tree;
@@ -85,7 +88,7 @@ public class Query {
  * retorna un linkedhashmap de unidades de transporte de la base de datos
  * @return LinkedHashMap
  */
-    public LinkedHashMap unidadTransporte() {
+    public static LinkedHashMap unidadTransporte() {
         res = Conexion.Consulta("select * from unidadTransporte");
         LinkedHashMap<Integer, UnidadTransporte> hash = new LinkedHashMap<>();
 
@@ -102,7 +105,7 @@ public class Query {
  * retorna la lista de ordenes desde la base de datos
  * @return LinkedList
  */
-    public LinkedList ordenDeDistribucion() {
+    public static LinkedList ordenDeDistribucion() {
         res = Conexion.Consulta("select * from ordenDistribucion");
         LinkedList<OrdenDistribucion> list = new LinkedList<>();
         LinkedList<ProductoMayorista> list2 = new LinkedList<>();
@@ -124,7 +127,7 @@ public class Query {
  * returna la lista de usuarios desde la base de datos
  * @return LinkedList 
  */
-    public LinkedList usuario() {
+    public static LinkedList usuario() {
         LinkedList<Usuario> list = new LinkedList<>();
         res = Conexion.Consulta("select * from usuario");
         try {
