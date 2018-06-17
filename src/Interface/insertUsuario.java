@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class insertUsuario extends javax.swing.JFrame {
 
-    LinkedList<Usuario> listaUsuarios;
+   public static LinkedList<Usuario> listaUsuarios;
     
     /**
      * Creates new form insertUsuario

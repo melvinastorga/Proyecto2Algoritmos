@@ -19,7 +19,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class insertCategoria extends javax.swing.JFrame {
 
-    HashMap<String, Categoria> listaCategoria;
+    public static HashMap<String, Categoria> listaCategoria = new HashMap<>();
     int id = 0;
 
     /**
@@ -27,7 +27,7 @@ public class insertCategoria extends javax.swing.JFrame {
      */
     public insertCategoria() {
         initComponents();
-        listaCategoria = new HashMap<>();
+       // listaCategoria 
         id = 0;
 
         if (listaCategoria.isEmpty()) {
