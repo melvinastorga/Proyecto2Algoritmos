@@ -1,10 +1,9 @@
-
 package Domain;
 
-
 public class ProductoMayorista {
-    
+
     int id;
+    int idOrden;
     String nombre;
     //unidadMedida =
     String unidadMedida;
@@ -16,8 +15,9 @@ public class ProductoMayorista {
     double precioTotal;
     String urlFoto;
 
-    public ProductoMayorista(int id, String nombre, String unidadMedida, int valorUnidad, int pesoTotal, String descripcion, int idLote, int idCategoria, double precioTotal, String urlFoto) {
+    public ProductoMayorista(int id, int idOrden, String nombre, String unidadMedida, int valorUnidad, int pesoTotal, String descripcion, int idLote, int idCategoria, double precioTotal, String urlFoto) {
         this.id = id;
+        this.idOrden = idOrden;
         this.nombre = nombre;
         this.unidadMedida = unidadMedida;
         this.valorUnidad = valorUnidad;
@@ -30,8 +30,9 @@ public class ProductoMayorista {
     }
 
     public ProductoMayorista() {
-        
-      this.id = 0;
+
+        this.id = 0;
+        this.idOrden = 0;
         this.nombre = "";
         this.unidadMedida = "";
         this.valorUnidad = 0;
@@ -40,8 +41,16 @@ public class ProductoMayorista {
         this.idLote = 0;
         this.idCategoria = 0;
         this.precioTotal = 0;
-        this.urlFoto = "";  
-        
+        this.urlFoto = "";
+
+    }
+
+    public int getIdOrden() {
+        return idOrden;
+    }
+
+    public void setIdOrden(int idOrden) {
+        this.idOrden = idOrden;
     }
 
     public int getId() {
@@ -129,6 +138,4 @@ public class ProductoMayorista {
         return "ProductoMayorista{" + "id=" + id + ", nombre=" + nombre + ", unidadMedida=" + unidadMedida + ", valorUnidad=" + valorUnidad + ", pesoTotal=" + pesoTotal + ", descripcion=" + descripcion + ", idLote=" + idLote + ", idCategoria=" + idCategoria + ", precioTotal=" + precioTotal + ", urlFoto=" + urlFoto + '}';
     }
 
-    
-    
 }
