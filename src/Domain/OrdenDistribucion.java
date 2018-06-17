@@ -4,7 +4,7 @@ package Domain;
 import java.util.LinkedList;
 
 
-public class ordenDistribucion {
+public class OrdenDistribucion {
     
     int id;
     int idBodegaPocedencia;
@@ -14,7 +14,7 @@ public class ordenDistribucion {
     LinkedList<ProductoMayorista> listaProductos;
     int idOperador;
 
-    public ordenDistribucion(int id, int idBodegaPocedencia, int idBodegaDestino, double montoTotal, float pesoTotal, LinkedList<ProductoMayorista> listaProductos, int idOperador) {
+    public OrdenDistribucion(int id, int idBodegaPocedencia, int idBodegaDestino, double montoTotal, float pesoTotal, LinkedList<ProductoMayorista> listaProductos, int idOperador) {
         this.id = id;
         this.idBodegaPocedencia = idBodegaPocedencia;
         this.idBodegaDestino = idBodegaDestino;
@@ -24,7 +24,7 @@ public class ordenDistribucion {
         this.idOperador = idOperador;
     }
 
-    public ordenDistribucion() {
+    public OrdenDistribucion() {
         this.id = 0;
         this.idBodegaPocedencia = 0;
         this.idBodegaDestino = 0;

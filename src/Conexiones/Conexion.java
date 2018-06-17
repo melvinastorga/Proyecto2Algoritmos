@@ -43,12 +43,6 @@ public class Conexion {
             JOptionPane.showMessageDialog(null, "Error:" + e.getMessage(), "Error de Conexion",
                     JOptionPane.ERROR_MESSAGE);
             return null;
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
     }
 }
