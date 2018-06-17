@@ -28,6 +28,7 @@ public class insertProductoMayorista extends javax.swing.JFrame {
      */
     public insertProductoMayorista() {
         initComponents();
+        this.setLocationRelativeTo(null);
         tfd_URLFoto.setEnabled(false);
         lbl_ID2.setText("1");
     }

@@ -16,6 +16,7 @@ public class insertOrdenDistribucion extends javax.swing.JFrame {
      */
     public insertOrdenDistribucion() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -18,6 +18,7 @@ public class insertBodega extends javax.swing.JFrame {
      */
     public insertBodega() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

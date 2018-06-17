@@ -29,6 +29,7 @@ public class insertUnidadTransporte extends javax.swing.JFrame {
      */
     public insertUnidadTransporte() {
         initComponents();
+        this.setLocationRelativeTo(null);
         tfd_URLFoto.setEnabled(false);
         listaTransporte = new LinkedHashMap<>();
         if(listaTransporte.isEmpty()){

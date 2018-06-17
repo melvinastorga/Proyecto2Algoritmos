@@ -22,6 +22,7 @@ public class insertUsuario extends javax.swing.JFrame {
      */
     public insertUsuario() {
         initComponents();
+        this.setLocationRelativeTo(null);
         listaUsuarios = new LinkedList<>();
         if(listaUsuarios.isEmpty()){
         lbl_ID2.setText("1");

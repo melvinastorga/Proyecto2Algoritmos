@@ -29,6 +29,7 @@ public class insertLote extends javax.swing.JFrame {
      */
     public insertLote() {
         initComponents();
+        this.setLocationRelativeTo(null);
         tfd_Empacado.setEnabled(false);
         tfd_Vencimiento.setEnabled(false);
         listaLotes = new TreeMap<>();

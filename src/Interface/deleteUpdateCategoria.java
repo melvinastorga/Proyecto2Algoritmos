@@ -16,6 +16,7 @@ public class deleteUpdateCategoria extends javax.swing.JFrame {
      */
     public deleteUpdateCategoria() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

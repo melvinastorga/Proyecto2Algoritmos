@@ -16,6 +16,7 @@ public class deleteUpdateBodega extends javax.swing.JFrame {
      */
     public deleteUpdateBodega() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -27,6 +27,7 @@ public class insertCategoria extends javax.swing.JFrame {
      */
     public insertCategoria() {
         initComponents();
+        this.setLocationRelativeTo(null);
        // listaCategoria 
         id = 0;
 

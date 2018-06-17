@@ -16,6 +16,7 @@ public class deleteUpdateProductoMayorista extends javax.swing.JFrame {
      */
     public deleteUpdateProductoMayorista() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

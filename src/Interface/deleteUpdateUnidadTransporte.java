@@ -16,6 +16,7 @@ public class deleteUpdateUnidadTransporte extends javax.swing.JFrame {
      */
     public deleteUpdateUnidadTransporte() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

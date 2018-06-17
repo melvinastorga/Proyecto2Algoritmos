@@ -16,6 +16,7 @@ public class deleteUpdateLote extends javax.swing.JFrame {
      */
     public deleteUpdateLote() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

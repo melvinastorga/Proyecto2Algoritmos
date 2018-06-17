@@ -16,6 +16,7 @@ public class deleteUpdateOrdenDistribucion extends javax.swing.JFrame {
      */
     public deleteUpdateOrdenDistribucion() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
