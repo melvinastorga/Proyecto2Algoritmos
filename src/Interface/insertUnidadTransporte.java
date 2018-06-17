@@ -22,7 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class insertUnidadTransporte extends javax.swing.JFrame {
 
-    LinkedHashMap<Integer, UnidadTransporte> listaTransporte;
+   public static LinkedHashMap<Integer, UnidadTransporte> listaTransporte;
     int id;
     /**
      * Creates new form insertUnidadTransporte

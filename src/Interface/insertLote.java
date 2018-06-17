@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class insertLote extends javax.swing.JFrame {
 
-    TreeMap<Integer, Lote> listaLotes;
+   public static TreeMap<Integer, Lote> listaLotes;
      SimpleDateFormat formart1 = new SimpleDateFormat("dd-MM-yyyy");
      int id = 0;
     /**
