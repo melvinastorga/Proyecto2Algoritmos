@@ -233,7 +233,7 @@ public class insertProductoMayorista extends javax.swing.JFrame {
         } else {
 
             try {
-                ProductoMayorista producto = new ProductoMayorista(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), unidadMedida, Integer.parseInt(tfd_ValorUnidad.getText()), Integer.parseInt(tfd_PesoTotal.getText()), tfd_Descripcion.getText(), Integer.parseInt(tfd_IDLote.getText()), Integer.parseInt(tfd_IDCategoria.getText()), Double.parseDouble(tfd_precioTotal.getText()), tfd_URLFoto.getText());
+                ProductoMayorista producto = new ProductoMayorista(Integer.parseInt(lbl_ID2.getText()),1, tfd_Nombre.getText(), unidadMedida, Integer.parseInt(tfd_ValorUnidad.getText()), Integer.parseInt(tfd_PesoTotal.getText()), tfd_Descripcion.getText(), Integer.parseInt(tfd_IDLote.getText()), Integer.parseInt(tfd_IDCategoria.getText()), Double.parseDouble(tfd_precioTotal.getText()), tfd_URLFoto.getText());
 
                 System.out.println(producto.getId() + " " + producto.getNombre() + " " + producto.getUnidadMedida() + " " + producto.getDescripcion());
                 tfd_Descripcion.setText("");
