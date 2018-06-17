@@ -5,6 +5,9 @@
  */
 package Interface;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -19,6 +22,12 @@ public class AdministratorPanel extends javax.swing.JFrame {
     public AdministratorPanel() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_ICON.getWidth(), lbl_ICON.getHeight(), Image.SCALE_DEFAULT));
+        lbl_ICON.setIcon(icon2);
+        this.repaint();
+        
     }
 
     /**
@@ -33,6 +42,8 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        lbl_ICON = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -50,13 +61,14 @@ public class AdministratorPanel extends javax.swing.JFrame {
         menu_InsertUsuario = new javax.swing.JMenuItem();
         menu_DeleteUpdateUsuario = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menu_LotesAnulados = new javax.swing.JMenuItem();
+        menu_HistorialProductos = new javax.swing.JMenuItem();
+        menu_Graficos = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
@@ -65,6 +77,18 @@ public class AdministratorPanel extends javax.swing.JFrame {
 
         jLabel3.setText("Nombre Administrador");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jButton1.setText("Exit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, -1));
+
+        lbl_ICON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.PNG"))); // NOI18N
+        lbl_ICON.setText("jLabel4");
+        getContentPane().add(lbl_ICON, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 630, 130, 120));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -81,6 +105,11 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jMenu2.add(menu_InsertProduct);
 
         menu_DeleteUpdateProduct.setText("Delete/Update Product");
+        menu_DeleteUpdateProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_DeleteUpdateProductActionPerformed(evt);
+            }
+        });
         jMenu2.add(menu_DeleteUpdateProduct);
 
         menu_InsertCategoria.setText("Insert Categoria");
@@ -92,6 +121,11 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jMenu2.add(menu_InsertCategoria);
 
         menu_DeleteUpdateCategoria.setText("Delete/Update Categoria");
+        menu_DeleteUpdateCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_DeleteUpdateCategoriaActionPerformed(evt);
+            }
+        });
         jMenu2.add(menu_DeleteUpdateCategoria);
 
         menu_InsertLote.setText("Insert Lote");
@@ -103,6 +137,11 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jMenu2.add(menu_InsertLote);
 
         menu_DeleteUpdateLote.setText("Delete/Update Lote");
+        menu_DeleteUpdateLote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_DeleteUpdateLoteActionPerformed(evt);
+            }
+        });
         jMenu2.add(menu_DeleteUpdateLote);
 
         menu_InsertTransporte.setText("Insert Transporte");
@@ -114,6 +153,11 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jMenu2.add(menu_InsertTransporte);
 
         menu_DeleteUpdateTransporte.setText("Delete/Update Transporte");
+        menu_DeleteUpdateTransporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_DeleteUpdateTransporteActionPerformed(evt);
+            }
+        });
         jMenu2.add(menu_DeleteUpdateTransporte);
 
         menu_InsertBodega.setText("Insert Bodega");
@@ -125,6 +169,11 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jMenu2.add(menu_InsertBodega);
 
         menu_DeleteUpdateBodega.setText("Delete/Update Bodega");
+        menu_DeleteUpdateBodega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_DeleteUpdateBodegaActionPerformed(evt);
+            }
+        });
         jMenu2.add(menu_DeleteUpdateBodega);
 
         jMenuBar1.add(jMenu2);
@@ -146,24 +195,29 @@ public class AdministratorPanel extends javax.swing.JFrame {
 
         jMenu4.setText("Funciones");
 
-        jMenuItem1.setText("Reporte de Lotes Anulados");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menu_LotesAnulados.setText("Reporte de Lotes Anulados");
+        menu_LotesAnulados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menu_LotesAnuladosActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem1);
+        jMenu4.add(menu_LotesAnulados);
 
-        jMenuItem2.setText("Historial de productos");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menu_HistorialProductos.setText("Historial de productos");
+        menu_HistorialProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menu_HistorialProductosActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem2);
+        jMenu4.add(menu_HistorialProductos);
 
-        jMenuItem3.setText("Graficos");
-        jMenu4.add(jMenuItem3);
+        menu_Graficos.setText("Graficos");
+        menu_Graficos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_GraficosActionPerformed(evt);
+            }
+        });
+        jMenu4.add(menu_Graficos);
 
         jMenuBar1.add(jMenu4);
 
@@ -174,53 +228,120 @@ public class AdministratorPanel extends javax.swing.JFrame {
 
     private void menu_InsertProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_InsertProductActionPerformed
         // TODO add your handling code here:
-        insertProductoMayorista insertProduct = new insertProductoMayorista();
+        this.dispose();
+        InsertProductoMayorista insertProduct = new InsertProductoMayorista();
         insertProduct.show();
         insertProduct.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menu_InsertProductActionPerformed
 
     private void menu_InsertBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_InsertBodegaActionPerformed
         // TODO add your handling code here:
-        insertBodega insertBodega = new insertBodega();
+        this.dispose();
+        InsertBodega insertBodega = new InsertBodega();
         insertBodega.show();
         insertBodega.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menu_InsertBodegaActionPerformed
 
     private void menu_InsertCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_InsertCategoriaActionPerformed
         // TODO add your handling code here:
-        insertCategoria insertCategoria = new insertCategoria();
+        this.dispose();
+        InsertCategoria insertCategoria = new InsertCategoria();
         insertCategoria.show();
         insertCategoria.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menu_InsertCategoriaActionPerformed
 
     private void menu_InsertLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_InsertLoteActionPerformed
         // TODO add your handling code here:
-        insertLote insertLote = new insertLote();
+        this.dispose();
+        InsertLote insertLote = new InsertLote();
         insertLote.show();
         insertLote.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menu_InsertLoteActionPerformed
 
     private void menu_InsertTransporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_InsertTransporteActionPerformed
         // TODO add your handling code here:
-        insertUnidadTransporte insertUnidadTransporte = new insertUnidadTransporte();
+        this.dispose();
+        InsertUnidadTransporte insertUnidadTransporte = new InsertUnidadTransporte();
         insertUnidadTransporte.show();
         insertUnidadTransporte.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menu_InsertTransporteActionPerformed
 
     private void menu_InsertUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_InsertUsuarioActionPerformed
         // TODO add your handling code here:
-        insertUsuario inserUsuario = new insertUsuario();
+        this.dispose();
+        InsertUsuario inserUsuario = new InsertUsuario();
         inserUsuario.show();
         inserUsuario.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_menu_InsertUsuarioActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menu_LotesAnuladosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_LotesAnuladosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        this.dispose();
+        Lotes_Anulados lotesAnulados = new Lotes_Anulados();
+        lotesAnulados.show();
+        lotesAnulados.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menu_LotesAnuladosActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menu_HistorialProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_HistorialProductosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        this.dispose();
+        HistorialProductos historialProductos = new HistorialProductos();
+        historialProductos.show();
+        historialProductos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menu_HistorialProductosActionPerformed
+
+    private void menu_DeleteUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_DeleteUpdateProductActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        DeleteUpdateProductoMayorista deleteUpdateProduct = new DeleteUpdateProductoMayorista();
+        deleteUpdateProduct.show();
+        deleteUpdateProduct.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menu_DeleteUpdateProductActionPerformed
+
+    private void menu_DeleteUpdateCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_DeleteUpdateCategoriaActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        DeleteUpdateCategoria deleteUpdateCategoria = new DeleteUpdateCategoria();
+        deleteUpdateCategoria.show();
+        deleteUpdateCategoria.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menu_DeleteUpdateCategoriaActionPerformed
+
+    private void menu_DeleteUpdateLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_DeleteUpdateLoteActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        DeleteUpdateLote deleteUpdateLote = new DeleteUpdateLote();
+        deleteUpdateLote.show();
+        deleteUpdateLote.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menu_DeleteUpdateLoteActionPerformed
+
+    private void menu_DeleteUpdateTransporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_DeleteUpdateTransporteActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        DeleteUpdateUnidadTransporte deleteUpdateTransporte = new DeleteUpdateUnidadTransporte();
+        deleteUpdateTransporte.show();
+        deleteUpdateTransporte.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menu_DeleteUpdateTransporteActionPerformed
+
+    private void menu_DeleteUpdateBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_DeleteUpdateBodegaActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        DeleteUpdateBodega deleteUpdateBodega = new DeleteUpdateBodega();
+        deleteUpdateBodega.show();
+        deleteUpdateBodega.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menu_DeleteUpdateBodegaActionPerformed
+
+    private void menu_GraficosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_GraficosActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Graficos graficos = new Graficos();
+        graficos.show();
+        graficos.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menu_GraficosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,6 +379,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -266,20 +388,21 @@ public class AdministratorPanel extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JLabel lbl_ICON;
     private javax.swing.JMenuItem menu_DeleteUpdateBodega;
     private javax.swing.JMenuItem menu_DeleteUpdateCategoria;
     private javax.swing.JMenuItem menu_DeleteUpdateLote;
     private javax.swing.JMenuItem menu_DeleteUpdateProduct;
     private javax.swing.JMenuItem menu_DeleteUpdateTransporte;
     private javax.swing.JMenuItem menu_DeleteUpdateUsuario;
+    private javax.swing.JMenuItem menu_Graficos;
+    private javax.swing.JMenuItem menu_HistorialProductos;
     private javax.swing.JMenuItem menu_InsertBodega;
     private javax.swing.JMenuItem menu_InsertCategoria;
     private javax.swing.JMenuItem menu_InsertLote;
     private javax.swing.JMenuItem menu_InsertProduct;
     private javax.swing.JMenuItem menu_InsertTransporte;
     private javax.swing.JMenuItem menu_InsertUsuario;
+    private javax.swing.JMenuItem menu_LotesAnulados;
     // End of variables declaration//GEN-END:variables
 }
