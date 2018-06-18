@@ -5,6 +5,7 @@ import Domain.Categoria;
 import Domain.Lote;
 import Domain.OrdenDistribucion;
 import Domain.ProductoMayorista;
+import Domain.ProductoMayoristaPorOrden;
 import Domain.UnidadTransporte;
 import Domain.Usuario;
 import Interface.LoginPanel;
@@ -44,13 +45,6 @@ public class Query {
     public static GraphAdyacency bodega() {
 
         int numBodegas = 0;
-//        if (LoginPanel.bodega != null) {
-//            LinkedList<Bodega> list = LoginPanel.bodega.recorreGraph();
-//            for (Bodega b : list) {
-//                numBodegas++;
-//            }
-//        }
-//        System.out.println(numBodegas);
         GraphAdyacency graph = new GraphAdyacency(100);
         res = Conexion.Consulta("select * from bodega");
         try {
@@ -75,8 +69,8 @@ public class Query {
         try {
             res = Conexion.Consulta("select * from productoMayorista");
             while (res.next()) {
-                tree.insert(new ProductoMayorista(res.getInt(1), res.getInt(2), res.getString(3), res.getString(4), res.getInt(5),
-                        res.getInt(6), res.getString(7), res.getInt(8), res.getInt(9), res.getDouble(10), res.getString(11)));
+                tree.insert(new ProductoMayorista(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4),
+                        res.getInt(5), res.getString(6), res.getInt(7), res.getInt(8), res.getDouble(9), res.getString(10)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
@@ -152,12 +146,12 @@ public class Query {
     public static LinkedList ordenDeDistribucion() {
         res = Conexion.Consulta("select * from ordenDistribucion");
         LinkedList<OrdenDistribucion> list = new LinkedList<>();
-        LinkedList<ProductoMayorista> list2 = new LinkedList<>();
+        LinkedList<ProductoMayoristaPorOrden> list2 = new LinkedList<>();
         try {
             while (res.next()) {
-                ResultSet res2 = Conexion.Consulta("select * from productoMayorista where idOrden = '" + res.getInt(1) + "'");
+                ResultSet res2 = Conexion.Consulta("select * from productoMayoristaPorOrden where idOrden = '" + res.getInt(1) + "'");
                 while (res2.next()) {
-                    list2.add(new ProductoMayorista(res.getInt(1), res.getInt(2), res.getString(3), res.getString(4), res.getInt(5),
+                    list2.add(new ProductoMayoristaPorOrden(res.getInt(1), res.getInt(2), res.getString(3), res.getString(4), res.getInt(5),
                             res.getInt(6), res.getString(7), res.getInt(8), res.getInt(9), res.getDouble(10), res.getString(11)));
                 }
                 list.add(new OrdenDistribucion(res.getInt(1), res.getInt(2), res.getInt(3), res.getDouble(4), res.getFloat(5), list2, res.getInt(6)));

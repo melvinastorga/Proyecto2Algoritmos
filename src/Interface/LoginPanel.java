@@ -12,6 +12,7 @@ import Domain.Categoria;
 import Domain.Lote;
 import Domain.OrdenDistribucion;
 import Domain.ProductoMayorista;
+import Domain.ProductoMayoristaPorOrden;
 import Domain.UnidadTransporte;
 import Domain.Usuario;
 import Logica.BinaryTree;
@@ -182,6 +183,9 @@ public class LoginPanel extends javax.swing.JFrame {
             for (OrdenDistribucion o : orden) {
                 try {
                     statement.executeUpdate("insert ordenDistribucion values(" + o.getId() + "," + o.getIdBodegaPocedencia() + "," + o.getIdBodegaDestino() + "," + o.getMontoTotal() + "," + o.getPesoTotal() + "," + o.getIdOperador() + ")");
+                    for(ProductoMayoristaPorOrden p: o.getListaProductos()){
+                       statement.executeUpdate("insert productoMayorista values(" + p.getId() + "," + p.getIdLote() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')"); 
+                    }
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -189,7 +193,7 @@ public class LoginPanel extends javax.swing.JFrame {
             LinkedList<ProductoMayorista> list = productoMayorista.preOrder(productoMayorista.root());
             for (ProductoMayorista p : list) {
                 try {
-                    statement.executeUpdate("insert productoMayorista values(" + p.getId() + "," + p.getIdLote() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')");
+                    statement.executeUpdate("insert productoMayorista values(" + p.getId() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')");
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
