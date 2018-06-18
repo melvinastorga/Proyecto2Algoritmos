@@ -31,7 +31,6 @@ longitud varchar(30),
 distanciaCentroOperaciones float,
 urlFotografia varchar(500)
 );
-
 create table usuario(
 id int,
 nombre varchar(50),
@@ -62,14 +61,16 @@ idCategoria int,
 precioTotal bigint,
 urlFotografia varchar(500)
 );
+insert productoMayorista values(1,1,'','',1,1,'',1,1,1,'')
 insert ordenDistribucion values(1,1,1,1,1,1)
 insert unidadTransporte values(1,'','','','')
 insert categoria values(2,'hola','adios')
 insert lote values(1,'','23-03-1995','23-02-1995')
+insert categoria values(1,'','','',1,'')
 select * from categoria
 select * from lote
 select * from unidadTransporte
-select * from bodega
+select  count(b.id) from bodega b
 select * from ordenDistribucion
 select * from usuario
 select * from productoMayorista where idOrden = '1'

@@ -7,12 +7,18 @@ package Interface;
 
 import Conexiones.Conexion;
 import Conexiones.Query;
+import Domain.Bodega;
 import Domain.Categoria;
 import Domain.Lote;
 import Domain.OrdenDistribucion;
+import Domain.ProductoMayorista;
 import Domain.UnidadTransporte;
 import Domain.Usuario;
+import Logica.BinaryTree;
+import Logica.GraphAdyacency;
+import Logica.GraphException;
 import Logica.LinkedBinaryTree;
+import Logica.TreeExceptions;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,6 +44,8 @@ public class LoginPanel extends javax.swing.JFrame {
     public static LinkedHashMap<Integer, UnidadTransporte> transporte = Query.unidadTransporte();
     public static LinkedList<OrdenDistribucion> orden = Query.ordenDeDistribucion();
     public static LinkedList<Usuario> usuario = Query.usuario();
+    public static GraphAdyacency bodega = Query.bodega();
+    public static LinkedBinaryTree productoMayorista = Query.productoMayorista();
 
     public LoginPanel() {
         initComponents();
@@ -126,13 +134,13 @@ public class LoginPanel extends javax.swing.JFrame {
 
     private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
         DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-         Date n=null;
+        Date n = null;
         try {
-           n = format.parse("23-10-2018");
+            n = format.parse("23-10-2018");
         } catch (ParseException ex) {
             Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        lote.put(1, new Lote(1,"44",n,n));
+        lote.put(1, new Lote(1, "44", n, n));
         String sql = "delete from categoria\n"
                 + "delete from lote\n"
                 + "delete from unidadTransporte\n"
@@ -173,7 +181,23 @@ public class LoginPanel extends javax.swing.JFrame {
             }
             for (OrdenDistribucion o : orden) {
                 try {
-                    statement.executeUpdate("insert ordenDistribucion values("+o.getId()+","+o.getIdBodegaPocedencia()+","+o.getIdBodegaDestino()+","+o.getMontoTotal()+","+o.getPesoTotal()+","+o.getIdOperador()+")");
+                    statement.executeUpdate("insert ordenDistribucion values(" + o.getId() + "," + o.getIdBodegaPocedencia() + "," + o.getIdBodegaDestino() + "," + o.getMontoTotal() + "," + o.getPesoTotal() + "," + o.getIdOperador() + ")");
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            LinkedList<ProductoMayorista> list = productoMayorista.preOrder(productoMayorista.root());
+            for (ProductoMayorista p : list) {
+                try {
+                    statement.executeUpdate("insert productoMayorista values(" + p.getId() + "," + p.getIdLote() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')");
+                } catch (SQLException ex) {
+                    Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            LinkedList<Bodega> list1 = bodega.recorreGraph();
+            for (Bodega b : list1) {
+                try {
+                    statement.executeUpdate("insert bodega values("+b.getId()+",'"+b.getNombre()+"','"+b.getLatitud()+"','"+b.getLongitud()+"',"+b.getDistanciaCentroOperaciones()+",'"+b.getUrlFoto()+"')");
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
