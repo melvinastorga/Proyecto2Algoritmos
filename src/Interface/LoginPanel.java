@@ -227,6 +227,18 @@ public ArrayList lotes(){
 }  
        return listLotes;
 }
+public ArrayList Categoria(){
+    ArrayList listLotes=new ArrayList();
+     Iterator it = categoria.keySet().iterator(); 
+       while(it.hasNext()){ 
+            
+           Object key =  it.next(); 
+           listLotes.add(categoria.get(key).getId());
+           
+           System.out.println(categoria.get(key).getId());
+}  
+       return listLotes;
+}
     /**
      * @param args the command line arguments
      */

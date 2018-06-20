@@ -25,6 +25,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
 
     LinkedBinaryTree productTree = new LinkedBinaryTree();
     String elegido;
+    String categoria;
       LoginPanel login=new LoginPanel();
     /**
      * Creates new form insertProductoMayorista
@@ -46,6 +47,11 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         System.out.println (i); //Muestra cada uno de los nombres dentro de listaDeNombres
        jComboBox1.addItem((String) i);
     }
+         ArrayList categoria=login.Categoria();
+          for (Object j: categoria) {
+        System.out.println (j); //Muestra cada uno de los nombres dentro de listaDeNombres
+       jComboBox2.addItem((String) j);
+          }
     }
 
     /**
@@ -71,7 +77,6 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         tfd_Descripcion = new javax.swing.JTextField();
         lbl_IDLote = new javax.swing.JLabel();
         lbl_IDCategoria = new javax.swing.JLabel();
-        tfd_IDCategoria = new javax.swing.JTextField();
         lbl_PrecioTotal = new javax.swing.JLabel();
         tfd_precioTotal = new javax.swing.JTextField();
         lbl_Fotografia = new javax.swing.JLabel();
@@ -83,6 +88,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -159,11 +165,6 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         lbl_IDCategoria.setText("ID Categoria");
         getContentPane().add(lbl_IDCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 528, -1, -1));
 
-        tfd_IDCategoria.setBackground(new java.awt.Color(0, 0, 0));
-        tfd_IDCategoria.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tfd_IDCategoria.setForeground(new java.awt.Color(153, 0, 0));
-        getContentPane().add(tfd_IDCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 533, 255, -1));
-
         lbl_PrecioTotal.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_PrecioTotal.setForeground(new java.awt.Color(153, 0, 0));
         lbl_PrecioTotal.setText("Precio Total");
@@ -231,6 +232,13 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         });
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, -1, -1));
 
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 1030));
@@ -257,18 +265,18 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
             unidadMedida = "tarimas";
         }
 
-        if (tfd_Descripcion.getText().equals("") || tfd_IDCategoria.getText().equals("")  || tfd_Nombre.getText().equals("") || tfd_PesoTotal.getText().equals("") || tfd_URLFoto.getText().equals("") || tfd_ValorUnidad.getText().equals("") || tfd_precioTotal.getText().equals("")) {
+        if (tfd_Descripcion.getText().equals("")  || tfd_Nombre.getText().equals("") || tfd_PesoTotal.getText().equals("") || tfd_URLFoto.getText().equals("") || tfd_ValorUnidad.getText().equals("") || tfd_precioTotal.getText().equals("")) {
             //  if(tfd_Descripcion.equals("")&&tfd_IDCategoria.equals("")&&tfd_IDLote.equals("")&&tfd_Nombre.equals("")&&tfd_PesoTotal.equals("")&&tfd_URLFoto.equals("")&&tfd_ValorUnidad.equals("")&&tfd_precioTotal.equals("")){
 
             JOptionPane.showMessageDialog(null, "Error, Complete todos los espacios por favor");
         } else {
 
             try {
-                ProductoMayorista producto = new ProductoMayorista(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), unidadMedida, Integer.parseInt(tfd_ValorUnidad.getText()), Integer.parseInt(tfd_PesoTotal.getText()), tfd_Descripcion.getText(), Integer.parseInt(elegido), Integer.parseInt(tfd_IDCategoria.getText()), Double.parseDouble(tfd_precioTotal.getText()), tfd_URLFoto.getText());
+                ProductoMayorista producto = new ProductoMayorista(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), unidadMedida, Integer.parseInt(tfd_ValorUnidad.getText()), Integer.parseInt(tfd_PesoTotal.getText()), tfd_Descripcion.getText(), Integer.parseInt(elegido), Integer.parseInt(categoria), Double.parseDouble(tfd_precioTotal.getText()), tfd_URLFoto.getText());
 
                 System.out.println(producto.getId() + " " + producto.getNombre() + " " + producto.getUnidadMedida() + " " + producto.getDescripcion());
                 tfd_Descripcion.setText("");
-                tfd_IDCategoria.setText("");
+               // tfd_IDCategoria.setText("");
               //  tfd_IDLote.setText("");
                 tfd_Nombre.setText("");
                 tfd_PesoTotal.setText("");
@@ -328,6 +336,10 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
        elegido=jComboBox1.getSelectedItem().toString();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+       categoria=jComboBox2.getSelectedItem().toString();
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
        
 
     /**
@@ -372,6 +384,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
     private javax.swing.JComboBox<String> cb_UnidadMedida;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_Descripcion;
     private javax.swing.JLabel lbl_FOTO;
@@ -388,7 +401,6 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
     private javax.swing.JLabel lbl_UnidadMedida;
     private javax.swing.JLabel lbl_ValorUnidad;
     private javax.swing.JTextField tfd_Descripcion;
-    private javax.swing.JTextField tfd_IDCategoria;
     private javax.swing.JTextField tfd_Nombre;
     private javax.swing.JTextField tfd_PesoTotal;
     private javax.swing.JTextField tfd_URLFoto;
