@@ -15,6 +15,7 @@ import Domain.ProductoMayorista;
 import Domain.ProductoMayoristaPorOrden;
 import Domain.UnidadTransporte;
 import Domain.Usuario;
+import static Interface.InsertLote.listaLotes;
 import Logica.BinaryTree;
 import Logica.GraphAdyacency;
 import Logica.GraphException;
@@ -29,8 +30,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.TreeMap;
@@ -212,7 +215,18 @@ public class LoginPanel extends javax.swing.JFrame {
 
         System.exit(0);
     }//GEN-LAST:event_JB_CancelActionPerformed
-
+public ArrayList lotes(){
+    ArrayList listLotes=new ArrayList();
+     Iterator it = lote.keySet().iterator(); 
+       while(it.hasNext()){ 
+            
+           Object key =  it.next(); 
+           listLotes.add(lote.get(key).getCodigoLote());
+           
+           System.out.println(lote.get(key).getCodigoLote());
+}  
+       return listLotes;
+}
     /**
      * @param args the command line arguments
      */
