@@ -11,10 +11,10 @@ public class OrdenDistribucion {
     int idBodegaDestino;
     double montoTotal;
     float pesoTotal; //En Kilogramos
-    LinkedList<ProductoMayorista> listaProductos;
+    LinkedList<ProductoMayoristaPorOrden> listaProductos;
     int idOperador;
 
-    public OrdenDistribucion(int id, int idBodegaPocedencia, int idBodegaDestino, double montoTotal, float pesoTotal, LinkedList<ProductoMayorista> listaProductos, int idOperador) {
+    public OrdenDistribucion(int id, int idBodegaPocedencia, int idBodegaDestino, double montoTotal, float pesoTotal, LinkedList<ProductoMayoristaPorOrden> listaProductos, int idOperador) {
         this.id = id;
         this.idBodegaPocedencia = idBodegaPocedencia;
         this.idBodegaDestino = idBodegaDestino;
@@ -74,11 +74,11 @@ public class OrdenDistribucion {
         this.pesoTotal = pesoTotal;
     }
 
-    public LinkedList<ProductoMayorista> getListaProductos() {
+    public LinkedList<ProductoMayoristaPorOrden> getListaProductos() {
         return listaProductos;
     }
 
-    public void setListaProductos(LinkedList<ProductoMayorista> listaProductos) {
+    public void setListaProductos(LinkedList<ProductoMayoristaPorOrden> listaProductos) {
         this.listaProductos = listaProductos;
     }
 

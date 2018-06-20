@@ -1,10 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Domain;
 
-public class ProductoMayorista {
-
+/**
+ *
+ * @author deltadragon
+ */
+public class ProductoMayoristaPorOrden {
+    
     int id;
+    int idOrden;
     String nombre;
-    //unidadMedida =
     String unidadMedida;
     int valorUnidad;
     int pesoTotal;
@@ -14,8 +23,9 @@ public class ProductoMayorista {
     double precioTotal;
     String urlFoto;
 
-    public ProductoMayorista(int id, String nombre, String unidadMedida, int valorUnidad, int pesoTotal, String descripcion, int idLote, int idCategoria, double precioTotal, String urlFoto) {
+    public ProductoMayoristaPorOrden(int id, int idOrden, String nombre, String unidadMedida, int valorUnidad, int pesoTotal, String descripcion, int idLote, int idCategoria, double precioTotal, String urlFoto) {
         this.id = id;
+        this.idOrden = idOrden;
         this.nombre = nombre;
         this.unidadMedida = unidadMedida;
         this.valorUnidad = valorUnidad;
@@ -27,27 +37,20 @@ public class ProductoMayorista {
         this.urlFoto = urlFoto;
     }
 
-    public ProductoMayorista() {
-
-        this.id = 0;
-        this.nombre = "";
-        this.unidadMedida = "";
-        this.valorUnidad = 0;
-        this.pesoTotal = 0;
-        this.descripcion = "";
-        this.idLote = 0;
-        this.idCategoria = 0;
-        this.precioTotal = 0;
-        this.urlFoto = "";
-
-    }
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdOrden() {
+        return idOrden;
+    }
+
+    public void setIdOrden(int idOrden) {
+        this.idOrden = idOrden;
     }
 
     public String getNombre() {
@@ -121,10 +124,5 @@ public class ProductoMayorista {
     public void setUrlFoto(String urlFoto) {
         this.urlFoto = urlFoto;
     }
-
-    @Override
-    public String toString() {
-        return "ProductoMayorista{" + "id=" + id + ", nombre=" + nombre + ", unidadMedida=" + unidadMedida + ", valorUnidad=" + valorUnidad + ", pesoTotal=" + pesoTotal + ", descripcion=" + descripcion + ", idLote=" + idLote + ", idCategoria=" + idCategoria + ", precioTotal=" + precioTotal + ", urlFoto=" + urlFoto + '}';
-    }
-
+    
 }
