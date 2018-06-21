@@ -5,6 +5,13 @@
  */
 package Interface;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+
 /**
  *
  * @author UsuarioPC
@@ -46,14 +53,14 @@ public class Graficos extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 610, 400));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 700, 400));
 
         jButton1.setText("Ver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +79,52 @@ public class Graficos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        
+                
+                String bmw = "BMW";
+                String audi = "AUDI";
+                String ford = "FORD";
+ 
+                String vel = "Velocidad";
+                String millas = "Millas";
+                String usuarios = "Usuarios";
+                String seguro = "Seguridad";
+ 
+                DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+ 
+                dataset.addValue(1.0, bmw, vel);
+                dataset.addValue(3.0, bmw, usuarios);
+                dataset.addValue(5.0, bmw, millas);
+                dataset.addValue(5.0, bmw, seguro);
+ 
+                dataset.addValue(5.0, audi, vel);
+                dataset.addValue(6.0, audi, usuarios);
+                dataset.addValue(10.0, audi, millas);
+                dataset.addValue(4.0, audi, seguro);
+ 
+                dataset.addValue(4.0, ford, vel);
+                dataset.addValue(2.0, ford, usuarios);
+                dataset.addValue(3.0, ford, millas);
+                dataset.addValue(6.0, ford, seguro);
+ 
+                JFreeChart barChart = ChartFactory.createBarChart3D(
+                                "Grafica de Barras", 
+                                "Categoria", 
+                                "Puntuacion", 
+                                dataset,
+                                PlotOrientation.VERTICAL, 
+                                true, 
+                                true, 
+                                false);
+ 
+                ChartPanel panel = new ChartPanel(barChart);
+ 
+        jPanel1.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(panel);
+        jPanel1.validate();
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
