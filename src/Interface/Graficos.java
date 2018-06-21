@@ -11,7 +11,6 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-
 /**
  *
  * @author UsuarioPC
@@ -79,47 +78,45 @@ public class Graficos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
-                
-                String bmw = "BMW";
-                String audi = "AUDI";
-                String ford = "FORD";
- 
-                String vel = "Velocidad";
-                String millas = "Millas";
-                String usuarios = "Usuarios";
-                String seguro = "Seguridad";
- 
-                DefaultCategoryDataset dataset = new DefaultCategoryDataset();
- 
-                dataset.addValue(1.0, bmw, vel);
-                dataset.addValue(3.0, bmw, usuarios);
-                dataset.addValue(5.0, bmw, millas);
-                dataset.addValue(5.0, bmw, seguro);
- 
-                dataset.addValue(5.0, audi, vel);
-                dataset.addValue(6.0, audi, usuarios);
-                dataset.addValue(10.0, audi, millas);
-                dataset.addValue(4.0, audi, seguro);
- 
-                dataset.addValue(4.0, ford, vel);
-                dataset.addValue(2.0, ford, usuarios);
-                dataset.addValue(3.0, ford, millas);
-                dataset.addValue(6.0, ford, seguro);
- 
-                JFreeChart barChart = ChartFactory.createBarChart3D(
-                                "Grafica de Barras", 
-                                "Categoria", 
-                                "Puntuacion", 
-                                dataset,
-                                PlotOrientation.VERTICAL, 
-                                true, 
-                                true, 
-                                false);
- 
-                ChartPanel panel = new ChartPanel(barChart);
- 
+
+        String bmw = "BMW";
+        String audi = "AUDI";
+        String ford = "FORD";
+
+        String vel = "Velocidad";
+        String millas = "Millas";
+        String usuarios = "Usuarios";
+        String seguro = "Seguridad";
+
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+
+        dataset.addValue(1.0, bmw, vel);
+        dataset.addValue(3.0, bmw, usuarios);
+        dataset.addValue(5.0, bmw, millas);
+        dataset.addValue(5.0, bmw, seguro);
+
+        dataset.addValue(5.0, audi, vel);
+        dataset.addValue(6.0, audi, usuarios);
+        dataset.addValue(10.0, audi, millas);
+        dataset.addValue(4.0, audi, seguro);
+
+        dataset.addValue(4.0, ford, vel);
+        dataset.addValue(2.0, ford, usuarios);
+        dataset.addValue(3.0, ford, millas);
+        dataset.addValue(6.0, ford, seguro);
+
+        JFreeChart barChart = ChartFactory.createBarChart3D(
+                "Grafica de Barras",
+                "Categoria",
+                "Puntuacion",
+                dataset,
+                PlotOrientation.VERTICAL,
+                true,
+                true,
+                false);
+
+        ChartPanel panel = new ChartPanel(barChart);
+
         jPanel1.setLayout(new java.awt.BorderLayout());
         jPanel1.add(panel);
         jPanel1.validate();

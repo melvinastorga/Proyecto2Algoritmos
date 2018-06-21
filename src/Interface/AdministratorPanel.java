@@ -28,6 +28,11 @@ public class AdministratorPanel extends javax.swing.JFrame {
         lbl_ICON.setIcon(icon2);
         this.repaint();
         
+         ImageIcon icon3 = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Fondo.jpg");
+        Icon icon4 = new ImageIcon(icon3.getImage().getScaledInstance(lbl_Fondo.getWidth(), lbl_Fondo.getHeight(), Image.SCALE_DEFAULT));
+        lbl_Fondo.setIcon(icon4);
+        this.repaint();
+        
     }
 
     /**
@@ -44,6 +49,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         lbl_ICON = new javax.swing.JLabel();
+        lbl_Fondo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
@@ -75,27 +81,33 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jLabel1.setText("Panel del administrador");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 61));
 
-        jLabel3.setText("Nombre Administrador");
+        jLabel3.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel3.setText("Bienvenido Nombre Administrador");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(0, 51, 51));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 255, 255));
         jButton1.setText("Exit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 130, 50));
 
         lbl_ICON.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.PNG"))); // NOI18N
-        lbl_ICON.setText("jLabel4");
-        getContentPane().add(lbl_ICON, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 630, 130, 120));
+        getContentPane().add(lbl_ICON, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, 960, 160));
+        getContentPane().add(lbl_Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 960, 480));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 950, 770));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 960, 770));
 
         jMenu2.setText("CRUDS");
+        jMenu2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
 
+        menu_InsertProduct.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_InsertProduct.setText("Insert Product");
         menu_InsertProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +116,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu2.add(menu_InsertProduct);
 
+        menu_DeleteUpdateProduct.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_DeleteUpdateProduct.setText("Delete/Update Product");
         menu_DeleteUpdateProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +125,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu2.add(menu_DeleteUpdateProduct);
 
+        menu_InsertCategoria.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_InsertCategoria.setText("Insert Categoria");
         menu_InsertCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +134,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu2.add(menu_InsertCategoria);
 
+        menu_DeleteUpdateCategoria.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_DeleteUpdateCategoria.setText("Delete/Update Categoria");
         menu_DeleteUpdateCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +143,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu2.add(menu_DeleteUpdateCategoria);
 
+        menu_InsertLote.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_InsertLote.setText("Insert Lote");
         menu_InsertLote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +152,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu2.add(menu_InsertLote);
 
+        menu_DeleteUpdateLote.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_DeleteUpdateLote.setText("Delete/Update Lote");
         menu_DeleteUpdateLote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,6 +161,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu2.add(menu_DeleteUpdateLote);
 
+        menu_InsertTransporte.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_InsertTransporte.setText("Insert Transporte");
         menu_InsertTransporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +170,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu2.add(menu_InsertTransporte);
 
+        menu_DeleteUpdateTransporte.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_DeleteUpdateTransporte.setText("Delete/Update Transporte");
         menu_DeleteUpdateTransporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,6 +179,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu2.add(menu_DeleteUpdateTransporte);
 
+        menu_InsertBodega.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_InsertBodega.setText("Insert Bodega");
         menu_InsertBodega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +188,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu2.add(menu_InsertBodega);
 
+        menu_DeleteUpdateBodega.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_DeleteUpdateBodega.setText("Delete/Update Bodega");
         menu_DeleteUpdateBodega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +200,9 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Users");
+        jMenu3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
 
+        menu_InsertUsuario.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_InsertUsuario.setText("Insert User");
         menu_InsertUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,13 +211,21 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu3.add(menu_InsertUsuario);
 
+        menu_DeleteUpdateUsuario.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_DeleteUpdateUsuario.setText("Delete/Update User");
+        menu_DeleteUpdateUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_DeleteUpdateUsuarioActionPerformed(evt);
+            }
+        });
         jMenu3.add(menu_DeleteUpdateUsuario);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Funciones");
+        jMenu4.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
 
+        menu_LotesAnulados.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_LotesAnulados.setText("Reporte de Lotes Anulados");
         menu_LotesAnulados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +234,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu4.add(menu_LotesAnulados);
 
+        menu_HistorialProductos.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_HistorialProductos.setText("Historial de productos");
         menu_HistorialProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +243,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         });
         jMenu4.add(menu_HistorialProductos);
 
+        menu_Graficos.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         menu_Graficos.setText("Graficos");
         menu_Graficos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,6 +376,14 @@ public class AdministratorPanel extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void menu_DeleteUpdateUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_DeleteUpdateUsuarioActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        DeleteUpdateUsuario deleteUpdateUsuario = new DeleteUpdateUsuario();
+        deleteUpdateUsuario.show();
+        deleteUpdateUsuario.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_menu_DeleteUpdateUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -388,6 +429,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lbl_Fondo;
     private javax.swing.JLabel lbl_ICON;
     private javax.swing.JMenuItem menu_DeleteUpdateBodega;
     private javax.swing.JMenuItem menu_DeleteUpdateCategoria;
