@@ -226,7 +226,7 @@ public ArrayList lotes(){
            System.out.println(lote.get(key).getCodigoLote());
 }  
        return listLotes;
-}
+}//fin
 public ArrayList Categoria(){
     ArrayList listLotes=new ArrayList();
      Iterator it = categoria.keySet().iterator(); 
