@@ -29,28 +29,102 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_productoMayorista = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        JL_MontoAPagar = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        JL_Categoria = new javax.swing.JLabel();
+        JPB_peso = new javax.swing.JProgressBar();
+        JB_Confirmacion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JT_productoMayorista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Peso Total", "Precio Total", "Descripcion"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(JT_productoMayorista);
+        if (JT_productoMayorista.getColumnModel().getColumnCount() > 0) {
+            JT_productoMayorista.getColumnModel().getColumn(0).setResizable(false);
+            JT_productoMayorista.getColumnModel().getColumn(1).setResizable(false);
+            JT_productoMayorista.getColumnModel().getColumn(2).setResizable(false);
+            JT_productoMayorista.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 560, 260));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "Nombre", "Peso Total", "Precio Total", "Descripcion"
             }
         ));
-        jScrollPane1.setViewportView(JT_productoMayorista);
+        jScrollPane2.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 260, 210));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, 260));
+
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Productos Mayoristas");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 160, 30));
+
+        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Productos Agregados a la Orden");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, 230, 30));
+
+        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Monto Total a Pagar:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 130, 30));
+
+        JL_MontoAPagar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JL_MontoAPagar.setForeground(new java.awt.Color(0, 0, 0));
+        JL_MontoAPagar.setText("0");
+        getContentPane().add(JL_MontoAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 330, 80, 30));
+
+        jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Categoria:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 330, 70, 30));
+
+        JL_Categoria.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JL_Categoria.setForeground(new java.awt.Color(0, 0, 0));
+        JL_Categoria.setText("0-10 toneladas");
+        getContentPane().add(JL_Categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 330, 90, 30));
+        getContentPane().add(JPB_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 450, 20));
+
+        JB_Confirmacion.setText("Confirmar");
+        getContentPane().add(JB_Confirmacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 450, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo1.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 483));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -17, 1100, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -91,8 +165,18 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Confirmacion;
+    private javax.swing.JLabel JL_Categoria;
+    private javax.swing.JLabel JL_MontoAPagar;
+    private javax.swing.JProgressBar JPB_peso;
     private javax.swing.JTable JT_productoMayorista;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

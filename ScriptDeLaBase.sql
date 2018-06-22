@@ -50,6 +50,18 @@ idOperador int
 
 create table productoMayorista(
 id int,
+nombre varchar(30),
+unidadMedida varchar(30),
+valorUnidad int,
+pesoTotal int,
+descripcion varchar(500),
+idLote int,
+idCategoria int,
+precioTotal bigint,
+urlFotografia varchar(500)
+);
+create table productoMayoristaPorOrden(
+id int,
 idOrden int,
 nombre varchar(30),
 unidadMedida varchar(30),
@@ -67,10 +79,12 @@ insert unidadTransporte values(1,'','','','')
 insert categoria values(2,'hola','adios')
 insert lote values(1,'','23-03-1995','23-02-1995')
 insert categoria values(1,'','','',1,'')
+insert bodega values(1,'','','',1,'')
 select * from categoria
 select * from lote
 select * from unidadTransporte
 select  count(b.id) from bodega b
+select * from bodega
 select * from ordenDistribucion
 select * from usuario
 select * from productoMayorista where idOrden = '1'

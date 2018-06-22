@@ -3,6 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/project2_algoritmos/Project2_Algoritmos.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Logica/GraphException.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Conexiones/Conexion.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Domain/ProductoMayorista.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Interface/InsertUsuario.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Interface/LoginPanel.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Interface/InsertLote.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Interface/InsertBodega.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Domain/OrdenDistribucion.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Conexiones/Query.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Domain/Categoria.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Logica/Graph.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Interface/AdministratorPanel.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Domain/Usuario.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Interface/InsertProductoMayorista.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Domain/Lote.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Logica/LinkedBinaryTree.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Interface/InsertCategoria.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Logica/GraphAdyacency.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Domain/UnidadTransporte.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Logica/BinaryTree.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Domain/ProductoMayoristaPorOrden.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Logica/Vertex.java</file>
+            <file>file:/C:/Users/deltadragon/Desktop/la%20wea%20varia/Carpeta%20de%20la%20U/Algoritmos%20y%20Estructuras%20de%20Datos/Proyecto%202/src/Interface/PanelLogisticaDeDistribucion.java</file>
+=======
             <file>file:/C:/Users/Melvin/Desktop/RepositorioProyecto2Algoritmos/src/Interface/InsertBodega.java</file>
             <file>file:/C:/Users/Melvin/Desktop/RepositorioProyecto2Algoritmos/src/Interface/DeleteUpdateUsuario.java</file>
             <file>file:/C:/Users/Melvin/Desktop/RepositorioProyecto2Algoritmos/src/Interface/DeleteUpdateUnidadTransporte.java</file>
@@ -20,6 +46,7 @@
             <file>file:/C:/Users/Melvin/Desktop/RepositorioProyecto2Algoritmos/src/Interface/PanelLogisticaDeDistribucion.java</file>
             <file>file:/C:/Users/Melvin/Desktop/RepositorioProyecto2Algoritmos/src/Interface/HistorialProductos.java</file>
             <file>file:/C:/Users/Melvin/Desktop/RepositorioProyecto2Algoritmos/src/Interface/DeleteUpdateLote.java</file>
+>>>>>>> ae5689ec8d1874ea16e5b94ba06139030db86524
         </group>
     </open-files>
 </project-private>
