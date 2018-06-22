@@ -23,7 +23,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class InsertProductoMayorista extends javax.swing.JFrame{
 
-    LinkedBinaryTree productTree = new LinkedBinaryTree();
+    
     String elegido;
     String categoria;
       LoginPanel login=new LoginPanel();
@@ -274,6 +274,8 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
             try {
                 ProductoMayorista producto = new ProductoMayorista(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), unidadMedida, Integer.parseInt(tfd_ValorUnidad.getText()), Integer.parseInt(tfd_PesoTotal.getText()), tfd_Descripcion.getText(), Integer.parseInt(elegido), Integer.parseInt(categoria), Double.parseDouble(tfd_precioTotal.getText()), tfd_URLFoto.getText());
 
+                LoginPanel.productoMayorista.insert(producto);
+                
                 System.out.println(producto.getId() + " " + producto.getNombre() + " " + producto.getUnidadMedida() + " " + producto.getDescripcion());
                 tfd_Descripcion.setText("");
                // tfd_IDCategoria.setText("");

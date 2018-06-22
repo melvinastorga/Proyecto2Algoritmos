@@ -22,7 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class InsertUnidadTransporte extends javax.swing.JFrame {
 
-   public static LinkedHashMap<Integer, UnidadTransporte> listaTransporte;
+   
     int id;
     /**
      * Creates new form insertUnidadTransporte
@@ -35,14 +35,14 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
         this.repaint();
         this.setLocationRelativeTo(null);
         tfd_URLFoto.setEnabled(false);
-        listaTransporte = new LinkedHashMap<>();
-        if(listaTransporte.isEmpty()){
+         
+        if(LoginPanel.transporte.isEmpty()){
         lbl_ID2.setText("1");
         }else{
-            Iterator it = listaTransporte.keySet().iterator();
+            Iterator it = LoginPanel.transporte.keySet().iterator();
             while(it.hasNext()){
                 Integer key = (Integer)it.next();
-                id = listaTransporte.get(key).getId()+1;
+                id = LoginPanel.transporte.get(key).getId()+1;
                
             }
             lbl_ID2.setText(id+"");
@@ -196,12 +196,12 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
                 capacidad = "10 - 30";
             }
             UnidadTransporte transporte = new UnidadTransporte(Integer.parseInt(lbl_ID2.getText()), tfd_Placa.getText(), capacidad, tfd_URLFoto.getText());
-            listaTransporte.put(Integer.parseInt(lbl_ID2.getText()), transporte);
-            System.out.println(listaTransporte);
-            Iterator it = listaTransporte.keySet().iterator();
+            LoginPanel.transporte.put(Integer.parseInt(lbl_ID2.getText()), transporte);
+            System.out.println(LoginPanel.transporte);
+            Iterator it = LoginPanel.transporte.keySet().iterator();
             while(it.hasNext()){
                 Integer key = (Integer)it.next();
-                id = listaTransporte.get(key).getId()+1;
+                id = LoginPanel.transporte.get(key).getId()+1;
                
             }
             lbl_ID2.setText(id+"");

@@ -5,7 +5,12 @@
  */
 package Interface;
 
+import Domain.Bodega;
+import Logica.GraphException;
 import java.awt.Image;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -16,16 +21,31 @@ import javax.swing.JOptionPane;
  */
 public class InsertBodega extends javax.swing.JFrame {
 
+    int id;
+    
     /**
      * Creates new form insertBodega
      */
-    public InsertBodega() {
+    public InsertBodega() throws GraphException {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
         lbl_LOGO.setIcon(icon2);
         this.repaint();
+        
+        if(LoginPanel.bodega.isEmpty()){
+        lbl_ID2.setText("1");
+        }else{
+           // Iterator it = LoginPanel.bodega.keySet().iterator();
+            //while(it.hasNext()){
+              //  Integer key = (Integer)it.next();
+               // id = LoginPanel.bodega.get(key).getId()+1;
+               
+            }
+           // lbl_ID2.setText(id+"");
+        //
+        
     }
 
     /**
@@ -136,6 +156,16 @@ public class InsertBodega extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(tfd_Distancia.getText().equals("")||tfd_Foto.getText().equals("")||tfd_Latitud.getText().equals("")||tfd_Longitud.getText().equals("")||tfd_Nombre.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Complete todos los espacios por favor");
+        }else{
+            
+            Bodega bodega  = new Bodega(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), tfd_Latitud.getText(), tfd_Longitud.getText(), Float.parseFloat(tfd_Distancia.getText())  , tfd_Foto.getText());
+            try {
+                LoginPanel.bodega.insertVertex(bodega);
+            } catch (GraphException ex) {
+                Logger.getLogger(InsertBodega.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
         }
     }//GEN-LAST:event_btn_InsertBodegaActionPerformed
 
@@ -177,7 +207,11 @@ public class InsertBodega extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InsertBodega().setVisible(true);
+                try {
+                    new InsertBodega().setVisible(true);
+                } catch (GraphException ex) {
+                    Logger.getLogger(InsertBodega.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
