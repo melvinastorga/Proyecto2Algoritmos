@@ -11,6 +11,7 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.TreeMap;
@@ -52,6 +53,7 @@ public class InsertLote extends javax.swing.JFrame {
             }
             lbl_ID2.setText(id+"");
         }
+  
         
       
         
@@ -169,7 +171,7 @@ public class InsertLote extends javax.swing.JFrame {
             Date date = new Date();
             Lote lote = new Lote(Integer.parseInt(lbl_ID2.getText()) , tfd_CodigoLote.getText(), date, calendar_Vencimiento.getDate());
             listaLotes.put(Integer.parseInt(lbl_ID2.getText()), lote);
-            System.out.println(listaLotes);
+            //System.out.println(listaLotes);
             
             Iterator it = listaLotes.keySet().iterator();
             while(it.hasNext()){
@@ -177,6 +179,7 @@ public class InsertLote extends javax.swing.JFrame {
                 id = listaLotes.get(key).getId()+1;
                
             }
+                  
             lbl_ID2.setText(id+"");
             tfd_CodigoLote.setText("");
             tfd_Empacado.setText("");
