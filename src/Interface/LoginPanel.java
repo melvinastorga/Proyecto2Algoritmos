@@ -39,6 +39,7 @@ import java.util.LinkedList;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class LoginPanel extends javax.swing.JFrame {
 
@@ -65,29 +66,30 @@ public class LoginPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        JB_Enter = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        JT_user = new javax.swing.JTextField();
         JB_Cancel = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        JT_pass = new javax.swing.JPasswordField();
+        JL_Error = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 0));
-        jButton1.setText("Enter");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JB_Enter.setBackground(new java.awt.Color(255, 0, 0));
+        JB_Enter.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
+        JB_Enter.setForeground(new java.awt.Color(255, 255, 0));
+        JB_Enter.setText("Enter");
+        JB_Enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JB_EnterActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 130, 40));
+        getContentPane().add(JB_Enter, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 130, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 0));
@@ -104,10 +106,10 @@ public class LoginPanel extends javax.swing.JFrame {
         jLabel4.setText("Password");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 150, -1));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 200, 30));
+        JT_user.setBackground(new java.awt.Color(0, 0, 0));
+        JT_user.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 18)); // NOI18N
+        JT_user.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(JT_user, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 200, 30));
 
         JB_Cancel.setBackground(new java.awt.Color(255, 0, 0));
         JB_Cancel.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
@@ -120,21 +122,40 @@ public class LoginPanel extends javax.swing.JFrame {
         });
         getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 130, 40));
 
-        jPasswordField1.setBackground(new java.awt.Color(0, 0, 0));
-        jPasswordField1.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 18)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 200, 30));
+        JT_pass.setBackground(new java.awt.Color(0, 0, 0));
+        JT_pass.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 18)); // NOI18N
+        JT_pass.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(JT_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 200, 30));
+
+        JL_Error.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        JL_Error.setForeground(new java.awt.Color(255, 0, 0));
+        getContentPane().add(JL_Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 320, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Login.jpg"))); // NOI18N
         jLabel1.setText("Login");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 340));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 330));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void JB_EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_EnterActionPerformed
+        for (Usuario u : usuario) {
+            if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.isAdministrador() == false) {
+                PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre());
+                p.setVisible(true);
+                this.dispose();
+                break;
+            } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.isAdministrador() == true) {
+                AdministratorPanel a = new AdministratorPanel();
+                a.setVisible(true);
+                this.dispose();
+                break;
+            }
+        }
+        this.JL_Error.setText("User/Pass Equivocados, vuelva a intentarlo");
+        this.JT_user.setText("");
+        this.JT_pass.setText("");
+    }//GEN-LAST:event_JB_EnterActionPerformed
 
     private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
         DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
@@ -186,8 +207,8 @@ public class LoginPanel extends javax.swing.JFrame {
             for (OrdenDistribucion o : orden) {
                 try {
                     statement.executeUpdate("insert ordenDistribucion values(" + o.getId() + "," + o.getIdBodegaPocedencia() + "," + o.getIdBodegaDestino() + "," + o.getMontoTotal() + "," + o.getPesoTotal() + "," + o.getIdOperador() + ")");
-                    for(ProductoMayoristaPorOrden p: o.getListaProductos()){
-                       statement.executeUpdate("insert productoMayorista values(" + p.getId() + "," + p.getIdLote() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')"); 
+                    for (ProductoMayoristaPorOrden p : o.getListaProductos()) {
+                        statement.executeUpdate("insert productoMayorista values(" + p.getId() + "," + p.getIdLote() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')");
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -204,7 +225,7 @@ public class LoginPanel extends javax.swing.JFrame {
             LinkedList<Bodega> list1 = bodega.recorreGraph();
             for (Bodega b : list1) {
                 try {
-                    statement.executeUpdate("insert bodega values("+b.getId()+",'"+b.getNombre()+"','"+b.getLatitud()+"','"+b.getLongitud()+"',"+b.getDistanciaCentroOperaciones()+",'"+b.getUrlFoto()+"')");
+                    statement.executeUpdate("insert bodega values(" + b.getId() + ",'" + b.getNombre() + "','" + b.getLatitud() + "','" + b.getLongitud() + "'," + b.getDistanciaCentroOperaciones() + ",'" + b.getUrlFoto() + "')");
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -215,30 +236,32 @@ public class LoginPanel extends javax.swing.JFrame {
 
         System.exit(0);
     }//GEN-LAST:event_JB_CancelActionPerformed
-public ArrayList lotes(){
-    ArrayList listLotes=new ArrayList();
-     Iterator it = lote.keySet().iterator(); 
-       while(it.hasNext()){ 
-            
-           Object key =  it.next(); 
-           listLotes.add(lote.get(key).getCodigoLote());
-           
-           System.out.println(lote.get(key).getCodigoLote());
-}  
-       return listLotes;
-}//fin
-public ArrayList Categoria(){
-    ArrayList listLotes=new ArrayList();
-     Iterator it = categoria.keySet().iterator(); 
-       while(it.hasNext()){ 
-            
-           Object key =  it.next(); 
-           listLotes.add(categoria.get(key).getId());
-           
-           System.out.println(categoria.get(key).getId());
-}  
-       return listLotes;
-}
+    public ArrayList lotes() {
+        ArrayList listLotes = new ArrayList();
+        Iterator it = lote.keySet().iterator();
+        while (it.hasNext()) {
+
+            Object key = it.next();
+            listLotes.add(lote.get(key).getCodigoLote());
+
+            System.out.println(lote.get(key).getCodigoLote());
+        }
+        return listLotes;
+    }//fin
+
+    public ArrayList Categoria() {
+        ArrayList listLotes = new ArrayList();
+        Iterator it = categoria.keySet().iterator();
+        while (it.hasNext()) {
+
+            Object key = it.next();
+            listLotes.add(categoria.get(key).getId());
+
+            System.out.println(categoria.get(key).getId());
+        }
+        return listLotes;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -276,12 +299,13 @@ public ArrayList Categoria(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JB_Cancel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton JB_Enter;
+    private javax.swing.JLabel JL_Error;
+    private javax.swing.JPasswordField JT_pass;
+    private javax.swing.JTextField JT_user;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

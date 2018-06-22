@@ -21,11 +21,16 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
     /**
      * Creates new form PanelLogisticaDeDistribucion
      */
-    public PanelLogisticaDeDistribucion() {
+    public PanelLogisticaDeDistribucion(){
+        initComponents();
+    }
+
+    public PanelLogisticaDeDistribucion(String nombre) {
         initComponents();
         this.setLocationRelativeTo(null);
         cargarTablaProductoMayorista(this.JT_productoMayorista, LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root()));
         cargarBodega(this.JT_bodega, bodega.recorreGraph());
+        this.JL_User.setText(nombre);
     }
 
     public void cargarTablaProductoMayorista(JTable producto, LinkedList<ProductoMayorista> list) {
@@ -75,6 +80,8 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         JB_logOut = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         JT_bodega = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        JL_User = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,7 +115,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
             JT_productoMayorista.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        getContentPane().add(JS_productoMayorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 560, 260));
+        getContentPane().add(JS_productoMayorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 560, 260));
 
         JT_productoMayoristaOrden.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -123,41 +130,41 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(JT_productoMayoristaOrden);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, 260));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, -1, 260));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Productos Mayoristas");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 160, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 160, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Productos Agregados a la Orden");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, 230, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 70, 230, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Monto Total a Pagar:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 130, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, 130, 30));
 
         JL_MontoAPagar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         JL_MontoAPagar.setForeground(new java.awt.Color(0, 0, 0));
         JL_MontoAPagar.setText("0");
-        getContentPane().add(JL_MontoAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 330, 80, 30));
+        getContentPane().add(JL_MontoAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 390, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Categoria:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 330, 70, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 390, 70, 30));
 
         JL_Categoria.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         JL_Categoria.setForeground(new java.awt.Color(0, 0, 0));
         JL_Categoria.setText("0-10 toneladas");
-        getContentPane().add(JL_Categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 330, 90, 30));
-        getContentPane().add(JPB_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 450, 20));
+        getContentPane().add(JL_Categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 390, 90, 30));
+        getContentPane().add(JPB_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 450, 20));
 
         JB_Confirmacion.setText("Confirmar");
-        getContentPane().add(JB_Confirmacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 450, -1, -1));
+        getContentPane().add(JB_Confirmacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 480, -1, -1));
 
         JB_logOut.setText("Log out");
         JB_logOut.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +198,13 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
             JT_bodega.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 260, 160));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 260, 110));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 30, 30));
+
+        JL_User.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        getContentPane().add(JL_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, 70, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo1.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 520));
@@ -242,6 +255,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
     private javax.swing.JButton JB_logOut;
     private javax.swing.JLabel JL_Categoria;
     private javax.swing.JLabel JL_MontoAPagar;
+    private javax.swing.JLabel JL_User;
     private javax.swing.JProgressBar JPB_peso;
     private javax.swing.JScrollPane JS_productoMayorista;
     private javax.swing.JTable JT_bodega;
@@ -251,6 +265,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
