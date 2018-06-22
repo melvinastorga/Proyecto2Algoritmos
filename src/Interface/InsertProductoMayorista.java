@@ -44,15 +44,15 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
          
      ArrayList lista=login.lotes();
          for (Object i: lista) {
-        System.out.println (i); //Muestra cada uno de los nombres dentro de listaDeNombres
+        //System.out.println (i); //Muestra cada uno de los nombres dentro de listaDeNombres
        jComboBox1.addItem((String) i);
     }
          ArrayList categoria=login.Categoria();
           for (Object j: categoria) {
         System.out.println (j); //Muestra cada uno de los nombres dentro de listaDeNombres
-       jComboBox2.addItem((String) j);
+       jComboBox2.addItem(j+"");
           }
-    }
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.

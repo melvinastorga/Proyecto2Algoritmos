@@ -23,9 +23,6 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class InsertCategoria extends javax.swing.JFrame {
 
-   
-    
-    
     int id = 0;
 
     /**
@@ -33,23 +30,28 @@ public class InsertCategoria extends javax.swing.JFrame {
      */
     public InsertCategoria() {
         initComponents();
-         ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
         lbl_LOGO.setIcon(icon2);
         this.repaint();
         this.setLocationRelativeTo(null);
-       // listaCategoria 
+        // listaCategoria 
         id = 0;
-
-        if ( LoginPanel.categoria.isEmpty()) {
+        System.out.println(LoginPanel.categoria.size() + "AQUI");
+        if (LoginPanel.categoria.isEmpty()) {
             lbl_ID2.setText("1");
         } else {
-            Iterator it =  LoginPanel.categoria.keySet().iterator();
-            while (it.hasNext()) {
-                String key = "" + it.next();
-                id =  LoginPanel.categoria.get(key).getId() + 1;
 
-            }
+//            Iterator it =  LoginPanel.categoria.keySet().iterator();
+//            while (it.hasNext()) {
+//                
+//                String key = "" + it.next();
+//                System.out.println(LoginPanel.categoria.get(key).getId()+"JAJA");
+//                id =  LoginPanel.categoria.get(key).getId() + 1;
+//
+//            }
+//            lbl_ID2.setText(id + "");
+            id = LoginPanel.categoria.size() + 2;
             lbl_ID2.setText(id + "");
         }
     }
@@ -151,24 +153,26 @@ public class InsertCategoria extends javax.swing.JFrame {
             try {
                 Categoria categoria = new Categoria(Integer.parseInt(lbl_ID2.getText()), tft_Nombre.getText(), tfd_Descripcion.getText());
                 //  System.out.println(categoria.getId()+" "+categoria.getNombre()+" "+categoria.getDescripcion());
-
-                LoginPanel.categoria.put(categoria.getId(), categoria);
-                
                
-                System.out.println( LoginPanel.categoria + " " +  LoginPanel.categoria.size());
+                LoginPanel.categoria.put(categoria.getId(), categoria);
 
-                int idPrueba = 0;
+                
+                System.out.println(LoginPanel.categoria + " " + LoginPanel.categoria.size());
 
-                Iterator it =  LoginPanel.categoria.keySet().iterator();
-                while (it.hasNext()) {
-
-                    String key = "" + it.next();
-
-                    idPrueba =  LoginPanel.categoria.get(key).getId() + 1;
-
-                }
-
-                lbl_ID2.setText(idPrueba + "");
+//                int idPrueba = 0;
+//System.out.println("ENTRE AQUI 3");
+//                Iterator it =  LoginPanel.categoria.keySet().iterator();
+//                while (it.hasNext()) {
+//System.out.println("ENTRE AQUI 4");
+//                    String key = "" + it.next();
+//
+//                    idPrueba =  LoginPanel.categoria.get(key).getId() + 1;
+//
+//                }
+//System.out.println("ENTRE AQUI 5");
+//                lbl_ID2.setText(idPrueba + "");
+                id = LoginPanel.categoria.size() + 2;
+                lbl_ID2.setText(id + "");
 
                 tfd_Descripcion.setText("");
                 tft_Nombre.setText("");
