@@ -5,7 +5,10 @@
  */
 package Interface;
 
+import Logica.GraphException;
 import java.awt.Image;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -268,11 +271,15 @@ public class AdministratorPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_InsertProductActionPerformed
 
     private void menu_InsertBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_InsertBodegaActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        InsertBodega insertBodega = new InsertBodega();
-        insertBodega.show();
-        insertBodega.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        try {
+            // TODO add your handling code here:
+            this.dispose();
+            InsertBodega insertBodega = new InsertBodega();
+            insertBodega.show();
+            insertBodega.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        } catch (GraphException ex) {
+            Logger.getLogger(AdministratorPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_menu_InsertBodegaActionPerformed
 
     private void menu_InsertCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_InsertCategoriaActionPerformed

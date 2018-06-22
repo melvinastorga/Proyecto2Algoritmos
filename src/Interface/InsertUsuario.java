@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class InsertUsuario extends javax.swing.JFrame {
 
-   public static LinkedList<Usuario> listaUsuarios;
+  
     
     /**
      * Creates new form insertUsuario
@@ -30,11 +30,11 @@ public class InsertUsuario extends javax.swing.JFrame {
         lbl_LOGO.setIcon(icon2);
         this.repaint();
         this.setLocationRelativeTo(null);
-        listaUsuarios = new LinkedList<>();
-        if(listaUsuarios.isEmpty()){
+       
+        if(LoginPanel.usuario.isEmpty()){
         lbl_ID2.setText("1");
         }else{
-         lbl_ID2.setText(listaUsuarios.getLast().getId()+1+"");
+         lbl_ID2.setText(LoginPanel.usuario.getLast().getId()+1+"");
         }
     }
 
@@ -152,8 +152,8 @@ public class InsertUsuario extends javax.swing.JFrame {
             }
             
             Usuario usuario = new Usuario(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), admin, tfd_Usuario.getText(), tfd_Contrasena.getText());
-            listaUsuarios.add(usuario);
-            lbl_ID2.setText(listaUsuarios.getLast().getId()+1+"");
+            LoginPanel.usuario.add(usuario);
+            lbl_ID2.setText(LoginPanel.usuario.getLast().getId()+1+"");
             tfd_Nombre.setText("");
             tfd_Contrasena.setText("");
             tfd_Usuario.setText("");

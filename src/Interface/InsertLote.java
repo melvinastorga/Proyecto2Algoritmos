@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
  */
 public class InsertLote extends javax.swing.JFrame {
 
-   public static TreeMap<Integer, Lote> listaLotes;
+   
      SimpleDateFormat formart1 = new SimpleDateFormat("dd-MM-yyyy");
      int id = 0;
     /**
@@ -40,15 +40,15 @@ public class InsertLote extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         tfd_Empacado.setEnabled(false);
         tfd_Vencimiento.setEnabled(false);
-        listaLotes = new TreeMap<>();
+       
         id = 0;
-        if(listaLotes.isEmpty()){
+        if(LoginPanel.lote.isEmpty()){
              lbl_ID2.setText("1");
         }else{
-            Iterator it = listaLotes.keySet().iterator();
+            Iterator it = LoginPanel.lote.keySet().iterator();
             while(it.hasNext()){
                 Integer key = (Integer)it.next();
-                id = listaLotes.get(key).getId()+1;
+                id = LoginPanel.lote.get(key).getId()+1;
                
             }
             lbl_ID2.setText(id+"");
@@ -170,13 +170,13 @@ public class InsertLote extends javax.swing.JFrame {
         }else{
             Date date = new Date();
             Lote lote = new Lote(Integer.parseInt(lbl_ID2.getText()) , tfd_CodigoLote.getText(), date, calendar_Vencimiento.getDate());
-            listaLotes.put(Integer.parseInt(lbl_ID2.getText()), lote);
+            LoginPanel.lote.put(Integer.parseInt(lbl_ID2.getText()), lote);
             //System.out.println(listaLotes);
             
-            Iterator it = listaLotes.keySet().iterator();
+            Iterator it = LoginPanel.lote.keySet().iterator();
             while(it.hasNext()){
                 Integer key = (Integer)it.next();
-                id = listaLotes.get(key).getId()+1;
+                id = LoginPanel.lote.get(key).getId()+1;
                
             }
                   

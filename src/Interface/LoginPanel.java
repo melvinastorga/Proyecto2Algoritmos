@@ -15,7 +15,7 @@ import Domain.ProductoMayorista;
 import Domain.ProductoMayoristaPorOrden;
 import Domain.UnidadTransporte;
 import Domain.Usuario;
-import static Interface.InsertLote.listaLotes;
+//import static Interface.InsertLote.listaLotes;
 import Logica.BinaryTree;
 import Logica.GraphAdyacency;
 import Logica.GraphException;

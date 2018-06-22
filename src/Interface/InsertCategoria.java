@@ -9,6 +9,7 @@ import Domain.Categoria;
 import java.awt.Image;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -22,7 +23,9 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class InsertCategoria extends javax.swing.JFrame {
 
-    public static HashMap<String, Categoria> listaCategoria = new HashMap<>();
+   
+    
+    
     int id = 0;
 
     /**
@@ -38,13 +41,13 @@ public class InsertCategoria extends javax.swing.JFrame {
        // listaCategoria 
         id = 0;
 
-        if (listaCategoria.isEmpty()) {
+        if ( LoginPanel.categoria.isEmpty()) {
             lbl_ID2.setText("1");
         } else {
-            Iterator it = listaCategoria.keySet().iterator();
+            Iterator it =  LoginPanel.categoria.keySet().iterator();
             while (it.hasNext()) {
                 String key = "" + it.next();
-                id = listaCategoria.get(key).getId() + 1;
+                id =  LoginPanel.categoria.get(key).getId() + 1;
 
             }
             lbl_ID2.setText(id + "");
@@ -149,17 +152,19 @@ public class InsertCategoria extends javax.swing.JFrame {
                 Categoria categoria = new Categoria(Integer.parseInt(lbl_ID2.getText()), tft_Nombre.getText(), tfd_Descripcion.getText());
                 //  System.out.println(categoria.getId()+" "+categoria.getNombre()+" "+categoria.getDescripcion());
 
-                listaCategoria.put(categoria.getNombre(), categoria);
-                System.out.println(listaCategoria + " " + listaCategoria.size());
+                LoginPanel.categoria.put(categoria.getId(), categoria);
+                
+               
+                System.out.println( LoginPanel.categoria + " " +  LoginPanel.categoria.size());
 
                 int idPrueba = 0;
 
-                Iterator it = listaCategoria.keySet().iterator();
+                Iterator it =  LoginPanel.categoria.keySet().iterator();
                 while (it.hasNext()) {
 
                     String key = "" + it.next();
 
-                    idPrueba = listaCategoria.get(key).getId() + 1;
+                    idPrueba =  LoginPanel.categoria.get(key).getId() + 1;
 
                 }
 
