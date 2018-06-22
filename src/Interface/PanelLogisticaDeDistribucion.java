@@ -22,6 +22,10 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
     private LinkedList<ProductoMayoristaPorOrden> listProducto = new LinkedList<>();
     int porcentaje;
     int pesoTotal;
+    int bandera;
+    double numerador;
+    double denominador;
+    double fraccion;
 
     public PanelLogisticaDeDistribucion() {
         initComponents();
@@ -238,7 +242,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
         JL_Max.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
         JL_Max.setForeground(new java.awt.Color(204, 0, 0));
-        getContentPane().add(JL_Max, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 470, 180, 20));
+        getContentPane().add(JL_Max, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, 220, 20));
 
         jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -267,41 +271,93 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         LinkedList<ProductoMayorista> list = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
         for (ProductoMayorista p : list) {
             if (id == p.getId()) {
-                if (pesoTotal < 1000) {
-                    listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
-                    porcentaje += (p.getPesoTotal() * 100) / 1000;
-                    this.JPB_peso.setValue(porcentaje);
+                if (pesoTotal <= 1000) {
                     pesoTotal += p.getPesoTotal();
-                    this.JL_PesoTotal.setText(pesoTotal+"");
-                } else if (pesoTotal >= 1000 && pesoTotal < 5000) {
-                    listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
-                    porcentaje=0;
-                    porcentaje = (pesoTotal * 100) / 5000;
-                    porcentaje += (p.getPesoTotal() * 100) / 5000;
-                    this.JPB_peso.setValue(porcentaje);
-                    this.JL_Categoria.setText("1-5 toneladas");
+                    if (pesoTotal > 1000 && pesoTotal <= 5000) {
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        porcentaje = 0;
+                        pesoTotal += p.getPesoTotal();
+                        numerador = pesoTotal - 1000;
+                        denominador = 5000 - 1000;
+                        fraccion = (numerador / denominador) * 100;
+                        porcentaje = (int) fraccion;
+                        this.JPB_peso.setValue(porcentaje);
+                        this.JL_Categoria.setText("1-5 toneladas");
+                        this.JL_PesoTotal.setText(pesoTotal + "");
+                    } else {
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        porcentaje += (p.getPesoTotal() * 100) / 1000;
+                        this.JPB_peso.setValue(porcentaje);
+                        this.JL_PesoTotal.setText(pesoTotal + "");
+                    }
+                } else if (pesoTotal > 1000 && pesoTotal <= 5000) {
+                    porcentaje = 0;
                     pesoTotal += p.getPesoTotal();
-                    this.JL_PesoTotal.setText(pesoTotal+"");
-                } else if (pesoTotal >= 5000 && pesoTotal < 10000) {
-                    porcentaje=0;
-                    porcentaje = (pesoTotal * 100) / 10000;
-                    listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
-                    porcentaje += (p.getPesoTotal() * 100) / 10000;
-                    this.JPB_peso.setValue(porcentaje);
-                    this.JL_Categoria.setText("5-10 toneladas");
+                    if (pesoTotal > 5000 && pesoTotal <= 10000) {
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        porcentaje = 0;
+                        pesoTotal += p.getPesoTotal();
+                        numerador = pesoTotal - 5000;
+                        denominador = 10000 - 5000;
+                        fraccion = (numerador / denominador) * 100;
+                        porcentaje = (int) fraccion;
+                        this.JPB_peso.setValue(porcentaje);
+                        this.JL_Categoria.setText("5-10 toneladas");
+                        this.JL_PesoTotal.setText(pesoTotal + "");
+                    } else {
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        numerador = pesoTotal - 1000;
+                        denominador = 5000 - 1000;
+                        fraccion = (numerador / denominador) * 100;
+                        porcentaje = (int) fraccion;
+                        this.JPB_peso.setValue(porcentaje);
+                        this.JL_Categoria.setText("1-5 toneladas");
+                        this.JL_PesoTotal.setText(pesoTotal + "");
+                    }
+                } else if (pesoTotal > 5000 && pesoTotal <= 10000) {
+                    porcentaje = 0;
                     pesoTotal += p.getPesoTotal();
-                    this.JL_PesoTotal.setText(pesoTotal+"");
-                } else if (pesoTotal >=10000 && pesoTotal <= 30000) {
-                    porcentaje=0;
-                    porcentaje = (pesoTotal * 100) / 30000;
-                    listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
-                    porcentaje += (p.getPesoTotal() * 100) / 30000;
-                    this.JPB_peso.setValue(porcentaje);
-                    this.JL_Categoria.setText("10-30 toneladas");
+                    if (pesoTotal > 10000 && pesoTotal <= 30000) {
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        porcentaje = 0;
+                        pesoTotal += p.getPesoTotal();
+                        numerador = pesoTotal - 10000;
+                        denominador = 30000 - 10000;
+                        fraccion = (numerador / denominador) * 100;
+                        porcentaje = (int) fraccion;
+                        this.JPB_peso.setValue(porcentaje);
+                        this.JL_Categoria.setText("10-30 toneladas");
+                        this.JL_PesoTotal.setText(pesoTotal + "");
+                    } else {
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+
+                        numerador = pesoTotal - 5000;
+                        denominador = 10000 - 5000;
+                        fraccion = (numerador / denominador) * 100;
+                        porcentaje = (int) fraccion;
+                        this.JPB_peso.setValue(porcentaje);
+                        this.JL_Categoria.setText("5-10 toneladas");
+                        this.JL_PesoTotal.setText(pesoTotal + "");
+                    }
+                } else if (pesoTotal > 10000 && pesoTotal <= 30000) {
+                    porcentaje = 0;
                     pesoTotal += p.getPesoTotal();
-                    this.JL_PesoTotal.setText(pesoTotal+"");
+                    if (pesoTotal > 30000) {
+                        pesoTotal-=p.getPesoTotal();
+                        this.JL_Max.setText("Has alcanzado el peso Maximo");
+                    } else {
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        numerador = pesoTotal - 10000;
+                        denominador = 30000 - 10000;
+                        fraccion = (numerador / denominador) * 100;
+                        porcentaje = (int) fraccion;
+                        this.JPB_peso.setValue(porcentaje);
+                        this.JL_Categoria.setText("10-30 toneladas");
+                        this.JL_PesoTotal.setText(pesoTotal + "");
+                        this.JL_Max.setText("");
+                    }
                 } else {
-                    this.JL_Max.setText("Has alcanzado el peso Maximo, no se puede ingresar mas productos");
+                    this.JL_Max.setText("Haz alcanzado el limite maximo");
                 }
             }
         }
