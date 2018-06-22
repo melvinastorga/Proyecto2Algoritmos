@@ -171,7 +171,7 @@ public class InsertLote extends javax.swing.JFrame {
             Date date = new Date();
             Lote lote = new Lote(Integer.parseInt(lbl_ID2.getText()) , tfd_CodigoLote.getText(), date, calendar_Vencimiento.getDate());
             LoginPanel.lote.put(Integer.parseInt(lbl_ID2.getText()), lote);
-            //System.out.println(listaLotes);
+            System.out.println( LoginPanel.lote);
             
             Iterator it = LoginPanel.lote.keySet().iterator();
             while(it.hasNext()){
