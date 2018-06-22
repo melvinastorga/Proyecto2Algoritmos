@@ -125,6 +125,11 @@ public class LoginPanel extends javax.swing.JFrame {
         JT_pass.setBackground(new java.awt.Color(0, 0, 0));
         JT_pass.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 18)); // NOI18N
         JT_pass.setForeground(new java.awt.Color(255, 255, 0));
+        JT_pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JT_passActionPerformed(evt);
+            }
+        });
         getContentPane().add(JT_pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 200, 30));
 
         JL_Error.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
@@ -236,6 +241,25 @@ public class LoginPanel extends javax.swing.JFrame {
 
         System.exit(0);
     }//GEN-LAST:event_JB_CancelActionPerformed
+
+    private void JT_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_passActionPerformed
+        for (Usuario u : usuario) {
+            if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.isAdministrador() == false) {
+                PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre());
+                p.setVisible(true);
+                this.dispose();
+                break;
+            } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.isAdministrador() == true) {
+                AdministratorPanel a = new AdministratorPanel();
+                a.setVisible(true);
+                this.dispose();
+                break;
+            }
+        }
+        this.JL_Error.setText("User/Pass Equivocados, vuelva a intentarlo");
+        this.JT_user.setText("");
+        this.JT_pass.setText("");
+    }//GEN-LAST:event_JT_passActionPerformed
     public ArrayList lotes() {
         ArrayList listLotes = new ArrayList();
         Iterator it = lote.keySet().iterator();

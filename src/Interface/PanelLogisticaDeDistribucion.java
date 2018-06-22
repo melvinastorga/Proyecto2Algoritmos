@@ -7,6 +7,7 @@ package Interface;
 
 import Domain.Bodega;
 import Domain.ProductoMayorista;
+import Domain.ProductoMayoristaPorOrden;
 import static Interface.LoginPanel.bodega;
 import java.util.LinkedList;
 import javax.swing.JTable;
@@ -18,10 +19,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PanelLogisticaDeDistribucion
-     */
-    public PanelLogisticaDeDistribucion(){
+    private LinkedList<ProductoMayoristaPorOrden> listProducto = new LinkedList<>();
+    int porcentaje;
+    int pesoTotal;
+
+    public PanelLogisticaDeDistribucion() {
         initComponents();
     }
 
@@ -31,6 +33,9 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         cargarTablaProductoMayorista(this.JT_productoMayorista, LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root()));
         cargarBodega(this.JT_bodega, bodega.recorreGraph());
         this.JL_User.setText(nombre);
+        this.JL_Categoria.setText("1 tonelada");
+        this.JPB_peso.setMaximum(100);
+        this.JPB_peso.setStringPainted(true);
     }
 
     public void cargarTablaProductoMayorista(JTable producto, LinkedList<ProductoMayorista> list) {
@@ -40,6 +45,22 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         for (int i = 0; i < list.size(); i++) {
             model.addRow(O);
             ProductoMayorista getP = list.get(i);
+            model.setValueAt(getP.getId(), i, 0);
+            model.setValueAt(getP.getNombre(), i, 1);
+            model.setValueAt(getP.getPesoTotal(), i, 2);
+            model.setValueAt(getP.getPrecioTotal(), i, 3);
+            model.setValueAt(getP.getDescripcion(), i, 4);
+
+        }
+    }
+
+    public void cargarTablaProductoMayoristaPorOrden(JTable producto, LinkedList<ProductoMayoristaPorOrden> list) {
+        DefaultTableModel model = (DefaultTableModel) producto.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+            model.addRow(O);
+            ProductoMayoristaPorOrden getP = list.get(i);
             model.setValueAt(getP.getId(), i, 0);
             model.setValueAt(getP.getNombre(), i, 1);
             model.setValueAt(getP.getPesoTotal(), i, 2);
@@ -82,6 +103,10 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         JT_bodega = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         JL_User = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        JL_Max = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        JL_PesoTotal = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,6 +132,11 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        JT_productoMayorista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JT_productoMayoristaMouseClicked(evt);
+            }
+        });
         JS_productoMayorista.setViewportView(JT_productoMayorista);
         if (JT_productoMayorista.getColumnModel().getColumnCount() > 0) {
             JT_productoMayorista.getColumnModel().getColumn(0).setResizable(false);
@@ -115,7 +145,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
             JT_productoMayorista.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        getContentPane().add(JS_productoMayorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 560, 260));
+        getContentPane().add(JS_productoMayorista, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 560, 260));
 
         JT_productoMayoristaOrden.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,13 +164,13 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Productos Mayoristas");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 160, 30));
+        jLabel2.setText("Seleccione los producto al mayoreo que desea agregar a su orden");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 470, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Productos Agregados a la Orden");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 70, 230, 30));
+        jLabel3.setText("Orden de Compra");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 80, 130, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -159,7 +189,6 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
         JL_Categoria.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         JL_Categoria.setForeground(new java.awt.Color(0, 0, 0));
-        JL_Categoria.setText("0-10 toneladas");
         getContentPane().add(JL_Categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 390, 90, 30));
         getContentPane().add(JPB_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 450, 20));
 
@@ -198,13 +227,27 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
             JT_bodega.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 260, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 260, 110));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 10, 30, 30));
 
         JL_User.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         getContentPane().add(JL_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, 70, 20));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1100, 10));
+
+        JL_Max.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        JL_Max.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(JL_Max, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 470, 180, 20));
+
+        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Total de Peso:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 470, -1, 20));
+
+        JL_PesoTotal.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        JL_PesoTotal.setForeground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(JL_PesoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 470, 70, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo1.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 520));
@@ -217,6 +260,54 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_JB_logOutActionPerformed
+
+    private void JT_productoMayoristaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_productoMayoristaMouseClicked
+        int row = this.JT_productoMayorista.getSelectedRow();
+        int id = Integer.parseInt(this.JT_productoMayorista.getValueAt(row, 0).toString());
+        LinkedList<ProductoMayorista> list = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
+        for (ProductoMayorista p : list) {
+            if (id == p.getId()) {
+                if (pesoTotal < 1000) {
+                    listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                    porcentaje += (p.getPesoTotal() * 100) / 1000;
+                    this.JPB_peso.setValue(porcentaje);
+                    pesoTotal += p.getPesoTotal();
+                    this.JL_PesoTotal.setText(pesoTotal+"");
+                } else if (pesoTotal >= 1000 && pesoTotal < 5000) {
+                    listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                    porcentaje=0;
+                    porcentaje = (pesoTotal * 100) / 5000;
+                    porcentaje += (p.getPesoTotal() * 100) / 5000;
+                    this.JPB_peso.setValue(porcentaje);
+                    this.JL_Categoria.setText("1-5 toneladas");
+                    pesoTotal += p.getPesoTotal();
+                    this.JL_PesoTotal.setText(pesoTotal+"");
+                } else if (pesoTotal >= 5000 && pesoTotal < 10000) {
+                    porcentaje=0;
+                    porcentaje = (pesoTotal * 100) / 10000;
+                    listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                    porcentaje += (p.getPesoTotal() * 100) / 10000;
+                    this.JPB_peso.setValue(porcentaje);
+                    this.JL_Categoria.setText("5-10 toneladas");
+                    pesoTotal += p.getPesoTotal();
+                    this.JL_PesoTotal.setText(pesoTotal+"");
+                } else if (pesoTotal >=10000 && pesoTotal <= 30000) {
+                    porcentaje=0;
+                    porcentaje = (pesoTotal * 100) / 30000;
+                    listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                    porcentaje += (p.getPesoTotal() * 100) / 30000;
+                    this.JPB_peso.setValue(porcentaje);
+                    this.JL_Categoria.setText("10-30 toneladas");
+                    pesoTotal += p.getPesoTotal();
+                    this.JL_PesoTotal.setText(pesoTotal+"");
+                } else {
+                    this.JL_Max.setText("Has alcanzado el peso Maximo, no se puede ingresar mas productos");
+                }
+            }
+        }
+        cargarTablaProductoMayoristaPorOrden(this.JT_productoMayoristaOrden, listProducto);
+
+    }//GEN-LAST:event_JT_productoMayoristaMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -254,7 +345,9 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
     private javax.swing.JButton JB_Confirmacion;
     private javax.swing.JButton JB_logOut;
     private javax.swing.JLabel JL_Categoria;
+    private javax.swing.JLabel JL_Max;
     private javax.swing.JLabel JL_MontoAPagar;
+    private javax.swing.JLabel JL_PesoTotal;
     private javax.swing.JLabel JL_User;
     private javax.swing.JProgressBar JPB_peso;
     private javax.swing.JScrollPane JS_productoMayorista;
@@ -267,7 +360,9 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
