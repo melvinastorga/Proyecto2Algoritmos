@@ -91,7 +91,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 255, 255));
-        jButton1.setText("Exit");
+        jButton1.setText("Log Out");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -381,6 +381,9 @@ public class AdministratorPanel extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        LoginPanel login = new LoginPanel();
+        login.show();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void menu_DeleteUpdateUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_DeleteUpdateUsuarioActionPerformed
