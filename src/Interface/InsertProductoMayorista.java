@@ -28,7 +28,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
     String categoria;
       LoginPanel login=new LoginPanel();
     /**
-     * Creates new form insertProductoMayorista
+     * Creates new form insertProductoMayoristaaa
      */
     public InsertProductoMayorista() {
         initComponents();
