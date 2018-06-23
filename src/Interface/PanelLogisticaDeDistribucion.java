@@ -339,7 +339,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                 if (pesoTotal <= 1000) {
                     pesoTotal += p.getPesoTotal();
                     if (pesoTotal > 1000 && pesoTotal <= 5000) {
-                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), Integer.parseInt(this.JL_OrderID.getText()), p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         porcentaje = 0;
                         pesoTotal += p.getPesoTotal();
                         montoApagar += p.getPrecioTotal();
@@ -352,7 +352,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         this.JL_PesoTotal.setText(pesoTotal + "");
                         this.JL_MontoAPagar.setText("$" + montoApagar);
                     } else {
-                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), Integer.parseInt(this.JL_OrderID.getText()), p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         porcentaje += (p.getPesoTotal() * 100) / 1000;
                         montoApagar += p.getPrecioTotal();
                         this.JPB_peso.setValue(porcentaje);
@@ -363,7 +363,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                     porcentaje = 0;
                     pesoTotal += p.getPesoTotal();
                     if (pesoTotal > 5000 && pesoTotal <= 10000) {
-                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), Integer.parseInt(this.JL_OrderID.getText()), p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         porcentaje = 0;
                         montoApagar += p.getPrecioTotal();
                         pesoTotal += p.getPesoTotal();
@@ -376,7 +376,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         this.JL_PesoTotal.setText(pesoTotal + "");
                         this.JL_MontoAPagar.setText("$" + montoApagar);
                     } else {
-                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), Integer.parseInt(this.JL_OrderID.getText()), p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         numerador = pesoTotal - 1000;
                         denominador = 5000 - 1000;
                         fraccion = (numerador / denominador) * 100;
@@ -391,7 +391,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                     porcentaje = 0;
                     pesoTotal += p.getPesoTotal();
                     if (pesoTotal > 10000 && pesoTotal <= 30000) {
-                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), Integer.parseInt(this.JL_OrderID.getText()), p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         porcentaje = 0;
                         montoApagar += p.getPrecioTotal();
                         pesoTotal += p.getPesoTotal();
@@ -404,7 +404,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         this.JL_PesoTotal.setText(pesoTotal + "");
                         this.JL_MontoAPagar.setText("$" + montoApagar);
                     } else {
-                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), Integer.parseInt(this.JL_OrderID.getText()), p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         montoApagar += p.getPrecioTotal();
                         numerador = pesoTotal - 5000;
                         denominador = 10000 - 5000;
@@ -422,7 +422,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         pesoTotal -= p.getPesoTotal();
                         this.JL_Max.setText("Has alcanzado el peso Maximo");
                     } else {
-                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
+                        listProducto.add(new ProductoMayoristaPorOrden(p.getId(), Integer.parseInt(this.JL_OrderID.getText()), p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         numerador = pesoTotal - 10000;
                         denominador = 30000 - 10000;
                         fraccion = (numerador / denominador) * 100;
