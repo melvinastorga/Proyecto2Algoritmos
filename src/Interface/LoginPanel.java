@@ -145,12 +145,13 @@ public class LoginPanel extends javax.swing.JFrame {
 
     private void JB_EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_EnterActionPerformed
         for (Usuario u : usuario) {
-            if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.isAdministrador() == false) {
+
+            if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == false) {
                 PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre(),u.getId());
                 p.setVisible(true);
                 this.dispose();
                 break;
-            } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.isAdministrador() == true) {
+            } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == true) {
                 AdministratorPanel a = new AdministratorPanel();
                 a.setVisible(true);
                 this.dispose();
@@ -204,7 +205,7 @@ public class LoginPanel extends javax.swing.JFrame {
             });
             for (Usuario u : usuario) {
                 try {
-                    statement.executeUpdate("insert usuario values(" + u.getId() + ",'" + u.getNombre() + "','" + u.isAdministrador() + "','" + u.getUsuario() + "','" + u.getContraseña() + "')");
+                    statement.executeUpdate("insert usuario values(" + u.getId() + ",'" + u.getNombre() + "','" + u.getAdministrador() + "','" + u.getUsuario() + "','" + u.getContraseña() + "')");
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -244,12 +245,12 @@ public class LoginPanel extends javax.swing.JFrame {
 
     private void JT_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_passActionPerformed
         for (Usuario u : usuario) {
-            if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.isAdministrador() == false) {
+            if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == false) {
                 PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre(),u.getId());
                 p.setVisible(true);
                 this.dispose();
                 break;
-            } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.isAdministrador() == true) {
+            } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == true) {
                 AdministratorPanel a = new AdministratorPanel();
                 a.setVisible(true);
                 this.dispose();

@@ -82,37 +82,52 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_UnidadTransporte.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_UnidadTransporte.setForeground(new java.awt.Color(255, 255, 0));
         lbl_UnidadTransporte.setText("Insert Unidad Transporte");
         getContentPane().add(lbl_UnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 33, -1, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID1.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID1.setText("ID");
         getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 133, -1, -1));
 
         lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID2.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID2.setText("jLabel3");
         getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 133, -1, -1));
 
         lbl_Placa.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Placa.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Placa.setText("Placa");
         getContentPane().add(lbl_Placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 205, -1, -1));
+
+        tfd_Placa.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Placa.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Placa.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 210, 220, -1));
 
         lbl_Capacidad.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Capacidad.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Capacidad.setText("Capacidad Toneladas");
         getContentPane().add(lbl_Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
+        cb_Capacidad.setBackground(new java.awt.Color(0, 0, 0));
+        cb_Capacidad.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        cb_Capacidad.setForeground(new java.awt.Color(255, 255, 0));
         cb_Capacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0 -1", "1-5", "5-10", "10-30" }));
         getContentPane().add(cb_Capacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 269, 145, -1));
 
         lbl_Fotografia.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Fotografia.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Fotografia.setText("Fotografia");
         getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 377, -1, -1));
 
         lbl_Foto.setText("jLabel7");
         getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 340, 180));
 
+        btn_BuscarFoto.setBackground(new java.awt.Color(0, 0, 0));
         btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_BuscarFoto.setForeground(new java.awt.Color(255, 255, 0));
         btn_BuscarFoto.setText("Buscar Foto");
         btn_BuscarFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,17 +135,24 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_BuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 370, 145, 39));
+
+        tfd_URLFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         getContentPane().add(tfd_URLFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 435, 353, 37));
 
-        btn_InsertUnidadTransporte.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btn_InsertUnidadTransporte.setBackground(new java.awt.Color(0, 0, 0));
+        btn_InsertUnidadTransporte.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_InsertUnidadTransporte.setForeground(new java.awt.Color(255, 255, 0));
         btn_InsertUnidadTransporte.setText("Insertar Unidad Transporte");
         btn_InsertUnidadTransporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InsertUnidadTransporteActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_InsertUnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 253, 62));
+        getContentPane().add(btn_InsertUnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 300, 62));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -45,7 +45,7 @@ public class InsertBodega extends javax.swing.JFrame {
             }
            // lbl_ID2.setText(id+"");
         //
-        
+       tfd_Foto.setEnabled(false);
     }
 
     /**
@@ -82,50 +82,82 @@ public class InsertBodega extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_InsertBodega.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_InsertBodega.setForeground(new java.awt.Color(255, 255, 0));
         lbl_InsertBodega.setText("Insert Bodega");
         getContentPane().add(lbl_InsertBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 22, -1, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID1.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID1.setText("ID");
         getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 117, -1, -1));
 
         lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID2.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID2.setText("jLabel3");
         getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 117, -1, -1));
 
         lbl_Nombre.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Nombre.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Nombre.setText("Nombre");
         getContentPane().add(lbl_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 196, -1, -1));
+
+        tfd_Nombre.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Nombre.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Nombre.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 196, 171, -1));
 
         lbl_Latitud.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Latitud.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Latitud.setText("Latitud");
         getContentPane().add(lbl_Latitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 268, -1, -1));
+
+        tfd_Latitud.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Latitud.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Latitud.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Latitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 273, 171, -1));
 
         lbl_Longitud.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Longitud.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Longitud.setText("Longitud");
         getContentPane().add(lbl_Longitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 353, -1, -1));
+
+        tfd_Longitud.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Longitud.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Longitud.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Longitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 353, 171, -1));
 
         lbl_Distancia.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Distancia.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Distancia.setText("Distancia Centro Operaciones");
         getContentPane().add(lbl_Distancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 408, -1, -1));
+
+        tfd_Distancia.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Distancia.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Distancia.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Distancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 310, -1));
 
         lbl_Fotografia.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Fotografia.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Fotografia.setText("Fotografia");
         getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 506, -1, -1));
 
+        btn_BuscarFoto.setBackground(new java.awt.Color(0, 0, 0));
         btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_BuscarFoto.setForeground(new java.awt.Color(255, 255, 0));
         btn_BuscarFoto.setText("Buscar Fotografia");
         getContentPane().add(btn_BuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 501, -1, -1));
+
+        tfd_Foto.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Foto.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        tfd_Foto.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 553, 317, 30));
 
         lbl_Foto.setText("jLabel9");
         getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 609, 160, 98));
 
+        btn_InsertBodega.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertBodega.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_InsertBodega.setForeground(new java.awt.Color(255, 255, 0));
         btn_InsertBodega.setText("Insert Bodega");
         btn_InsertBodega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +166,9 @@ public class InsertBodega extends javax.swing.JFrame {
         });
         getContentPane().add(btn_InsertBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 720, 234, 38));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

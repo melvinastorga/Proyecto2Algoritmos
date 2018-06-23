@@ -68,46 +68,65 @@ public class InsertUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_InsertUsuario.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_InsertUsuario.setForeground(new java.awt.Color(255, 255, 0));
         lbl_InsertUsuario.setText("Insert Usuario");
         getContentPane().add(lbl_InsertUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 33, -1, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID1.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID1.setText("ID");
         getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 110, -1, -1));
 
         lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID2.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID2.setText("jLabel3");
         getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 110, -1, -1));
 
         lbl_Nombre.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Nombre.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Nombre.setText("Nombre");
         getContentPane().add(lbl_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 177, -1, -1));
 
+        tfd_Nombre.setBackground(new java.awt.Color(0, 0, 0));
         tfd_Nombre.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Nombre.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 175, 110, -1));
 
         lbl_ROL.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ROL.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ROL.setText("ROL");
         getContentPane().add(lbl_ROL, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 251, -1, -1));
 
+        cb_ROL.setBackground(new java.awt.Color(0, 0, 0));
+        cb_ROL.setEditable(true);
+        cb_ROL.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        cb_ROL.setForeground(new java.awt.Color(255, 255, 0));
         cb_ROL.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Operador" }));
-        getContentPane().add(cb_ROL, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 253, 110, -1));
+        getContentPane().add(cb_ROL, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 253, 180, -1));
 
         lbl_Usuario.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Usuario.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Usuario.setText("Usuario");
         getContentPane().add(lbl_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 323, -1, -1));
 
+        tfd_Usuario.setBackground(new java.awt.Color(0, 0, 0));
         tfd_Usuario.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Usuario.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 321, 110, -1));
 
         lbl_Contrasena.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Contrasena.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Contrasena.setText("Contraseña");
         getContentPane().add(lbl_Contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 396, -1, -1));
 
+        tfd_Contrasena.setBackground(new java.awt.Color(0, 0, 0));
         tfd_Contrasena.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Contrasena.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 394, 110, -1));
 
+        btn_InsertUsuario.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertUsuario.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_InsertUsuario.setForeground(new java.awt.Color(255, 255, 0));
         btn_InsertUsuario.setText("Insert Usuario");
         btn_InsertUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +135,9 @@ public class InsertUsuario extends javax.swing.JFrame {
         });
         getContentPane().add(btn_InsertUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 185, 39));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +149,7 @@ public class InsertUsuario extends javax.swing.JFrame {
         lbl_LOGO.setText("jLabel1");
         getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 130, 110));
 
+        jLabel8.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel8.setText("jLabel8");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 670));

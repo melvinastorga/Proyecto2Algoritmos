@@ -82,42 +82,42 @@ public class InsertCategoria extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_InsertCategoria.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
-        lbl_InsertCategoria.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_InsertCategoria.setForeground(new java.awt.Color(255, 255, 0));
         lbl_InsertCategoria.setText("Insert Categoria");
         getContentPane().add(lbl_InsertCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 12, -1, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_ID1.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_ID1.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID1.setText("ID");
         getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 84, -1, -1));
 
         lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_ID2.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_ID2.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 84, -1, -1));
 
         lbl_Nombre.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_Nombre.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_Nombre.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Nombre.setText("Nombre");
         getContentPane().add(lbl_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 161, -1, -1));
 
         tft_Nombre.setBackground(new java.awt.Color(0, 0, 0));
-        tft_Nombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tft_Nombre.setForeground(new java.awt.Color(153, 0, 0));
+        tft_Nombre.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tft_Nombre.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tft_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 161, 140, -1));
 
         lbl_Descripcion.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_Descripcion.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_Descripcion.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Descripcion.setText("Descripcion");
         getContentPane().add(lbl_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 232, -1, -1));
 
         tfd_Descripcion.setBackground(new java.awt.Color(0, 0, 0));
-        tfd_Descripcion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tfd_Descripcion.setForeground(new java.awt.Color(153, 0, 0));
+        tfd_Descripcion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        tfd_Descripcion.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 237, 140, -1));
 
-        btn_InsertCategoria.setBackground(new java.awt.Color(102, 102, 102));
+        btn_InsertCategoria.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertCategoria.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        btn_InsertCategoria.setForeground(new java.awt.Color(0, 102, 102));
+        btn_InsertCategoria.setForeground(new java.awt.Color(255, 255, 0));
         btn_InsertCategoria.setText("Insertar");
         btn_InsertCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +126,9 @@ public class InsertCategoria extends javax.swing.JFrame {
         });
         getContentPane().add(btn_InsertCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 165, 57));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

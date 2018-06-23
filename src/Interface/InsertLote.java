@@ -101,61 +101,92 @@ public class InsertLote extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_InsertLote.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        lbl_InsertLote.setForeground(new java.awt.Color(255, 255, 0));
         lbl_InsertLote.setText("Insert Lote");
         getContentPane().add(lbl_InsertLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 39, 215, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID1.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID1.setText("ID");
         getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 123, -1, -1));
 
         lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_ID2.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID2.setText("jLabel3");
         getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 123, -1, -1));
 
         lbl_CodigoLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_CodigoLote.setForeground(new java.awt.Color(255, 255, 0));
         lbl_CodigoLote.setText("Codigo Lote ");
         getContentPane().add(lbl_CodigoLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
+
+        tfd_CodigoLote.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_CodigoLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_CodigoLote.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_CodigoLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 162, -1));
 
         lbl_FechaEmpacado.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_FechaEmpacado.setForeground(new java.awt.Color(255, 255, 0));
         lbl_FechaEmpacado.setText("Fecha Empacado");
         getContentPane().add(lbl_FechaEmpacado, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         lbl_FechaVencimiento.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_FechaVencimiento.setForeground(new java.awt.Color(255, 255, 0));
         lbl_FechaVencimiento.setText("Fecha de Vencimiento");
         getContentPane().add(lbl_FechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
 
+        btn_InsertLote.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_InsertLote.setForeground(new java.awt.Color(255, 255, 0));
         btn_InsertLote.setText("Insert Lote");
         btn_InsertLote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InsertLoteActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_InsertLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 240, 70));
-        getContentPane().add(calendar_Vencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, -1));
-        getContentPane().add(tfd_Empacado, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 160, -1));
+        getContentPane().add(btn_InsertLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, 190, 60));
+
+        calendar_Vencimiento.setBackground(new java.awt.Color(0, 0, 0));
+        calendar_Vencimiento.setForeground(new java.awt.Color(255, 255, 0));
+        calendar_Vencimiento.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        getContentPane().add(calendar_Vencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 190, -1));
+
+        tfd_Empacado.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Empacado.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Empacado.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(tfd_Empacado, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 220, -1));
+
+        tfd_Vencimiento.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Vencimiento.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Vencimiento.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Vencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 160, -1));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Obtener Fechas");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 150, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 200, 50));
 
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 0));
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 190, 70));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 190, 70));
 
         lbl_LOGO.setText("jLabel1");
         getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 570, 120, 110));
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 0));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 680));
 
