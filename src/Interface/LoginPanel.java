@@ -215,7 +215,9 @@ public class LoginPanel extends javax.swing.JFrame {
                 try {
                     statement.executeUpdate("insert ordenDistribucion values(" + o.getId() + "," + o.getIdBodegaPocedencia() + "," + o.getIdBodegaDestino() + "," + o.getMontoTotal() + "," + o.getPesoTotal() + "," + o.getIdOperador() + ")");
                     for (ProductoMayoristaPorOrden p : o.getListaProductos()) {
-                        statement.executeUpdate("insert productoMayoristaPorOrden values(" + p.getId() + "," + p.getIdOrden() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')");
+                        if (p.getIdOrden()==o.getId()) {
+                            statement.executeUpdate("insert productoMayoristaPorOrden values(" + p.getId() + "," + p.getIdOrden() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')");
+                        }
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
