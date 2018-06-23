@@ -26,6 +26,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
     double numerador;
     double denominador;
     double fraccion;
+    int montoApagar;
 
     public PanelLogisticaDeDistribucion() {
         initComponents();
@@ -277,6 +278,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         porcentaje = 0;
                         pesoTotal += p.getPesoTotal();
+                        montoApagar += p.getPrecioTotal();
                         numerador = pesoTotal - 1000;
                         denominador = 5000 - 1000;
                         fraccion = (numerador / denominador) * 100;
@@ -284,11 +286,14 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         this.JPB_peso.setValue(porcentaje);
                         this.JL_Categoria.setText("1-5 toneladas");
                         this.JL_PesoTotal.setText(pesoTotal + "");
+                        this.JL_MontoAPagar.setText("$"+montoApagar);
                     } else {
                         listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         porcentaje += (p.getPesoTotal() * 100) / 1000;
+                        montoApagar += p.getPrecioTotal();
                         this.JPB_peso.setValue(porcentaje);
                         this.JL_PesoTotal.setText(pesoTotal + "");
+                        this.JL_MontoAPagar.setText("$"+montoApagar);
                     }
                 } else if (pesoTotal > 1000 && pesoTotal <= 5000) {
                     porcentaje = 0;
@@ -296,6 +301,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                     if (pesoTotal > 5000 && pesoTotal <= 10000) {
                         listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         porcentaje = 0;
+                        montoApagar += p.getPrecioTotal();
                         pesoTotal += p.getPesoTotal();
                         numerador = pesoTotal - 5000;
                         denominador = 10000 - 5000;
@@ -304,15 +310,18 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         this.JPB_peso.setValue(porcentaje);
                         this.JL_Categoria.setText("5-10 toneladas");
                         this.JL_PesoTotal.setText(pesoTotal + "");
+                        this.JL_MontoAPagar.setText("$"+montoApagar);
                     } else {
                         listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         numerador = pesoTotal - 1000;
                         denominador = 5000 - 1000;
                         fraccion = (numerador / denominador) * 100;
                         porcentaje = (int) fraccion;
+                        montoApagar += p.getPrecioTotal();
                         this.JPB_peso.setValue(porcentaje);
                         this.JL_Categoria.setText("1-5 toneladas");
                         this.JL_PesoTotal.setText(pesoTotal + "");
+                        this.JL_MontoAPagar.setText("$"+montoApagar);
                     }
                 } else if (pesoTotal > 5000 && pesoTotal <= 10000) {
                     porcentaje = 0;
@@ -320,6 +329,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                     if (pesoTotal > 10000 && pesoTotal <= 30000) {
                         listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
                         porcentaje = 0;
+                        montoApagar += p.getPrecioTotal();
                         pesoTotal += p.getPesoTotal();
                         numerador = pesoTotal - 10000;
                         denominador = 30000 - 10000;
@@ -328,9 +338,10 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         this.JPB_peso.setValue(porcentaje);
                         this.JL_Categoria.setText("10-30 toneladas");
                         this.JL_PesoTotal.setText(pesoTotal + "");
+                        this.JL_MontoAPagar.setText("$"+montoApagar);
                     } else {
                         listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
-
+                        montoApagar += p.getPrecioTotal();
                         numerador = pesoTotal - 5000;
                         denominador = 10000 - 5000;
                         fraccion = (numerador / denominador) * 100;
@@ -338,12 +349,13 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         this.JPB_peso.setValue(porcentaje);
                         this.JL_Categoria.setText("5-10 toneladas");
                         this.JL_PesoTotal.setText(pesoTotal + "");
+                        this.JL_MontoAPagar.setText("$"+montoApagar);
                     }
                 } else if (pesoTotal > 10000 && pesoTotal <= 30000) {
                     porcentaje = 0;
                     pesoTotal += p.getPesoTotal();
                     if (pesoTotal > 30000) {
-                        pesoTotal-=p.getPesoTotal();
+                        pesoTotal -= p.getPesoTotal();
                         this.JL_Max.setText("Has alcanzado el peso Maximo");
                     } else {
                         listProducto.add(new ProductoMayoristaPorOrden(p.getId(), 1, p.getNombre(), p.getUnidadMedida(), p.getValorUnidad(), p.getPesoTotal(), p.getDescripcion(), p.getIdLote(), p.getIdCategoria(), p.getPrecioTotal(), p.getUrlFoto()));
@@ -351,10 +363,12 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
                         denominador = 30000 - 10000;
                         fraccion = (numerador / denominador) * 100;
                         porcentaje = (int) fraccion;
+                        montoApagar += p.getPrecioTotal();
                         this.JPB_peso.setValue(porcentaje);
                         this.JL_Categoria.setText("10-30 toneladas");
                         this.JL_PesoTotal.setText(pesoTotal + "");
                         this.JL_Max.setText("");
+                        this.JL_MontoAPagar.setText("$"+montoApagar);
                     }
                 } else {
                     this.JL_Max.setText("Haz alcanzado el limite maximo");
