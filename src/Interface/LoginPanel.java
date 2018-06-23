@@ -145,8 +145,9 @@ public class LoginPanel extends javax.swing.JFrame {
 
     private void JB_EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_EnterActionPerformed
         for (Usuario u : usuario) {
+
             if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == false) {
-                PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre());
+                PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre(), u.getId());
                 p.setVisible(true);
                 this.dispose();
                 break;
@@ -177,7 +178,8 @@ public class LoginPanel extends javax.swing.JFrame {
                 + "delete from bodega\n"
                 + "delete from ordenDistribucion\n"
                 + "delete from usuario\n"
-                + "delete from productoMayorista";
+                + "delete from productoMayorista\n"
+                + "delete from productoMayoristaPorOrden";
         try {
             Statement statement = Conexion.getConexion().createStatement();
             statement.executeUpdate(sql);
@@ -213,7 +215,7 @@ public class LoginPanel extends javax.swing.JFrame {
                 try {
                     statement.executeUpdate("insert ordenDistribucion values(" + o.getId() + "," + o.getIdBodegaPocedencia() + "," + o.getIdBodegaDestino() + "," + o.getMontoTotal() + "," + o.getPesoTotal() + "," + o.getIdOperador() + ")");
                     for (ProductoMayoristaPorOrden p : o.getListaProductos()) {
-                        statement.executeUpdate("insert productoMayorista values(" + p.getId() + "," + p.getIdLote() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')");
+                        statement.executeUpdate("insert productoMayoristaPorOrden values(" + p.getId() + "," + p.getIdOrden() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')");
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -245,7 +247,7 @@ public class LoginPanel extends javax.swing.JFrame {
     private void JT_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_passActionPerformed
         for (Usuario u : usuario) {
             if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == false) {
-                PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre());
+                PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre(), u.getId());
                 p.setVisible(true);
                 this.dispose();
                 break;

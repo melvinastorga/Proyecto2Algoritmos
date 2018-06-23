@@ -146,8 +146,8 @@ public class Query {
             while (res.next()) {
                 ResultSet res2 = Conexion.Consulta("select * from productoMayoristaPorOrden where idOrden = '" + res.getInt(1) + "'");
                 while (res2.next()) {
-                    list2.add(new ProductoMayoristaPorOrden(res.getInt(1), res.getInt(2), res.getString(3), res.getString(4), res.getInt(5),
-                            res.getInt(6), res.getString(7), res.getInt(8), res.getInt(9), res.getDouble(10), res.getString(11)));
+                    list2.add(new ProductoMayoristaPorOrden(res2.getInt(1), res2.getInt(2), res2.getString(3), res2.getString(4), res2.getInt(5),
+                            res2.getInt(6), res2.getString(7), res2.getInt(8), res2.getInt(9), res2.getDouble(10), res2.getString(11)));
                 }
                 list.add(new OrdenDistribucion(res.getInt(1), res.getInt(2), res.getInt(3), res.getDouble(4), res.getFloat(5), list2, res.getInt(6)));
             }
