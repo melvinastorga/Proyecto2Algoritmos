@@ -5,9 +5,15 @@
  */
 package Interface;
 
+import Domain.Lote;
+import Domain.UnidadTransporte;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Iterator;
+import static javafx.scene.input.KeyCode.O;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +31,30 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
         lbl_LOGO.setIcon(icon2);
         this.repaint();
+        
+        
+        DefaultTableModel model = (DefaultTableModel) this.tabla_Transporte.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        
+         ArrayList listTransportes = new ArrayList();
+        Iterator it = LoginPanel.transporte.keySet().iterator();
+        while (it.hasNext()) {
+            System.out.println("ENTRE AL WHILE MEN");
+            Object key = it.next();
+            listTransportes.add(LoginPanel.transporte.get(key));
+
+            System.out.println(LoginPanel.transporte.get(key).getId());
+        }
+
+        for (int i = 0; i < listTransportes.size(); i++) {
+            model.addRow(O);
+            UnidadTransporte cat = (UnidadTransporte) listTransportes.get(i);
+            model.setValueAt(cat.getId(), i, 0);
+            model.setValueAt(cat.getPlaca(), i, 1);
+            model.setValueAt(cat.getCapacidad(), i, 2);
+            model.setValueAt(cat.getUrlFoto(), i, 3);
+        }
     }
 
     /**
@@ -38,7 +68,7 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_Transporte = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -49,7 +79,7 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setText("Delete or Update Unidad de Transporte");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_Transporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,7 +90,7 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
                 "ID", "Placa", "Capacidad", "Fotografia"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_Transporte);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +190,7 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_LOGO;
+    private javax.swing.JTable tabla_Transporte;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,7 +6,10 @@
 package Interface;
 
 import Domain.Categoria;
+import static Interface.LoginPanel.categoria;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
@@ -33,15 +36,24 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) this.jtable_Categoria.getModel();
         model.setRowCount(0);
         Object O[] = null;
-        for (int i = 0; i < LoginPanel.categoria.size(); i++) {
+        
+             ArrayList listLotes = new ArrayList();
+        Iterator it = LoginPanel.categoria.keySet().iterator();
+        while (it.hasNext()) {
+            System.out.println("ENTRE AL WHILE MEN");
+            Object key = it.next();
+            listLotes.add(LoginPanel.categoria.get(key));
+
+            System.out.println(LoginPanel.categoria.get(key).getId());
+        }
+        
+        for (int i = 0; i < listLotes.size(); i++) {
             model.addRow(O);
-            Categoria cat = (Categoria) LoginPanel.categoria.get(i);
+            Categoria cat = (Categoria) listLotes.get(i);
             model.setValueAt(cat.getId(), i, 0);
             model.setValueAt(cat.getNombre(), i, 1);
             model.setValueAt(cat.getDescripcion(), i, 2);
-            
-
-        }
+          }
     
 
         

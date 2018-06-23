@@ -5,9 +5,13 @@
  */
 package Interface;
 
+import Domain.Lote;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +29,31 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
         lbl_LOGO.setIcon(icon2);
         this.repaint();
+        
+        
+        
+        DefaultTableModel model = (DefaultTableModel) this.tabla_Lote.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+
+        ArrayList listLotes = new ArrayList();
+        Iterator it = LoginPanel.lote.keySet().iterator();
+        while (it.hasNext()) {
+            System.out.println("ENTRE AL WHILE MEN");
+            Object key = it.next();
+            listLotes.add(LoginPanel.lote.get(key));
+
+            System.out.println(LoginPanel.lote.get(key).getId());
+        }
+
+        for (int i = 0; i < listLotes.size(); i++) {
+            model.addRow(O);
+            Lote cat = (Lote) listLotes.get(i);
+            model.setValueAt(cat.getId(), i, 0);
+            model.setValueAt(cat.getCodigoLote(), i, 1);
+            model.setValueAt(cat.getFechaEmpacado(), i, 2);
+            model.setValueAt(cat.getFechaVencimiento(), i, 3);
+        }
     }
 
     /**
@@ -38,7 +67,7 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_Lote = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -49,7 +78,7 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setText("Delete or Update Lote");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_Lote.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,7 +89,7 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
                 "ID", "Codigo Lote", "Fecha Empacado", "Fecha Vencimiento"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_Lote);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +193,7 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_LOGO;
+    private javax.swing.JTable tabla_Lote;
     // End of variables declaration//GEN-END:variables
 }
