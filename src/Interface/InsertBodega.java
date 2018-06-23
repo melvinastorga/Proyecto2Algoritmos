@@ -8,12 +8,16 @@ package Interface;
 import Domain.Bodega;
 import Logica.GraphException;
 import java.awt.Image;
+import java.io.File;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -37,6 +41,11 @@ public class InsertBodega extends javax.swing.JFrame {
         if(LoginPanel.bodega.isEmpty()){
         lbl_ID2.setText("1");
         }else{
+            
+            LinkedList<Bodega> listBodegas = LoginPanel.bodega.recorreGraph();
+            id = listBodegas.getLast().getId()+1;
+            lbl_ID2.setText(id+"");
+            
            // Iterator it = LoginPanel.bodega.keySet().iterator();
             //while(it.hasNext()){
               //  Integer key = (Integer)it.next();
@@ -145,6 +154,11 @@ public class InsertBodega extends javax.swing.JFrame {
         btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         btn_BuscarFoto.setForeground(new java.awt.Color(255, 255, 0));
         btn_BuscarFoto.setText("Buscar Fotografia");
+        btn_BuscarFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_BuscarFotoActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_BuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 501, -1, -1));
 
         tfd_Foto.setBackground(new java.awt.Color(0, 0, 0));
@@ -153,7 +167,7 @@ public class InsertBodega extends javax.swing.JFrame {
         getContentPane().add(tfd_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 553, 317, 30));
 
         lbl_Foto.setText("jLabel9");
-        getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 609, 160, 98));
+        getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 270, 98));
 
         btn_InsertBodega.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertBodega.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -192,10 +206,23 @@ public class InsertBodega extends javax.swing.JFrame {
         if(tfd_Distancia.getText().equals("")||tfd_Foto.getText().equals("")||tfd_Latitud.getText().equals("")||tfd_Longitud.getText().equals("")||tfd_Nombre.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Complete todos los espacios por favor");
         }else{
-            
+            System.out.println("ENTRE AL ELSE");
             Bodega bodega  = new Bodega(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), tfd_Latitud.getText(), tfd_Longitud.getText(), Float.parseFloat(tfd_Distancia.getText())  , tfd_Foto.getText());
             try {
                 LoginPanel.bodega.insertVertex(bodega);
+                LinkedList<Bodega> listBodegas = LoginPanel.bodega.recorreGraph();
+//            id = listBodegas.getLast().getId()+1;
+//            //lbl_ID2.setText(id+"");
+            tfd_Nombre.setText("");
+            tfd_Longitud.setText("");
+            tfd_Latitud.setText("");
+            tfd_Distancia.setText("");
+            lbl_Foto.setText("");
+            tfd_Foto.setText("");
+            
+            listBodegas = LoginPanel.bodega.recorreGraph();
+            id = listBodegas.getLast().getId()+1;
+            lbl_ID2.setText(id+"");
             } catch (GraphException ex) {
                 Logger.getLogger(InsertBodega.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -210,6 +237,35 @@ public class InsertBodega extends javax.swing.JFrame {
         this.dispose();
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_BuscarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarFotoActionPerformed
+        // TODO add your handling code here:
+        
+              JFileChooser fileChooser = new JFileChooser("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Bodegas");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
+        FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif", "png","jpeg");
+        fileChooser.setFileFilter(imgFilter);
+
+        int result = fileChooser.showOpenDialog(this);
+
+        if (result != JFileChooser.CANCEL_OPTION) {
+
+            File fileName = fileChooser.getSelectedFile();
+
+            if ((fileName == null) || (fileName.getName().equals(""))) {
+                tfd_Foto.setText("...");
+            } else {
+                tfd_Foto.setText(fileName.getAbsolutePath());
+            }
+        }
+
+        ImageIcon icon = new ImageIcon(tfd_Foto.getText());
+        Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_Foto.getWidth(), lbl_Foto.getHeight(), Image.SCALE_DEFAULT));
+        lbl_Foto.setIcon(icon2);
+        this.repaint();
+        
+    }//GEN-LAST:event_btn_BuscarFotoActionPerformed
 
     /**
      * @param args the command line arguments
