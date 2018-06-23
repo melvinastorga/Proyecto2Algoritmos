@@ -51,7 +51,7 @@ public class InsertCategoria extends javax.swing.JFrame {
 //
 //            }
 //            lbl_ID2.setText(id + "");
-            id = LoginPanel.categoria.size() + 2;
+            id = LoginPanel.categoria.size() + 1;
             lbl_ID2.setText(id + "");
         }
     }
@@ -171,7 +171,7 @@ public class InsertCategoria extends javax.swing.JFrame {
 //                }
 //System.out.println("ENTRE AQUI 5");
 //                lbl_ID2.setText(idPrueba + "");
-                id = LoginPanel.categoria.size() + 2;
+                id = LoginPanel.categoria.size() + 1;
                 lbl_ID2.setText(id + "");
 
                 tfd_Descripcion.setText("");

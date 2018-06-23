@@ -5,9 +5,14 @@
  */
 package Interface;
 
+import Domain.Categoria;
+import static Interface.LoginPanel.categoria;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +30,33 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
         lbl_LOGO.setIcon(icon2);
         this.repaint();
+        
+        
+           
+        DefaultTableModel model = (DefaultTableModel) this.jtable_Categoria.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        
+             ArrayList listLotes = new ArrayList();
+        Iterator it = LoginPanel.categoria.keySet().iterator();
+        while (it.hasNext()) {
+            System.out.println("ENTRE AL WHILE MEN");
+            Object key = it.next();
+            listLotes.add(LoginPanel.categoria.get(key));
+
+            System.out.println(LoginPanel.categoria.get(key).getId());
+        }
+        
+        for (int i = 0; i < listLotes.size(); i++) {
+            model.addRow(O);
+            Categoria cat = (Categoria) listLotes.get(i);
+            model.setValueAt(cat.getId(), i, 0);
+            model.setValueAt(cat.getNombre(), i, 1);
+            model.setValueAt(cat.getDescripcion(), i, 2);
+          }
+    
+
+        
     }
 
     /**
@@ -38,7 +70,7 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtable_Categoria = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -49,7 +81,7 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setText("Delete or Update Categoria");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtable_Categoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -60,7 +92,7 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
                 "ID", "Nombre", "Descripcion"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jtable_Categoria);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +195,7 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtable_Categoria;
     private javax.swing.JLabel lbl_LOGO;
     // End of variables declaration//GEN-END:variables
 }
