@@ -5,9 +5,14 @@
  */
 package Interface;
 
+import Domain.UnidadTransporte;
+import Domain.Usuario;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,10 +26,34 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
     public DeleteUpdateUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
-         ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
         lbl_LOGO.setIcon(icon2);
         this.repaint();
+
+        DefaultTableModel model = (DefaultTableModel) this.tabla_Usuarios.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+
+        for (int i = 0; i < LoginPanel.usuario.size(); i++) {
+
+            String admin = "";
+
+            model.addRow(O);
+            Usuario user = (Usuario) LoginPanel.usuario.get(i);
+            if (user.getAdministrador()) {
+                admin = "administrador";
+            } else {
+                admin = "operador";
+            }
+
+            model.setValueAt(user.getId(), i, 0);
+            model.setValueAt(user.getNombre(), i, 1);
+            model.setValueAt(admin, i, 2);
+            model.setValueAt(user.getUsuario(), i, 3);
+            // model.setValueAt(user.getContraseña(), i, 4);
+        }
+        System.out.println(LoginPanel.usuario.get(1).getContraseña());
     }
 
     /**
@@ -38,87 +67,122 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_Usuarios = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btn_Eliminar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        tfd_DigiteID = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tfd_ContraseñaVieja = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        tfd_ContraseñaNueva = new javax.swing.JPasswordField();
+        btn_CambiarContraseña = new javax.swing.JButton();
+        lbl_MensajeContraseña = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Delete or update Usuario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 29, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_Usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Rol", "Usuario", "Contrasena"
+                "ID", "Nombre", "Rol", "Usuario"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_Usuarios);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 86, 844, 538));
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(839, 11, 124, 57));
 
         lbl_LOGO.setText("jLabel2");
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(773, 724, 190, 181));
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_Eliminar.setBackground(new java.awt.Color(0, 0, 0));
+        btn_Eliminar.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        btn_Eliminar.setForeground(new java.awt.Color(255, 255, 0));
+        btn_Eliminar.setText("Eliminar");
+        btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_EliminarActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 652, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(296, 296, 296)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_LOGO, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 844, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(49, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(lbl_LOGO, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
+        jLabel2.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel2.setText("Digite el ID del usuario que quiera cambiar la contraseña");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 697, -1, -1));
+
+        tfd_DigiteID.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_DigiteID.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        tfd_DigiteID.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(tfd_DigiteID, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 700, 91, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setText("Digite la contraseña actual del usuario");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 740, -1, -1));
+
+        tfd_ContraseñaVieja.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_ContraseñaVieja.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        tfd_ContraseñaVieja.setForeground(new java.awt.Color(255, 255, 0));
+        tfd_ContraseñaVieja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfd_ContraseñaViejaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfd_ContraseñaVieja, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 740, 172, -1));
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setText("Digite la nueva contraseña");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 777, -1, -1));
+
+        tfd_ContraseñaNueva.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_ContraseñaNueva.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        tfd_ContraseñaNueva.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(tfd_ContraseñaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 770, 172, -1));
+
+        btn_CambiarContraseña.setBackground(new java.awt.Color(0, 0, 0));
+        btn_CambiarContraseña.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        btn_CambiarContraseña.setForeground(new java.awt.Color(255, 255, 0));
+        btn_CambiarContraseña.setText("Cambiar contraseña");
+        btn_CambiarContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CambiarContraseñaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_CambiarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 806, -1, -1));
+
+        lbl_MensajeContraseña.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_MensajeContraseña.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(lbl_MensajeContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 850, 600, 40));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 910));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,9 +194,70 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_EliminarActionPerformed
+
+    private void tfd_ContraseñaViejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfd_ContraseñaViejaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfd_ContraseñaViejaActionPerformed
+
+    private void btn_CambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CambiarContraseñaActionPerformed
+        // TODO add your handling code here:
+
+        if (tfd_DigiteID.getText().equals("") || tfd_ContraseñaVieja.getText().equals("") || tfd_ContraseñaNueva.getText().equals("")) {
+            lbl_MensajeContraseña.setText("Digite todos los espacios por favor");
+        } else {
+            lbl_MensajeContraseña.setText("");
+            String idBuscada = tfd_DigiteID.getText();
+            boolean idEncontrada = false;
+            for (int i = 0; i < LoginPanel.usuario.size(); i++) {
+                Usuario user = (Usuario) LoginPanel.usuario.get(i);
+                
+                if(user.getId()==Integer.parseInt(idBuscada)){
+                    idEncontrada = true;
+                }
+
+            }
+            if(!idEncontrada){
+                lbl_MensajeContraseña.setText("El usuario no existe");
+            }else{
+                
+                String contrasenaIngresada = tfd_ContraseñaVieja.getText();
+                boolean esLaMismaContrasena = false;
+                for (int i = 0; i < LoginPanel.usuario.size(); i++) {
+                Usuario user = (Usuario) LoginPanel.usuario.get(i);
+                
+                if(user.getContraseña().equals(contrasenaIngresada)){
+                    esLaMismaContrasena = true;
+                }
+
+            }
+                if(!esLaMismaContrasena){
+                    lbl_MensajeContraseña.setText("La contraseña ingresada no coincide");
+                }else{
+                    
+                    lbl_MensajeContraseña.setText("");
+                    
+                      for (int i = 0; i < LoginPanel.usuario.size(); i++) {
+                Usuario user = (Usuario) LoginPanel.usuario.get(i);
+                
+                if(user.getContraseña().equals(contrasenaIngresada)){
+                    user.setContraseña(tfd_ContraseñaNueva.getText());
+                    System.out.println("su nueva contrasena es: "+user.getContraseña());
+                    lbl_MensajeContraseña.setText("Su contraseña ha sido cambiada con exito");
+                    tfd_DigiteID.setText("");
+                    tfd_ContraseñaVieja.setText("");
+                    tfd_ContraseñaNueva.setText("");
+                }
+
+            }
+                    
+                }
+            }
+            
+        }
+    }//GEN-LAST:event_btn_CambiarContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,11 +296,20 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_CambiarContraseña;
+    private javax.swing.JButton btn_Eliminar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_LOGO;
+    private javax.swing.JLabel lbl_MensajeContraseña;
+    private javax.swing.JTable tabla_Usuarios;
+    private javax.swing.JPasswordField tfd_ContraseñaNueva;
+    private javax.swing.JPasswordField tfd_ContraseñaVieja;
+    private javax.swing.JTextField tfd_DigiteID;
     // End of variables declaration//GEN-END:variables
 }

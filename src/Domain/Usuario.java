@@ -42,7 +42,7 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public boolean isAdministrador() {
+    public boolean getAdministrador() {
         return administrador;
     }
 

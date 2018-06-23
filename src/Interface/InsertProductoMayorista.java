@@ -96,94 +96,94 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_InsertProduct.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
-        lbl_InsertProduct.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_InsertProduct.setForeground(new java.awt.Color(255, 255, 0));
         lbl_InsertProduct.setText("Insert Producto Mayorista");
         getContentPane().add(lbl_InsertProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 465, 51));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_ID1.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_ID1.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID1.setText("ID");
         getContentPane().add(lbl_ID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 69, 45, 39));
 
         lbl_ID2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_ID2.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_ID2.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ID2.setText("jLabel3");
         getContentPane().add(lbl_ID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 69, 73, 39));
 
         lbl_Nombre.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lbl_Nombre.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_Nombre.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Nombre.setText("Nombre");
         getContentPane().add(lbl_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 126, 100, 36));
 
         tfd_Nombre.setBackground(new java.awt.Color(0, 0, 0));
-        tfd_Nombre.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tfd_Nombre.setForeground(new java.awt.Color(153, 0, 0));
+        tfd_Nombre.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Nombre.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 137, 255, -1));
 
         lbl_UnidadMedida.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_UnidadMedida.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_UnidadMedida.setForeground(new java.awt.Color(255, 255, 0));
         lbl_UnidadMedida.setText("Unidad de Medida");
         getContentPane().add(lbl_UnidadMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 189, -1, -1));
 
         lbl_ValorUnidad.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_ValorUnidad.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_ValorUnidad.setForeground(new java.awt.Color(255, 255, 0));
         lbl_ValorUnidad.setText("Valor de Unidad");
         getContentPane().add(lbl_ValorUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 247, -1, -1));
 
         tfd_ValorUnidad.setBackground(new java.awt.Color(0, 0, 0));
-        tfd_ValorUnidad.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tfd_ValorUnidad.setForeground(new java.awt.Color(153, 0, 0));
+        tfd_ValorUnidad.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_ValorUnidad.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_ValorUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 252, 255, -1));
 
         lbl_PesoTotal.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_PesoTotal.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_PesoTotal.setForeground(new java.awt.Color(255, 255, 0));
         lbl_PesoTotal.setText("Peso Total");
         getContentPane().add(lbl_PesoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 312, 137, -1));
 
         tfd_PesoTotal.setBackground(new java.awt.Color(0, 0, 0));
-        tfd_PesoTotal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tfd_PesoTotal.setForeground(new java.awt.Color(153, 0, 0));
+        tfd_PesoTotal.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_PesoTotal.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_PesoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 317, 255, -1));
 
         lbl_Descripcion.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_Descripcion.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_Descripcion.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Descripcion.setText("Descripcion");
         getContentPane().add(lbl_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 377, -1, -1));
 
         tfd_Descripcion.setBackground(new java.awt.Color(0, 0, 0));
-        tfd_Descripcion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tfd_Descripcion.setForeground(new java.awt.Color(153, 0, 0));
+        tfd_Descripcion.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_Descripcion.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 382, 255, -1));
 
         lbl_IDLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_IDLote.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_IDLote.setForeground(new java.awt.Color(255, 255, 0));
         lbl_IDLote.setText("ID Lote");
         getContentPane().add(lbl_IDLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 459, -1, -1));
 
         lbl_IDCategoria.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_IDCategoria.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_IDCategoria.setForeground(new java.awt.Color(255, 255, 0));
         lbl_IDCategoria.setText("ID Categoria");
         getContentPane().add(lbl_IDCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 528, -1, -1));
 
         lbl_PrecioTotal.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_PrecioTotal.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_PrecioTotal.setForeground(new java.awt.Color(255, 255, 0));
         lbl_PrecioTotal.setText("Precio Total");
         getContentPane().add(lbl_PrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 596, -1, -1));
 
         tfd_precioTotal.setBackground(new java.awt.Color(0, 0, 0));
-        tfd_precioTotal.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tfd_precioTotal.setForeground(new java.awt.Color(153, 0, 0));
+        tfd_precioTotal.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_precioTotal.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_precioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 601, 255, -1));
 
         lbl_Fotografia.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_Fotografia.setForeground(new java.awt.Color(153, 0, 0));
+        lbl_Fotografia.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Fotografia.setText("Fotografia");
         getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 661, -1, -1));
         getContentPane().add(lbl_FOTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 730, 210, 170));
 
-        btn_BuscarFoto.setBackground(new java.awt.Color(153, 153, 153));
+        btn_BuscarFoto.setBackground(new java.awt.Color(0, 0, 0));
         btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        btn_BuscarFoto.setForeground(new java.awt.Color(0, 102, 102));
+        btn_BuscarFoto.setForeground(new java.awt.Color(255, 255, 0));
         btn_BuscarFoto.setText("Buscar Fotografia");
         btn_BuscarFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,13 +193,13 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         getContentPane().add(btn_BuscarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 661, -1, -1));
 
         tfd_URLFoto.setBackground(new java.awt.Color(0, 0, 0));
-        tfd_URLFoto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        tfd_URLFoto.setForeground(new java.awt.Color(153, 0, 0));
+        tfd_URLFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_URLFoto.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_URLFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 700, 362, 31));
 
-        btn_InsertOProducto.setBackground(new java.awt.Color(153, 153, 153));
+        btn_InsertOProducto.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertOProducto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        btn_InsertOProducto.setForeground(new java.awt.Color(0, 102, 102));
+        btn_InsertOProducto.setForeground(new java.awt.Color(255, 255, 0));
         btn_InsertOProducto.setText("Insertar");
         btn_InsertOProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,11 +209,14 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         getContentPane().add(btn_InsertOProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 900, 276, 63));
 
         cb_UnidadMedida.setBackground(new java.awt.Color(0, 0, 0));
-        cb_UnidadMedida.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        cb_UnidadMedida.setForeground(new java.awt.Color(153, 0, 0));
+        cb_UnidadMedida.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        cb_UnidadMedida.setForeground(new java.awt.Color(255, 255, 0));
         cb_UnidadMedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unidades", "Paquetes", "Cajas", "Tarimas" }));
         getContentPane().add(cb_UnidadMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 250, -1));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,6 +228,9 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         lbl_LOGO.setText("jLabel2");
         getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 910, 140, 120));
 
+        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
+        jComboBox1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 0));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -232,6 +238,9 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         });
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, -1, -1));
 
+        jComboBox2.setBackground(new java.awt.Color(0, 0, 0));
+        jComboBox2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jComboBox2.setForeground(new java.awt.Color(255, 255, 0));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);

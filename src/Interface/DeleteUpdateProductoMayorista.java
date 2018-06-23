@@ -47,6 +47,7 @@ public class DeleteUpdateProductoMayorista extends javax.swing.JFrame {
         setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Delete or Update Producto Mayorista");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -63,6 +64,9 @@ public class DeleteUpdateProductoMayorista extends javax.swing.JFrame {
         jTable1.setRowHeight(20);
         jScrollPane1.setViewportView(jTable1);
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +76,11 @@ public class DeleteUpdateProductoMayorista extends javax.swing.JFrame {
 
         lbl_LOGO.setText("jLabel2");
 
-        jButton2.setText("jButton2");
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 0));
+        jButton2.setText("Eliminar");
+        jButton2.setActionCommand("Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
