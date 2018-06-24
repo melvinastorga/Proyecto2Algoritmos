@@ -5,10 +5,12 @@
  */
 package Interface;
 
+import Domain.Bodega;
 import Domain.Categoria;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
@@ -32,27 +34,24 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
         
         
         
-//         DefaultTableModel model = (DefaultTableModel) this.jtable_Categoria.getModel();
-//        model.setRowCount(0);
-//        Object O[] = null;
-//        
-//             ArrayList listLotes = new ArrayList();
-//        Iterator it = LoginPanel.categoria.keySet().iterator();
-//        while (it.hasNext()) {
-//            System.out.println("ENTRE AL WHILE MEN");
-//            Object key = it.next();
-//            listLotes.add(LoginPanel.categoria.get(key));
-//
-//            System.out.println(LoginPanel.categoria.get(key).getId());
-//        }
-//        
-//        for (int i = 0; i < listLotes.size(); i++) {
-//            model.addRow(O);
-//            Categoria cat = (Categoria) listLotes.get(i);
-//            model.setValueAt(cat.getId(), i, 0);
-//            model.setValueAt(cat.getNombre(), i, 1);
-//            model.setValueAt(cat.getDescripcion(), i, 2);
-//          }
+         DefaultTableModel model = (DefaultTableModel) this.table_Bodega.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        
+             LinkedList<Bodega> listBodega = LoginPanel.bodega.recorreGraph();
+      
+        
+        for (int i = 0; i < listBodega.size(); i++) {
+            model.addRow(O);
+            Bodega bodega = (Bodega) listBodega.get(i);
+            model.setValueAt(bodega.getId(), i, 0);
+            model.setValueAt(bodega.getNombre(), i, 1);
+            model.setValueAt(bodega.getLatitud(), i, 2);
+            model.setValueAt(bodega.getLongitud(), i, 3);
+             model.setValueAt(bodega.getDistanciaCentroOperaciones(), i, 4);
+            model.setValueAt(bodega.getUrlFoto(), i, 5);
+            
+          }
     }
 
     /**

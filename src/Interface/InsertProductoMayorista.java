@@ -5,11 +5,16 @@
  */
 package Interface;
 
+import Domain.Categoria;
+import Domain.Lote;
 import Domain.ProductoMayorista;
+import Domain.ProductoMayoristaPorOrden;
+import static Interface.LoginPanel.productoMayorista;
 import Logica.LinkedBinaryTree;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -26,6 +31,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
     
     String elegido;
     String categoria;
+    int id;
       LoginPanel login=new LoginPanel();
     /**
      * Creates new form insertProductoMayoristaaa
@@ -38,19 +44,29 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         this.repaint();
         this.setLocationRelativeTo(null);
         tfd_URLFoto.setEnabled(false);
+        if(LoginPanel.productoMayorista.isEmpty()){
         lbl_ID2.setText("1");
-      
+        }else{
+            LinkedList<ProductoMayorista> listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
+            id=((listaProductos.getLast().getId()+1));
+            lbl_ID2.setText(id+"");
+        }
         
          
-     ArrayList lista=login.lotes();
-         for (Object i: lista) {
-        //System.out.println (i); //Muestra cada uno de los nombres dentro de listaDeNombres
-       jComboBox1.addItem((String) i);
+        ArrayList<Lote> listaLotes=login.lotes();
+     
+
+     
+         for (Object i: listaLotes) {
+        
+       cb_IDLote.addItem(i+"");
     }
-         ArrayList categoria=login.Categoria();
-          for (Object j: categoria) {
-        System.out.println (j); //Muestra cada uno de los nombres dentro de listaDeNombres
-       jComboBox2.addItem(j+"");
+         ArrayList<Categoria> listaCategoria=login.Categoria();
+         
+
+          for (Object j: listaCategoria) {
+        
+       cb_IDCategoria.addItem(j+"");
           }
    }
 
@@ -87,8 +103,8 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         cb_UnidadMedida = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cb_IDLote = new javax.swing.JComboBox<>();
+        cb_IDCategoria = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -228,25 +244,25 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         lbl_LOGO.setText("jLabel2");
         getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 910, 140, 120));
 
-        jComboBox1.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 255, 0));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cb_IDLote.setBackground(new java.awt.Color(0, 0, 0));
+        cb_IDLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        cb_IDLote.setForeground(new java.awt.Color(255, 255, 0));
+        cb_IDLote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cb_IDLoteActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, -1, -1));
+        getContentPane().add(cb_IDLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, -1, -1));
 
-        jComboBox2.setBackground(new java.awt.Color(0, 0, 0));
-        jComboBox2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(255, 255, 0));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        cb_IDCategoria.setBackground(new java.awt.Color(0, 0, 0));
+        cb_IDCategoria.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        cb_IDCategoria.setForeground(new java.awt.Color(255, 255, 0));
+        cb_IDCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                cb_IDCategoriaActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, -1, -1));
+        getContentPane().add(cb_IDCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -297,6 +313,11 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
                 lbl_FOTO.setIcon(null);
                 this.repaint();
                 tfd_Nombre.requestFocus();
+                
+                LinkedList<ProductoMayorista> listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
+            id=((listaProductos.getLast().getId()+1));
+            lbl_ID2.setText(id+"");
+                
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Digite numeros en los espacios (Valor de unidad, peso total, IDLote, IDCategoria");
             }
@@ -342,14 +363,14 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cb_IDLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_IDLoteActionPerformed
           
-       elegido=jComboBox1.getSelectedItem().toString();
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+       elegido=cb_IDLote.getSelectedItem().toString();
+    }//GEN-LAST:event_cb_IDLoteActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-       categoria=jComboBox2.getSelectedItem().toString();
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    private void cb_IDCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_IDCategoriaActionPerformed
+       categoria=cb_IDCategoria.getSelectedItem().toString();
+    }//GEN-LAST:event_cb_IDCategoriaActionPerformed
 
        
 
@@ -392,10 +413,10 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_BuscarFoto;
     private javax.swing.JButton btn_InsertOProducto;
+    private javax.swing.JComboBox<String> cb_IDCategoria;
+    private javax.swing.JComboBox<String> cb_IDLote;
     private javax.swing.JComboBox<String> cb_UnidadMedida;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_Descripcion;
     private javax.swing.JLabel lbl_FOTO;
