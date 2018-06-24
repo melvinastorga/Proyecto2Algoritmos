@@ -95,14 +95,17 @@ select * from unidadTransporte
 select  count(b.id) from bodega b
 select * from bodega
 select * from ordenDistribucion
+select * from productoMayoristaPorOrden
+select * from productoMayorista
 select * from usuario
-select * from productoMayorista where idOrden = '1'
+select * from productoMayoristaPorOrden where idOrden = '1'
 
+update bodega set latitud = '9.8575839', longitud = '-83.9084995' where id='10'
 delete from categoria
 delete from lote
 delete from unidadTransporte
-delete from bodega
 delete from ordenDistribucion
+delete from productoMayoristaPorOrden
 delete from usuario
 delete from productoMayorista
 
