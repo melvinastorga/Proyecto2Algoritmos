@@ -5,10 +5,25 @@
  */
 package Interface;
 
+
+import Domain.Bodega;
+import Domain.OrdenDistribucion;
+import Domain.ProductoMayoristaPorOrden;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.labels.StandardCategoryToolTipGenerator;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.DatasetRenderingOrder;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.CategoryItemRenderer;
+import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
@@ -16,12 +31,17 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author UsuarioPC
  */
 public class Graficos extends javax.swing.JFrame {
-
+    LoginPanel login=new LoginPanel();
+    ArrayList<OrdenDistribucion> a= login.ordenDsitribucion();
+    ArrayList<Bodega>bodega=login.bodega.valoresBodega();
     /**
      * Creates new form Graficos
      */
     public Graficos() {
         initComponents();
+      grafic();
+      bodega.toString();
+       
     }
 
     /**
@@ -78,51 +98,149 @@ public class Graficos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+     
+        CategoryPlot plot = new CategoryPlot();
 
-        String bmw = "BMW";
-        String audi = "AUDI";
-        String ford = "FORD";
+        // Add the first dataset and render as bar
+        CategoryItemRenderer lineRenderer = new LineAndShapeRenderer();
+        plot.setDataset(0, createDataset());
+        plot.setRenderer(0, lineRenderer);
+      
+      
 
-        String vel = "Velocidad";
-        String millas = "Millas";
-        String usuarios = "Usuarios";
-        String seguro = "Seguridad";
 
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+//         Add the second dataset and render as lines
+        CategoryItemRenderer baRenderer = new BarRenderer();
+        plot.setDataset(1, createDataset());
+        plot.setRenderer(1, baRenderer);
 
-        dataset.addValue(1.0, bmw, vel);
-        dataset.addValue(3.0, bmw, usuarios);
-        dataset.addValue(5.0, bmw, millas);
-        dataset.addValue(5.0, bmw, seguro);
+        // Set Axis
+        plot.setDomainAxis(new CategoryAxis("Bodegas de procedencia "));
+        plot.setRangeAxis(new NumberAxis("cantidad de productos"));
+        
+        JFreeChart chart = new JFreeChart(plot);
+        chart.setTitle("Bodegas");
 
-        dataset.addValue(5.0, audi, vel);
-        dataset.addValue(6.0, audi, usuarios);
-        dataset.addValue(10.0, audi, millas);
-        dataset.addValue(4.0, audi, seguro);
-
-        dataset.addValue(4.0, ford, vel);
-        dataset.addValue(2.0, ford, usuarios);
-        dataset.addValue(3.0, ford, millas);
-        dataset.addValue(6.0, ford, seguro);
-
-        JFreeChart barChart = ChartFactory.createBarChart3D(
-                "Grafica de Barras",
-                "Categoria",
-                "Puntuacion",
-                dataset,
-                PlotOrientation.VERTICAL,
-                true,
-                true,
-                false);
-
-        ChartPanel panel = new ChartPanel(barChart);
+        ChartPanel panel = new ChartPanel(chart);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
         jPanel1.add(panel);
         jPanel1.validate();
 
 
+       
+        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
+  private DefaultCategoryDataset createDataset() {
+
+      // First Series
+     // String series1 = "Vistor";
+      DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+      try {
+             ArrayList<OrdenDistribucion> list = grafic();
+              String nombreBodegaDestino="";
+              String nombreBodegaProcedencia="";
+             int contador=0;
+             int suma=0;
+             int igual = -1;
+             int bodegaProcedencia=-1;
+              for(int i=0;i<list.size();i++){
+                  if(list.get(i).getIdBodegaDestino()==igual&&list.get(i).getIdBodegaPocedencia()==bodegaProcedencia||igual==-1){
+                     igual=list.get(i+1).getIdBodegaDestino();
+                     bodegaProcedencia=list.get(i+1).getIdBodegaPocedencia();
+                 //System.out.println("llego "+list.get(i).getAmount());
+                      for (ProductoMayoristaPorOrden s : list.get(i).getListaProductos()) {
+                          contador++;
+                      }
+                       for (Bodega s : bodega) 
+                       {
+                        if (list.get(i).getIdBodegaDestino()==s.getId()){
+                          nombreBodegaDestino=s.getNombre();
+                        break;
+                        }
+                      }
+                         for (Bodega s : bodega) 
+                       {
+                        if (list.get(i).getIdBodegaPocedencia()==s.getId()){
+                          nombreBodegaProcedencia=s.getNombre();
+                        break;
+                        }
+                      }
+                      
+
+                 suma=contador;
+                dataset.addValue(suma, nombreBodegaDestino+"",nombreBodegaProcedencia);
+              }else{
+                      contador=0;
+                       suma=0;
+                      
+                       for (ProductoMayoristaPorOrden s : list.get(i).getListaProductos()) {
+                          contador++;
+                      }
+                       for (Bodega s : bodega) 
+                       {
+                        if (list.get(i).getIdBodegaDestino()==s.getId()){
+                          nombreBodegaDestino=s.getNombre();
+                        break;
+                        }
+                      }
+                        for (Bodega s : bodega) 
+                       {
+                        if (list.get(i).getIdBodegaPocedencia()==s.getId()){
+                          nombreBodegaProcedencia=s.getNombre();
+                        break;
+                        }
+                      }
+                       suma=contador;
+                       dataset.addValue(suma, nombreBodegaDestino+"",nombreBodegaProcedencia);
+                        suma=0;
+                        contador=0;
+                        igual=list.get(i+1).getIdBodegaDestino();
+                        bodegaProcedencia=list.get(i+1).getIdBodegaPocedencia();
+                  }
+                        
+              }
+         } catch (Exception ex) {
+            
+         }
+//      dataset.addValue(200, series1, "2016-12-19");
+//      dataset.addValue(150, series1, "2016-12-20");
+//      dataset.addValue(100, series1, "2016-12-21");
+//      dataset.addValue(210, series1, "2016-12-22");
+//      dataset.addValue(240, series1, "2016-12-23");
+//      dataset.addValue(195, series1, "2016-12-24");
+//      dataset.addValue(245, series1, "2016-12-25");
+//
+//      // Second Series
+//      String series2 = "Unique Visitor";
+//      dataset.addValue(150, series2, "2016-12-19");
+//      dataset.addValue(130, series2, "2016-12-20");
+//      dataset.addValue(95, series2, "2016-12-21");
+//      dataset.addValue(195, series2, "2016-12-22");
+//      dataset.addValue(200, series2, "2016-12-23");
+//      dataset.addValue(180, series2, "2016-12-24");
+//      dataset.addValue(230, series2, "2016-12-25");
+
+      return dataset;
+   }
+   public ArrayList grafic(){
+     
+        for (int i = 0; i < a.size(); i++) {
+           for (int j = 0; j < a.size() - i - 1; j++) {
+               if (a.get(j).getIdBodegaDestino()<=a.get(j + 1).getIdBodegaDestino()&&a.get(j).getIdBodegaPocedencia()<=a.get(j + 1).getIdBodegaPocedencia()) {
+                  OrdenDistribucion temp = (OrdenDistribucion) a.get(j);
+                  a.set(j, a.get(j + 1));
+                  a.set(j + 1, temp);
+               }
+           }
+           
+       }
+       System.err.println(a.toString());
+   
+  return  a;     
+   }
 
     /**
      * @param args the command line arguments
