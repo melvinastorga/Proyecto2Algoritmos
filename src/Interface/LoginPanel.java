@@ -272,7 +272,7 @@ public class LoginPanel extends javax.swing.JFrame {
             Object key = it.next();
             listLotes.add(lote.get(key).getCodigoLote());
 
-            System.out.println(lote.get(key).getCodigoLote());
+           // System.out.println(lote.get(key).getCodigoLote());
         }
         return listLotes;
     }//fin

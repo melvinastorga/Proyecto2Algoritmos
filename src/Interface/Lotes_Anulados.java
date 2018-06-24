@@ -5,7 +5,12 @@
  */
 package Interface;
 
+import Domain.Lote;
 import java.awt.Image;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -15,6 +20,8 @@ import javax.swing.ImageIcon;
  */
 public class Lotes_Anulados extends javax.swing.JFrame {
 
+    SimpleDateFormat formart1 = new SimpleDateFormat("dd-MM-yyyy");
+    LoginPanel login=new LoginPanel();
     /**
      * Creates new form lotes_Anulados
      */
@@ -26,6 +33,21 @@ public class Lotes_Anulados extends javax.swing.JFrame {
         this.repaint();
         this.setLocationRelativeTo(null);
         tablaLotesAnulados.setVisible(false);
+        
+        
+           Date date = new Date();
+        DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy");
+String fechaHora = (""+hourdateFormat.format(date));
+        
+       // tfd_Empacado.setText(getFecha(calendar_Empacado));
+       lbl_FechaActual.setText("Hoy es: "+fechaHora);
+       // calendar_Empacado.get
+          ArrayList<Lote> listaLotes=login.lotes();
+             for (Object i: listaLotes) {
+        
+       cb_Lotes.addItem(i+"");
+    }
+       
     }
 
     /**
@@ -41,10 +63,11 @@ public class Lotes_Anulados extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         btn_BuscarLote = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaLotesAnulados = new javax.swing.JTable();
+        lbl_FechaActual = new javax.swing.JLabel();
+        cb_Lotes = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,7 +77,7 @@ public class Lotes_Anulados extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Reporte de Lotes Anulados");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 25, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -75,11 +98,6 @@ public class Lotes_Anulados extends javax.swing.JFrame {
         jLabel2.setText("Digite el lote a consultar:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 81, 238, 35));
 
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
-        jTextField1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 81, 321, 35));
-
         btn_BuscarLote.setBackground(new java.awt.Color(0, 0, 0));
         btn_BuscarLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         btn_BuscarLote.setForeground(new java.awt.Color(255, 255, 0));
@@ -99,16 +117,24 @@ public class Lotes_Anulados extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Bodega", "Fecha de la orden", "Producto"
+                "Bodega", "Fecha Vencimiento Lote", "Producto"
             }
         ));
         jScrollPane1.setViewportView(tablaLotesAnulados);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 134, 902, 500));
 
+        lbl_FechaActual.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        lbl_FechaActual.setForeground(new java.awt.Color(255, 255, 0));
+        lbl_FechaActual.setText("jLabel4");
+        getContentPane().add(lbl_FechaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 260, 40));
+
+        cb_Lotes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cb_Lotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 250, -1));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 750));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -163,12 +189,13 @@ public class Lotes_Anulados extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_BuscarLote;
+    private javax.swing.JComboBox<String> cb_Lotes;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lbl_FechaActual;
     private javax.swing.JLabel lbl_LOGO;
     private javax.swing.JTable tablaLotesAnulados;
     // End of variables declaration//GEN-END:variables

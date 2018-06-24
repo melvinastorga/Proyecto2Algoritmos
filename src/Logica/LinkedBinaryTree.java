@@ -350,7 +350,7 @@ public class LinkedBinaryTree implements BinaryTree {
 
     }
 
-    public LinkedList preOrder(BinaryNode node) {
+    public LinkedList<ProductoMayorista> preOrder(BinaryNode node) {
         LinkedList<ProductoMayorista> list = new LinkedList<>();
         if (node != null) {
             list.add((ProductoMayorista) node.element);

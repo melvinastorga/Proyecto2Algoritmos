@@ -53,22 +53,7 @@ public class InsertLote extends javax.swing.JFrame {
             }
             lbl_ID2.setText(id+"");
         }
-  
-        
-      
-        
-//        if(listaTransporte.isEmpty()){
-//        lbl_ID2.setText("1");
-//        }else{
-//            Iterator it = listaTransporte.keySet().iterator();
-//            while(it.hasNext()){
-//                Integer key = (Integer)it.next();
-//                id = listaTransporte.get(key).getId()+1;
-//               
-//            }
-//            lbl_ID2.setText(id+"");
-        //}
-        
+
     }
 
     /**
