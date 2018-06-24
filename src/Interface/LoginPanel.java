@@ -55,6 +55,7 @@ public class LoginPanel extends javax.swing.JFrame {
     public LoginPanel() {
         initComponents();
         this.setLocationRelativeTo(null);
+       ordenDsitribucion();
     }
 
     /**
@@ -288,6 +289,16 @@ public class LoginPanel extends javax.swing.JFrame {
             System.out.println(categoria.get(key).getId());
         }
         return listLotes;
+    }
+    public ArrayList ordenDsitribucion(){
+        ArrayList A=new ArrayList();
+        for(OrdenDistribucion s:orden){
+            A.add(s);
+            
+     
+  }
+        
+   return A;
     }
 
     /**

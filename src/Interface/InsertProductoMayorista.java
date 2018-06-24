@@ -222,7 +222,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
                 btn_InsertOProductoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_InsertOProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 900, 276, 63));
+        getContentPane().add(btn_InsertOProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 760, 276, 63));
 
         cb_UnidadMedida.setBackground(new java.awt.Color(0, 0, 0));
         cb_UnidadMedida.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -239,10 +239,10 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 970, 280, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 850, 280, 60));
 
         lbl_LOGO.setText("jLabel2");
-        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 910, 140, 120));
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 760, 140, 120));
 
         cb_IDLote.setBackground(new java.awt.Color(0, 0, 0));
         cb_IDLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N

@@ -5,6 +5,9 @@
  */
 package Logica;
 
+import Domain.OrdenDistribucion;
+import static Interface.LoginPanel.orden;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -162,7 +165,14 @@ public class GraphAdyacency implements Graph {
         }
         return list;
     }
-
+     public ArrayList valoresBodega() {
+        ArrayList list=new ArrayList();
+        for (int i = 0; i < this.counter; i++) {
+            list.add(this.vertexList[i].element);
+        }
+        return list;
+    }
+   
     @Override
     public void deleteVertex(Object element) throws GraphException {
 

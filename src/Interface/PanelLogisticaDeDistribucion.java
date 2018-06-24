@@ -15,6 +15,7 @@ import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,6 +48,8 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
     public PanelLogisticaDeDistribucion() {
         initComponents();
+        LoginPanel login=new LoginPanel();
+        ArrayList A=login.ordenDsitribucion();
     }
 
     public PanelLogisticaDeDistribucion(String nombre, int operadorId) {
