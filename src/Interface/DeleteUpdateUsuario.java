@@ -5,13 +5,17 @@
  */
 package Interface;
 
+import Domain.ProductoMayorista;
+import Domain.ProductoMayoristaPorOrden;
 import Domain.UnidadTransporte;
 import Domain.Usuario;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -35,27 +39,38 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
         model.setRowCount(0);
         Object O[] = null;
 
-        for (int i = 0; i < LoginPanel.usuario.size(); i++) {
+        cargarTablaUsuario(tabla_Usuarios, LoginPanel.usuario);
+       tfd_IDUsuarioAEliminar.setEnabled(false);
+       tfd_IDUsuarioAActualizar.setEnabled(false);
+    }
+    
 
+     public void cargarTablaUsuario(JTable producto, LinkedList<Usuario> list) {
+        DefaultTableModel model = (DefaultTableModel) producto.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+  
             String admin = "";
 
             model.addRow(O);
-            Usuario user = (Usuario) LoginPanel.usuario.get(i);
-            if (user.getAdministrador()) {
+            Usuario usuario3 = (Usuario) LoginPanel.usuario.get(i);
+            if (usuario3.getAdministrador()) {
                 admin = "administrador";
             } else {
                 admin = "operador";
             }
-
-            model.setValueAt(user.getId(), i, 0);
-            model.setValueAt(user.getNombre(), i, 1);
+            
+            model.addRow(O);
+            Usuario usuario = (Usuario) list.get(i);
+          Usuario usuario1 = (Usuario) list.get(i);
+          model.setValueAt(usuario.getId(), i, 0);
+            model.setValueAt(usuario.getNombre(), i, 1);
             model.setValueAt(admin, i, 2);
-            model.setValueAt(user.getUsuario(), i, 3);
-            // model.setValueAt(user.getContraseña(), i, 4);
-        }
-        System.out.println(LoginPanel.usuario.get(1).getContraseña());
+            model.setValueAt(usuario.getUsuario(), i, 3);
+         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,6 +94,18 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
         tfd_ContraseñaNueva = new javax.swing.JPasswordField();
         btn_CambiarContraseña = new javax.swing.JButton();
         lbl_MensajeContraseña = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tfd_IDUsuarioAEliminar = new javax.swing.JTextField();
+        lbl_Mensaje = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        tfd_NombreActualizado = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        tfd_UsuarioActualizado = new javax.swing.JTextField();
+        btn_Actualizar = new javax.swing.JButton();
+        cb_RolActualizado = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        tfd_IDUsuarioAActualizar = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,9 +128,14 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
                 "ID", "Nombre", "Rol", "Usuario"
             }
         ));
+        tabla_Usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_UsuariosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_Usuarios);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 86, 844, 538));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 844, 538));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -117,10 +149,10 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(839, 11, 124, 57));
 
         lbl_LOGO.setText("jLabel2");
-        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(773, 724, 190, 181));
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 670, 190, 181));
 
         btn_Eliminar.setBackground(new java.awt.Color(0, 0, 0));
-        btn_Eliminar.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        btn_Eliminar.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         btn_Eliminar.setForeground(new java.awt.Color(255, 255, 0));
         btn_Eliminar.setText("Eliminar");
         btn_Eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,22 +160,22 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
                 btn_EliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 652, -1, -1));
+        getContentPane().add(btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 790, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("Digite el ID del usuario que quiera cambiar la contraseña");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 697, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 700, -1, -1));
 
         tfd_DigiteID.setBackground(new java.awt.Color(0, 0, 0));
         tfd_DigiteID.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         tfd_DigiteID.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(tfd_DigiteID, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 700, 91, -1));
+        getContentPane().add(tfd_DigiteID, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 700, 91, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Digite la contraseña actual del usuario");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 740, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 740, -1, -1));
 
         tfd_ContraseñaVieja.setBackground(new java.awt.Color(0, 0, 0));
         tfd_ContraseñaVieja.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
@@ -153,20 +185,20 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
                 tfd_ContraseñaViejaActionPerformed(evt);
             }
         });
-        getContentPane().add(tfd_ContraseñaVieja, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 740, 172, -1));
+        getContentPane().add(tfd_ContraseñaVieja, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 740, 172, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Digite la nueva contraseña");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 777, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 780, -1, -1));
 
         tfd_ContraseñaNueva.setBackground(new java.awt.Color(0, 0, 0));
         tfd_ContraseñaNueva.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         tfd_ContraseñaNueva.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(tfd_ContraseñaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 770, 172, -1));
+        getContentPane().add(tfd_ContraseñaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 780, 172, -1));
 
         btn_CambiarContraseña.setBackground(new java.awt.Color(0, 0, 0));
-        btn_CambiarContraseña.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        btn_CambiarContraseña.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         btn_CambiarContraseña.setForeground(new java.awt.Color(255, 255, 0));
         btn_CambiarContraseña.setText("Cambiar contraseña");
         btn_CambiarContraseña.addActionListener(new java.awt.event.ActionListener() {
@@ -174,15 +206,77 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
                 btn_CambiarContraseñaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_CambiarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 806, -1, -1));
+        getContentPane().add(btn_CambiarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 810, -1, -1));
 
         lbl_MensajeContraseña.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_MensajeContraseña.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(lbl_MensajeContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 850, 600, 40));
 
+        jLabel6.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel6.setText("ID Seleccionado");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 700, 130, -1));
+
+        tfd_IDUsuarioAEliminar.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_IDUsuarioAEliminar.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(tfd_IDUsuarioAEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 730, 130, -1));
+
+        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        lbl_Mensaje.setForeground(new java.awt.Color(255, 255, 0));
+        lbl_Mensaje.setText("jLabel7");
+        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 640, 380, -1));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel7.setText("Nombre");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 220, -1, -1));
+
+        tfd_NombreActualizado.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_NombreActualizado.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_NombreActualizado.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(tfd_NombreActualizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 270, 140, -1));
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel8.setText("Rol");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 330, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel9.setText("Usuario");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 440, -1, -1));
+
+        tfd_UsuarioActualizado.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_UsuarioActualizado.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        tfd_UsuarioActualizado.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(tfd_UsuarioActualizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 500, 140, -1));
+
+        btn_Actualizar.setBackground(new java.awt.Color(0, 0, 0));
+        btn_Actualizar.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        btn_Actualizar.setForeground(new java.awt.Color(255, 255, 0));
+        btn_Actualizar.setText("Actualizar");
+        btn_Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ActualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, -1, -1));
+
+        cb_RolActualizado.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        cb_RolActualizado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMINISTRADOR", "OPERADOR" }));
+        getContentPane().add(cb_RolActualizado, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 360, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel10.setText("ID Seleccionado");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 100, -1, -1));
+
+        tfd_IDUsuarioAActualizar.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        getContentPane().add(tfd_IDUsuarioAActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 150, 80, -1));
+
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 910));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 910));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -196,6 +290,22 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
 
     private void btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarActionPerformed
         // TODO add your handling code here:
+        String idBuscada = tfd_IDUsuarioAEliminar.getText();
+        String miID = "no lo borraste";
+        for (int i = 0; i < LoginPanel.usuario.size(); i++) {
+  
+            Usuario usuario = (Usuario) LoginPanel.usuario.get(i);
+            if(usuario.getId()== Integer.parseInt(idBuscada)){
+                LoginPanel.usuario.remove(usuario);
+                miID = "LO BORRASTE";
+                tfd_IDUsuarioAEliminar.setText("");
+                lbl_Mensaje.setText("El usuario ha sido eliminado con exito");
+                break;
+            }
+            
+         }
+        System.out.println(miID);
+         cargarTablaUsuario(tabla_Usuarios, LoginPanel.usuario);
     }//GEN-LAST:event_btn_EliminarActionPerformed
 
     private void tfd_ContraseñaViejaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfd_ContraseñaViejaActionPerformed
@@ -259,6 +369,60 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_CambiarContraseñaActionPerformed
 
+    private void tabla_UsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_UsuariosMouseClicked
+        // TODO add your handling code here:
+          this.lbl_Mensaje.setText("");
+        int row = this.tabla_Usuarios.getSelectedRow();
+        int id = Integer.parseInt(this.tabla_Usuarios.getValueAt(row, 0).toString());
+        tfd_IDUsuarioAEliminar.setText(id+"");
+        tfd_IDUsuarioAActualizar.setText(id+"");
+        
+         for (int i = 0; i < LoginPanel.usuario.size(); i++) {
+               Usuario usuario = (Usuario) LoginPanel.usuario.get(i);
+            if(usuario.getId()== Integer.parseInt(tfd_IDUsuarioAActualizar.getText())){
+               tfd_NombreActualizado.setText(usuario.getNombre());
+               tfd_UsuarioActualizado.setText(usuario.getUsuario());
+                break;
+            }
+         }
+  
+         //cargarTablaUsuario(tabla_Usuarios, LoginPanel.usuario);
+
+    }//GEN-LAST:event_tabla_UsuariosMouseClicked
+
+    private void btn_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ActualizarActionPerformed
+        // TODO add your handling code here:
+        if(tfd_NombreActualizado.getText().equals("")||tfd_UsuarioActualizado.getText().equals("")){
+            lbl_Mensaje.setText("Digite todos los espacios a actualizar");
+        }else{
+            for (int i = 0; i < LoginPanel.usuario.size(); i++) {
+               Usuario usuario = (Usuario) LoginPanel.usuario.get(i);
+            if(usuario.getId()== Integer.parseInt(tfd_IDUsuarioAActualizar.getText())){
+                LoginPanel.usuario.get(i).setNombre(tfd_NombreActualizado.getText());
+                LoginPanel.usuario.get(i).setUsuario(tfd_UsuarioActualizado.getText());
+                String rol = "";
+            boolean admin = false;
+            
+            if (cb_RolActualizado.getSelectedIndex()==0){
+                rol = "administrador";
+                admin = true;
+            }
+            if (cb_RolActualizado.getSelectedIndex()==1){
+                  rol = "operador";
+                  admin = false;
+            }
+            LoginPanel.usuario.get(i).setAdministrador(admin);
+                break;
+            }
+         }
+        }
+        tfd_IDUsuarioAActualizar.setText("");
+        tfd_NombreActualizado.setText("");
+        tfd_UsuarioActualizado.setText("");
+        cargarTablaUsuario(tabla_Usuarios, LoginPanel.usuario);
+    }//GEN-LAST:event_btn_ActualizarActionPerformed
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -296,20 +460,32 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_Actualizar;
     private javax.swing.JButton btn_CambiarContraseña;
     private javax.swing.JButton btn_Eliminar;
+    private javax.swing.JComboBox<String> cb_RolActualizado;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_LOGO;
+    private javax.swing.JLabel lbl_Mensaje;
     private javax.swing.JLabel lbl_MensajeContraseña;
     private javax.swing.JTable tabla_Usuarios;
     private javax.swing.JPasswordField tfd_ContraseñaNueva;
     private javax.swing.JPasswordField tfd_ContraseñaVieja;
     private javax.swing.JTextField tfd_DigiteID;
+    private javax.swing.JTextField tfd_IDUsuarioAActualizar;
+    private javax.swing.JTextField tfd_IDUsuarioAEliminar;
+    private javax.swing.JTextField tfd_NombreActualizado;
+    private javax.swing.JTextField tfd_UsuarioActualizado;
     // End of variables declaration//GEN-END:variables
 }

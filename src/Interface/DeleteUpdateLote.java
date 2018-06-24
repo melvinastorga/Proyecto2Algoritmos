@@ -5,12 +5,17 @@
  */
 package Interface;
 
+import Domain.Categoria;
 import Domain.Lote;
 import java.awt.Image;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Melvin
  */
 public class DeleteUpdateLote extends javax.swing.JFrame {
-
+ SimpleDateFormat formart1 = new SimpleDateFormat("dd-MM-yyyy");
     /**
      * Creates new form deleteUpdateLote
      */
@@ -39,21 +44,16 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
         ArrayList listLotes = new ArrayList();
         Iterator it = LoginPanel.lote.keySet().iterator();
         while (it.hasNext()) {
-            System.out.println("ENTRE AL WHILE MEN");
+            
             Object key = it.next();
             listLotes.add(LoginPanel.lote.get(key));
 
-            System.out.println(LoginPanel.lote.get(key).getId());
+           
         }
 
-        for (int i = 0; i < listLotes.size(); i++) {
-            model.addRow(O);
-            Lote cat = (Lote) listLotes.get(i);
-            model.setValueAt(cat.getId(), i, 0);
-            model.setValueAt(cat.getCodigoLote(), i, 1);
-            model.setValueAt(cat.getFechaEmpacado(), i, 2);
-            model.setValueAt(cat.getFechaVencimiento(), i, 3);
-        }
+        cargarTablaLote(tabla_Lote, listLotes);
+        tfd_IDLoteAEliminar.setEnabled(false);
+       
     }
 
     /**
@@ -71,6 +71,9 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        tfd_IDLoteAEliminar = new javax.swing.JTextField();
+        lbl_Mensaje = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,6 +96,11 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
                 "ID", "Codigo Lote", "Fecha Empacado", "Fecha Vencimiento"
             }
         ));
+        tabla_Lote.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_LoteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_Lote);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 100, 774, 529));
@@ -114,8 +122,25 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 0));
-        jButton2.setText("Delete");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 660, -1, -1));
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 690, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setText("La ID del Lote a eliminar es:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 700, -1, -1));
+
+        tfd_IDLoteAEliminar.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        getContentPane().add(tfd_IDLoteAEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 700, 160, -1));
+
+        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Mensaje.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 650, 360, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -124,12 +149,82 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public void cargarTablaLote(JTable producto, ArrayList<Lote> list) {
+        DefaultTableModel model = (DefaultTableModel) producto.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+  
+           
+            
+            model.addRow(O);
+            Lote lote = (Lote) list.get(i);
+          Lote lote1 = (Lote) list.get(i);
+          
+                   Date date = new Date();
+        DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+String fechaEmpaque = (""+hourdateFormat.format(lote1.getFechaEmpacado()));
+          String fechaVencimiento = getFecha(lote1.getFechaVencimiento());
+           
+          
+            model.setValueAt(lote1.getId(), i, 0);
+            model.setValueAt(lote1.getCodigoLote(), i, 1);
+            model.setValueAt(fechaEmpaque, i, 2);
+            model.setValueAt(fechaVencimiento, i, 3);
+         }
+        
+       
+    }                                        
+
+
+    public String getFecha(Date date){
+       
+            return formart1.format(date);
+        
+    }
+    //fin loqueras
+    //}
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         AdministratorPanel administradorPanel = new AdministratorPanel();
         this.dispose();
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tabla_LoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_LoteMouseClicked
+        // TODO add your handling code here:
+         this.lbl_Mensaje.setText("");
+        int row = this.tabla_Lote.getSelectedRow();
+        int id = Integer.parseInt(this.tabla_Lote.getValueAt(row, 0).toString());
+        tfd_IDLoteAEliminar.setText(id+""); 
+    }//GEN-LAST:event_tabla_LoteMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         Iterator it = LoginPanel.lote.keySet().iterator();
+        while (it.hasNext()) {
+         
+            Object key = it.next();
+           // listLotes.add(LoginPanel.categoria.get(key));
+           Lote lote = LoginPanel.lote.get(key);
+           if(Integer.parseInt(tfd_IDLoteAEliminar.getText())== lote.getId()){
+               LoginPanel.lote.remove(key);
+               lbl_Mensaje.setText("Lote eliminado con exito");
+               break;
+           }
+        }
+        
+        ArrayList listLotes2 = new ArrayList();
+        Iterator it2 = LoginPanel.lote.keySet().iterator();
+        while (it2.hasNext()) {
+            
+            Object key = it2.next();
+            listLotes2.add(LoginPanel.lote.get(key));
+        }
+        
+        cargarTablaLote(tabla_Lote, listLotes2);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,8 +267,11 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_LOGO;
+    private javax.swing.JLabel lbl_Mensaje;
     private javax.swing.JTable tabla_Lote;
+    private javax.swing.JTextField tfd_IDLoteAEliminar;
     // End of variables declaration//GEN-END:variables
 }

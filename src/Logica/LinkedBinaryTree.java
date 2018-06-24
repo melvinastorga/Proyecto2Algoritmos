@@ -365,9 +365,9 @@ public class LinkedBinaryTree implements BinaryTree {
         String temp = "";
 
         if (node != null) {
-            temp += preOrder(node.left);
+            temp += inOrder(node.left);
             temp += node.element + "\n";
-            temp += preOrder(node.right);
+            temp += inOrder(node.right);
         }
         return temp;
 
@@ -379,12 +379,39 @@ public class LinkedBinaryTree implements BinaryTree {
 
         if (node != null) {
 
-            temp += preOrder(node.left);
-            temp += preOrder(node.right);
+            temp += postOrder(node.left);
+            temp += postOrder(node.right);
             temp += node.element + "\n";
         }
         return temp;
     }
+//    private String postOrderDelete(BinaryNode node, int id) {
+//        
+//        if (node != null) {
+//            if(id == node.element)
+//        }
+//        
+//LinkedList<ProductoMayorista> list = new LinkedList<>();
+//        if (node != null) {
+//            list.add((ProductoMayorista) node.element);
+//            list.addAll(preOrder(node.left));
+//            list.addAll(preOrder(node.right));
+//
+//        }
+//        return list;
+//        
+//        
+//        
+//        String temp = "";
+//
+//        if (node != null) {
+//
+//            temp += postOrderDelete(node.left);
+//            temp += postOrderDelete(node.right);
+//            temp += node.element + "\n";
+//        }
+//        return temp;
+//    }
 
     /**
      * Devuelve un nivel de un arbol binario

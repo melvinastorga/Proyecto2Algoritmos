@@ -5,13 +5,16 @@
  */
 package Interface;
 
+import Domain.Bodega;
 import Domain.Categoria;
 import static Interface.LoginPanel.categoria;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Melvin
  */
 public class DeleteUpdateCategoria extends javax.swing.JFrame {
-
+ArrayList listLotes = new ArrayList();
     /**
      * Creates new form deleteUpdateCategoria
      */
@@ -30,33 +33,18 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
         lbl_LOGO.setIcon(icon2);
         this.repaint();
+
         
-        
-           
-        DefaultTableModel model = (DefaultTableModel) this.jtable_Categoria.getModel();
-        model.setRowCount(0);
-        Object O[] = null;
-        
-             ArrayList listLotes = new ArrayList();
         Iterator it = LoginPanel.categoria.keySet().iterator();
         while (it.hasNext()) {
-            System.out.println("ENTRE AL WHILE MEN");
+            
             Object key = it.next();
             listLotes.add(LoginPanel.categoria.get(key));
-
-            System.out.println(LoginPanel.categoria.get(key).getId());
         }
-        
-        for (int i = 0; i < listLotes.size(); i++) {
-            model.addRow(O);
-            Categoria cat = (Categoria) listLotes.get(i);
-            model.setValueAt(cat.getId(), i, 0);
-            model.setValueAt(cat.getNombre(), i, 1);
-            model.setValueAt(cat.getDescripcion(), i, 2);
-          }
-    
 
-        
+        cargarTablaCategorias(jtable_Categoria, listLotes);
+        tfd_IDCategoriaAEliminar.setEnabled(false);
+
     }
 
     /**
@@ -74,6 +62,9 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        tfd_IDCategoriaAEliminar = new javax.swing.JTextField();
+        lbl_Mensaje = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,6 +87,11 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
                 "ID", "Nombre", "Descripcion"
             }
         ));
+        jtable_Categoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtable_CategoriaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtable_Categoria);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 94, 838, 536));
@@ -117,8 +113,25 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 0));
-        jButton2.setText("Delete");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 669, -1, -1));
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 700, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setText("ID de la categoria a eliminar: ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 700, -1, -1));
+
+        tfd_IDCategoriaAEliminar.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        getContentPane().add(tfd_IDCategoriaAEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 700, 130, -1));
+
+        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Mensaje.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 640, 450, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -127,12 +140,61 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void cargarTablaCategorias(JTable producto, ArrayList<Categoria> list) {
+        DefaultTableModel model = (DefaultTableModel) producto.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+
+            model.addRow(O);
+            Categoria categoria = (Categoria) list.get(i);
+            Categoria categoria1 = (Categoria) list.get(i);
+            model.setValueAt(categoria1.getId(), i, 0);
+            model.setValueAt(categoria1.getNombre(), i, 1);
+            model.setValueAt(categoria1.getDescripcion(), i, 2);
+        }
+    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         AdministratorPanel administradorPanel = new AdministratorPanel();
         this.dispose();
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jtable_CategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtable_CategoriaMouseClicked
+        // TODO add your handling code here:
+           this.lbl_Mensaje.setText("");
+        int row = this.jtable_Categoria.getSelectedRow();
+        int id = Integer.parseInt(this.jtable_Categoria.getValueAt(row, 0).toString());
+        tfd_IDCategoriaAEliminar.setText(id+""); 
+    }//GEN-LAST:event_jtable_CategoriaMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Iterator it = LoginPanel.categoria.keySet().iterator();
+        while (it.hasNext()) {
+          
+            Object key = it.next();
+           // listLotes.add(LoginPanel.categoria.get(key));
+           Categoria cat = LoginPanel.categoria.get(key);
+           if(Integer.parseInt(tfd_IDCategoriaAEliminar.getText())== cat.getId()){
+               LoginPanel.categoria.remove(key);
+               lbl_Mensaje.setText("Categoria eliminada con exito");
+               break;
+           }
+        }
+        
+        ArrayList listLotes2 = new ArrayList();
+        Iterator it2 = LoginPanel.categoria.keySet().iterator();
+        while (it2.hasNext()) {
+            
+            Object key = it2.next();
+            listLotes2.add(LoginPanel.categoria.get(key));
+        }
+        
+        cargarTablaCategorias(jtable_Categoria, listLotes2);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,8 +237,11 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtable_Categoria;
     private javax.swing.JLabel lbl_LOGO;
+    private javax.swing.JLabel lbl_Mensaje;
+    private javax.swing.JTextField tfd_IDCategoriaAEliminar;
     // End of variables declaration//GEN-END:variables
 }

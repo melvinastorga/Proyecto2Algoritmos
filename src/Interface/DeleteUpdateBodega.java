@@ -7,12 +7,20 @@ package Interface;
 
 import Domain.Bodega;
 import Domain.Categoria;
+import Domain.ProductoMayorista;
+import Logica.GraphAdyacency;
+import Logica.GraphException;
+import Logica.LinkedBinaryTree;
+import Logica.TreeExceptions;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -39,19 +47,9 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
         Object O[] = null;
         
              LinkedList<Bodega> listBodega = LoginPanel.bodega.recorreGraph();
+        cargarTablaBodegas(table_Bodega, listBodega);
+        tfd_IDBodegaAEliminar.setEnabled(false);
       
-        
-        for (int i = 0; i < listBodega.size(); i++) {
-            model.addRow(O);
-            Bodega bodega = (Bodega) listBodega.get(i);
-            model.setValueAt(bodega.getId(), i, 0);
-            model.setValueAt(bodega.getNombre(), i, 1);
-            model.setValueAt(bodega.getLatitud(), i, 2);
-            model.setValueAt(bodega.getLongitud(), i, 3);
-             model.setValueAt(bodega.getDistanciaCentroOperaciones(), i, 4);
-            model.setValueAt(bodega.getUrlFoto(), i, 5);
-            
-          }
     }
 
     /**
@@ -69,6 +67,9 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         lbl_ICON = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        tfd_IDBodegaAEliminar = new javax.swing.JTextField();
+        lbl_Mensaje = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,6 +92,11 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
                 "ID", "Nombre", "Latitud", "Longitud", "Distancia", "Fotografia"
             }
         ));
+        table_Bodega.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table_BodegaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(table_Bodega);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 89, 875, 435));
@@ -112,8 +118,25 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 0));
-        jButton2.setText("Delete");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, -1, -1));
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 670, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setText("La ID de la bodega a eliminar es:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 680, 310, -1));
+
+        tfd_IDBodegaAEliminar.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        getContentPane().add(tfd_IDBodegaAEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 680, 200, 30));
+
+        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lbl_Mensaje.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 560, 390, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -122,12 +145,77 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+      public void cargarTablaBodegas(JTable producto, LinkedList<Bodega> list) {
+        DefaultTableModel model = (DefaultTableModel) producto.getModel();
+        model.setRowCount(0);
+        Object O[] = null;
+        for (int i = 0; i < list.size(); i++) {
+  
+            model.addRow(O);
+            Bodega bodega = (Bodega) list.get(i);
+          Bodega bodega1 = (Bodega) list.get(i);
+            model.setValueAt(bodega1.getId(), i, 0);
+            model.setValueAt(bodega1.getNombre(), i, 1);
+            model.setValueAt(bodega1.getLatitud(), i, 2);
+            model.setValueAt(bodega1.getLongitud(), i, 3);
+             model.setValueAt(bodega1.getDistanciaCentroOperaciones(), i, 4);
+            model.setValueAt(bodega1.getUrlFoto(), i, 5);
+
+        }
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         AdministratorPanel administradorPanel = new AdministratorPanel();
         this.dispose();
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void table_BodegaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_BodegaMouseClicked
+        // TODO add your handling code here:
+        this.lbl_Mensaje.setText("");
+        int row = this.table_Bodega.getSelectedRow();
+        int id = Integer.parseInt(this.table_Bodega.getValueAt(row, 0).toString());
+        tfd_IDBodegaAEliminar.setText(id+"");
+        
+    }//GEN-LAST:event_table_BodegaMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+            LinkedList<Bodega> listaBodegas = LoginPanel.bodega.recorreGraph();
+        
+         String idBuscada = tfd_IDBodegaAEliminar.getText();
+        String miID = "no lo borraste";
+        for (int i = 0; i < listaBodegas.size(); i++) {
+  
+            Bodega bodega = (Bodega) listaBodegas.get(i);
+            if(bodega.getId()== Integer.parseInt(idBuscada)){
+                listaBodegas.remove(bodega);
+                miID = "LO BORRASTE";
+                tfd_IDBodegaAEliminar.setText("");
+                lbl_Mensaje.setText("La bodega ha sido eliminado con exito");
+                break;
+            }
+            
+         }
+        
+        GraphAdyacency grafoNuevo = new GraphAdyacency(100);
+       // LinkedBinaryTree arbolNuevo = new LinkedBinaryTree();
+        for (int i = 0; i < listaBodegas.size(); i++) {
+            try {
+                Bodega bodega = (Bodega) listaBodegas.get(i);
+                grafoNuevo.insertVertex(bodega);
+            }   catch (GraphException ex) {
+                    Logger.getLogger(DeleteUpdateBodega.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+        LoginPanel.bodega = grafoNuevo;
+        
+        System.out.println(miID);
+         cargarTablaBodegas(table_Bodega, listaBodegas);
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,8 +258,11 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_ICON;
+    private javax.swing.JLabel lbl_Mensaje;
     private javax.swing.JTable table_Bodega;
+    private javax.swing.JTextField tfd_IDBodegaAEliminar;
     // End of variables declaration//GEN-END:variables
 }

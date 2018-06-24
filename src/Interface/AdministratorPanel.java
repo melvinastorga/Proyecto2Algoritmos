@@ -25,6 +25,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
     public AdministratorPanel() {
         initComponents();
         this.setLocationRelativeTo(null);
+        System.out.println(LoginPanel.orden.size());
         
         ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_ICON.getWidth(), lbl_ICON.getHeight(), Image.SCALE_DEFAULT));
