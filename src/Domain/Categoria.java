@@ -1,7 +1,10 @@
 
 package Domain;
 
-
+/**
+ * Constructor categoria
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
 public class Categoria {
 
     int id;

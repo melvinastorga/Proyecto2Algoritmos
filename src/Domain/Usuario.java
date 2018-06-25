@@ -1,7 +1,10 @@
 
 package Domain;
 
-
+/**
+ * constructor usuario
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
 public class Usuario {
     
     int id;
