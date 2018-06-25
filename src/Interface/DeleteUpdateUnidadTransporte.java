@@ -22,8 +22,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Melvin
+ * Clase donde se borra y modifica la unidad de transporte
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
 
@@ -219,7 +219,10 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Metodo que carga una tabla con una lista de unidades de transporte
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
     public void cargarTablaTransporte(JTable producto, ArrayList<UnidadTransporte> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();
         model.setRowCount(0);

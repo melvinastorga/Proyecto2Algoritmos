@@ -3,7 +3,10 @@ package Domain;
 
 import java.util.LinkedList;
 
-
+/**
+ * Constructor Orden Distribución
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
 public class OrdenDistribucion {
     
     int id;

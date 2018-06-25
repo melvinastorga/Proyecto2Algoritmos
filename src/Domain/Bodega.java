@@ -1,6 +1,9 @@
 
 package Domain;
-
+/**
+ * Contructor bodega
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
 
 public class Bodega {
     

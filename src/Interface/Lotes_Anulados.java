@@ -13,10 +13,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
 /**
- *
- * @author Melvin
+ * Clase donde se anulan los lotes
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class Lotes_Anulados extends javax.swing.JFrame {
 

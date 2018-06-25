@@ -1,5 +1,8 @@
 package Domain;
-
+/**
+ * Constructor Producto Mayorista
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
 public class ProductoMayorista {
 
     int id;

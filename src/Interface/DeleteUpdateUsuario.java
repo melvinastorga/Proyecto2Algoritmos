@@ -19,8 +19,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Melvin
+ * Clase donde se modifica y borra el usuario
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class DeleteUpdateUsuario extends javax.swing.JFrame {
 
@@ -43,7 +43,10 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
        tfd_IDUsuarioAEliminar.setEnabled(false);
        tfd_IDUsuarioAActualizar.setEnabled(false);
     }
-    
+    /**
+ * Metodo que carga una tabla con una lista de usuarios
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
 
      public void cargarTablaUsuario(JTable producto, LinkedList<Usuario> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();
