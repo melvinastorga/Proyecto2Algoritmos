@@ -88,13 +88,9 @@ public class HistorialProductos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Historial = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
@@ -135,16 +131,6 @@ public class HistorialProductos extends javax.swing.JFrame {
         lbl_LOGO.setText("jLabel2");
         getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 710, 160, 120));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel2.setText("Fecha de Inicio");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 120, 25));
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel3.setText("Fecha de fin");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 90, 25));
-
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Categoria");
@@ -159,17 +145,6 @@ public class HistorialProductos extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 0));
         jLabel6.setText("Usuario Operador");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 150, -1));
-
-        jDateChooser1.setBackground(new java.awt.Color(0, 0, 0));
-        jDateChooser1.setForeground(new java.awt.Color(255, 255, 0));
-        jDateChooser1.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 150, 25));
-
-        jDateChooser2.setBackground(new java.awt.Color(0, 0, 0));
-        jDateChooser2.setForeground(new java.awt.Color(255, 255, 0));
-        jDateChooser2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 140, 25));
-        jDateChooser2.getAccessibleContext().setAccessibleDescription("");
 
         tabla_Historial.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         tabla_Historial.setModel(new javax.swing.table.DefaultTableModel(
@@ -385,12 +360,8 @@ public class HistorialProductos extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
