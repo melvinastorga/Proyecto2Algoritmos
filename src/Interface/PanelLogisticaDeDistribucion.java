@@ -237,29 +237,37 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 130, -1, 260));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("Seleccione los producto al mayoreo que desea agregar a su orden");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 470, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Orden de Compra");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 90, 130, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Monto Total a Pagar:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 480, 130, 30));
 
         JL_MontoAPagar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JL_MontoAPagar.setForeground(new java.awt.Color(255, 255, 0));
         JL_MontoAPagar.setText("0");
         getContentPane().add(JL_MontoAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 480, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 0));
         jLabel6.setText("Categoria:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 480, 70, 30));
 
         JL_Categoria.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JL_Categoria.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(JL_Categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 480, 90, 30));
         getContentPane().add(JPB_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 550, 450, 20));
 
+        JB_Confirmacion.setBackground(new java.awt.Color(0, 0, 0));
+        JB_Confirmacion.setForeground(new java.awt.Color(255, 255, 0));
         JB_Confirmacion.setText("Confirmar");
         JB_Confirmacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,6 +276,8 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         });
         getContentPane().add(JB_Confirmacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 600, -1, -1));
 
+        JB_logOut.setBackground(new java.awt.Color(0, 0, 0));
+        JB_logOut.setForeground(new java.awt.Color(255, 255, 0));
         JB_logOut.setText("Log out");
         JB_logOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -312,6 +322,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 10, 30, 30));
 
         JL_User.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JL_User.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(JL_User, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 40, 70, 20));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1370, 10));
 
@@ -320,46 +331,57 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         getContentPane().add(JL_Max, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, 220, 20));
 
         jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 0));
         jLabel7.setText("Total de Peso:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 600, -1, 20));
 
         JL_PesoTotal.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
+        JL_PesoTotal.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(JL_PesoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 600, 70, 20));
 
         jLabel8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 0));
         jLabel8.setText("Numero De Orden:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 20));
 
         JL_OrderID.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        JL_OrderID.setForeground(new java.awt.Color(255, 255, 0));
         JL_OrderID.setText("1");
         getContentPane().add(JL_OrderID, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 40, 20));
 
         jLabel9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 0));
         jLabel9.setText("ID Operador:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, 20));
 
         JL_idOperador.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        JL_idOperador.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(JL_idOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 40, 20));
 
         jLabel10.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 0));
         jLabel10.setText("Bodega de procedencia:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 0));
         jLabel11.setText("Bode de Destino:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 100, 20));
 
         JL_procedencia.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JL_procedencia.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(JL_procedencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 160, 20));
 
         JL_Destino.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JL_Destino.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(JL_Destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 190, 20));
 
         JL_eliminado.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
+        JL_eliminado.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(JL_eliminado, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 100, 150, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo1.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
