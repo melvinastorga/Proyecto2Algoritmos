@@ -20,8 +20,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Melvin
+ * Clase donde se inseta los lotes de productos
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class InsertLote extends javax.swing.JFrame {
 

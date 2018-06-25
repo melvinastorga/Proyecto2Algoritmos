@@ -11,30 +11,25 @@ import Domain.OrdenDistribucion;
 import Domain.ProductoMayoristaPorOrden;
 import Logica.creatorPdf;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.labels.StandardCategoryToolTipGenerator;
 import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.DatasetRenderingOrder;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
- *
- * @author UsuarioPC
+ * Clase donde se crea los graficos que muestran la cantidad de pr3oductos entregados a cada bodega
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class Graficos extends javax.swing.JFrame {
     LoginPanel login=new LoginPanel();
     ArrayList<OrdenDistribucion> a= login.ordenDsitribucion();
     ArrayList<Bodega>bodega=login.bodega.valoresBodega();
+     ChartPanel panel ;
     /**
      * Creates new form Graficos
      */
@@ -57,10 +52,12 @@ public class Graficos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        scrollPane1 = new java.awt.ScrollPane();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -75,11 +72,11 @@ public class Graficos extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addComponent(scrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(scrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 700, 400));
@@ -100,12 +97,21 @@ public class Graficos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 100, 30));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 548));
-
         jButton3.setText("jButton3");
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, -1, -1));
+
+        jButton4.setText("Regresar");
+        jButton4.setActionCommand("");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -2, 720, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -135,32 +141,38 @@ public class Graficos extends javax.swing.JFrame {
         JFreeChart chart = new JFreeChart(plot);
         chart.setTitle("Bodegas");
 
-        ChartPanel panel = new ChartPanel(chart);
-
+         panel = new ChartPanel(chart);
+ 
         jPanel1.setLayout(new java.awt.BorderLayout());
+         
         jPanel1.add(panel);
         jPanel1.validate();
-
-
+        scrollPane1.add(panel);
+        scrollPane1.validate();
+    
        
-        
-
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       Logica.creatorPdf pdf=new creatorPdf();
-    pdf.pdfCreator(jPanel1);
-        
-        
-        
-        
-        
+        Logica.creatorPdf pdf=new creatorPdf();
+        pdf.pdfCreator(panel);
     }//GEN-LAST:event_jButton2ActionPerformed
-  private DefaultCategoryDataset createDataset() {
 
-      // First Series
-     // String series1 = "Vistor";
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+         AdministratorPanel administradorPanel = new AdministratorPanel();
+        this.dispose();
+        administradorPanel.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+ /**
+ * Metodo que utiliza la libreia freechart,para mostrar los datos en una grafica
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ * @return DefaultCategoryDataset
+ */
+    private DefaultCategoryDataset createDataset() {
+
+     
       DefaultCategoryDataset dataset = new DefaultCategoryDataset();
       try {
              ArrayList<OrdenDistribucion> list = grafic();
@@ -229,26 +241,14 @@ public class Graficos extends javax.swing.JFrame {
          } catch (Exception ex) {
             
          }
-//      dataset.addValue(200, series1, "2016-12-19");
-//      dataset.addValue(150, series1, "2016-12-20");
-//      dataset.addValue(100, series1, "2016-12-21");
-//      dataset.addValue(210, series1, "2016-12-22");
-//      dataset.addValue(240, series1, "2016-12-23");
-//      dataset.addValue(195, series1, "2016-12-24");
-//      dataset.addValue(245, series1, "2016-12-25");
-//
-//      // Second Series
-//      String series2 = "Unique Visitor";
-//      dataset.addValue(150, series2, "2016-12-19");
-//      dataset.addValue(130, series2, "2016-12-20");
-//      dataset.addValue(95, series2, "2016-12-21");
-//      dataset.addValue(195, series2, "2016-12-22");
-//      dataset.addValue(200, series2, "2016-12-23");
-//      dataset.addValue(180, series2, "2016-12-24");
-//      dataset.addValue(230, series2, "2016-12-25");
 
       return dataset;
    }
+    /**
+ * Metodo que ordena el ArrayList de orden de distribucion
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ * @return ArrayList
+ */
    public ArrayList grafic(){
      
         for (int i = 0; i < a.size(); i++) {
@@ -262,7 +262,7 @@ public class Graficos extends javax.swing.JFrame {
            
        }
        System.err.println(a.toString());
-   
+       
   return  a;     
    }
 
@@ -305,9 +305,11 @@ public class Graficos extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private java.awt.ScrollPane scrollPane1;
     // End of variables declaration//GEN-END:variables
 }

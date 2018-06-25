@@ -21,8 +21,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Melvin
+ * Clase donde se  borra y modifica los productos mayorista
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class DeleteUpdateProductoMayorista extends javax.swing.JFrame {
 
@@ -312,6 +312,7 @@ public class DeleteUpdateProductoMayorista extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         if(tfd_IDProductoAActualizar.getText().equals("")||tfd_DescripcionActualizada.getText().equals("")||tfd_FotoActualizada.getText().equals("")||tfd_NombreActualizado.getText().equals("")|| tfd_PesoTotalctualizado.getText().equals("")||tfd_PrecioTotalActualizada.getText().equals("")||tfd_ValorUnidadActualizado.getText().equals("")){
@@ -370,6 +371,12 @@ public class DeleteUpdateProductoMayorista extends javax.swing.JFrame {
                lbl_FotoActualizada.setIcon(null);
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+
+/**
+ * Metodo que carga una tabla con una lista de productos Mayoristas
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
 
     public void cargarTablaProductoMayorista(JTable producto, LinkedList<ProductoMayorista> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();

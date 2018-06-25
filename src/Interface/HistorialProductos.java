@@ -16,13 +16,15 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
- *
- * @author Melvin
+ * Clase donde se observa el historial de productos
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class HistorialProductos extends javax.swing.JFrame {
 

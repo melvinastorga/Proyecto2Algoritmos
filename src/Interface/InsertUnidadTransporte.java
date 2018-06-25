@@ -17,8 +17,8 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author Melvin
+ * Clase donde se inserta la unidad d transporte
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class InsertUnidadTransporte extends javax.swing.JFrame {
 

@@ -1,7 +1,10 @@
 
 package Domain;
 
-
+/**
+ * contructor unidad de transporte
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
 public class UnidadTransporte {
     
     int id;

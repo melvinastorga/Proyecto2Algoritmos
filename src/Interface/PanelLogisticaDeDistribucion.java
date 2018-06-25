@@ -26,8 +26,8 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author deltadragon
+ * Clase donde se escoge la distribucion delos productos a cada bodega
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
@@ -48,14 +48,15 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
     public PanelLogisticaDeDistribucion() {
         initComponents();
-        LoginPanel login=new LoginPanel();
-        ArrayList A=login.ordenDsitribucion();
+        LoginPanel login = new LoginPanel();
+        ArrayList A = login.ordenDsitribucion();
     }
 
     public PanelLogisticaDeDistribucion(String nombre, int operadorId) {
         initComponents();
         dim = super.getToolkit().getScreenSize();
         super.setSize(dim);
+        this.jLabel1.setSize(dim);
         System.out.println(dim);
         //super.setLocationRelativeTo(null);
         cargarTablaProductoMayorista(this.JT_productoMayorista, LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root()));
@@ -71,8 +72,15 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
             int id = o.getId() + 1;
             this.JL_OrderID.setText(id + "");
         }
+        this.JT_bodega.setFocusable(true);
     }
 
+    /**
+     * carga la tabla con producto mayoristas
+     *
+     * @param producto
+     * @param list
+     */
     public void cargarTablaProductoMayorista(JTable producto, LinkedList<ProductoMayorista> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();
         model.setRowCount(0);
@@ -89,6 +97,12 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * carga la tabla con productoMAyoristaPorOrden
+     *
+     * @param producto
+     * @param list
+     */
     public void cargarTablaProductoMayoristaPorOrden(JTable producto, LinkedList<ProductoMayoristaPorOrden> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();
         model.setRowCount(0);
@@ -105,6 +119,12 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * carga la tabla con las bodegas
+     *
+     * @param producto
+     * @param list
+     */
     public void cargarBodega(JTable producto, LinkedList<Bodega> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();
         model.setRowCount(0);
@@ -217,32 +237,26 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 130, -1, 260));
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Seleccione los producto al mayoreo que desea agregar a su orden");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 470, 30));
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Orden de Compra");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 90, 130, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Monto Total a Pagar:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 480, 130, 30));
 
         JL_MontoAPagar.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        JL_MontoAPagar.setForeground(new java.awt.Color(0, 0, 0));
         JL_MontoAPagar.setText("0");
         getContentPane().add(JL_MontoAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 480, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Categoria:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 480, 70, 30));
 
         JL_Categoria.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        JL_Categoria.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(JL_Categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 480, 90, 30));
         getContentPane().add(JPB_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 550, 450, 20));
 
@@ -306,55 +320,46 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         getContentPane().add(JL_Max, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, 220, 20));
 
         jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Total de Peso:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 600, -1, 20));
 
         JL_PesoTotal.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 12)); // NOI18N
-        JL_PesoTotal.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(JL_PesoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 600, 70, 20));
 
         jLabel8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Numero De Orden:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 20));
 
         JL_OrderID.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        JL_OrderID.setForeground(new java.awt.Color(0, 0, 0));
         JL_OrderID.setText("1");
         getContentPane().add(JL_OrderID, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 40, 20));
 
         jLabel9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("ID Operador:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, 20));
 
         JL_idOperador.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        JL_idOperador.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(JL_idOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 40, 20));
 
         jLabel10.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Bodega de procedencia:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Bode de Destino:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 100, 20));
 
         JL_procedencia.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        getContentPane().add(JL_procedencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 160, 20));
+        getContentPane().add(JL_procedencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 160, 20));
 
         JL_Destino.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         getContentPane().add(JL_Destino, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 190, 20));
 
         JL_eliminado.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        JL_eliminado.setForeground(new java.awt.Color(0, 0, 0));
         getContentPane().add(JL_eliminado, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 100, 150, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo1.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1366, 768));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -506,22 +511,26 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
     }//GEN-LAST:event_JT_bodegaMouseClicked
 
     private void JB_ConfirmacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ConfirmacionActionPerformed
-        if (pesoTotal < 30000) {
-            int rest = JOptionPane.showConfirmDialog(null, "Aun sobra espacio desea continuar agregando productos?", "Confirmar orden", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (rest == 1) {
-                int res = JOptionPane.showConfirmDialog(null, "Seguro de desea enviar la orden?", "Confirmar orden", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                if (res == 0) {
-                    LoginPanel.orden.add(new OrdenDistribucion(Integer.parseInt(this.JL_OrderID.getText()), bodegaProcedencia, bodegaDestino, montoApagar, pesoTotal, listProducto, Integer.parseInt(this.JL_idOperador.getText())));
-                    try {
-                        LoginPanel.bodega.insertEdge(bodegaProcedencia, bodegaDestino);
-                    } catch (GraphException ex) {
-                        Logger.getLogger(PanelLogisticaDeDistribucion.class.getName()).log(Level.SEVERE, null, ex);
+        if (montoApagar != 0 || bodegaProcedencia != 0 || bodegaDestino != 0 || pesoTotal != 0 || !listProducto.isEmpty()) {
+            if (pesoTotal < 30000) {
+                int rest = JOptionPane.showConfirmDialog(null, "Aun sobra espacio desea continuar agregando productos?", "Confirmar orden", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if (rest == 1) {
+                    int res = JOptionPane.showConfirmDialog(null, "Seguro de desea enviar la orden?", "Confirmar orden", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (res == 0) {
+                        LoginPanel.orden.add(new OrdenDistribucion(Integer.parseInt(this.JL_OrderID.getText()), bodegaProcedencia, bodegaDestino, montoApagar, pesoTotal, listProducto, Integer.parseInt(this.JL_idOperador.getText())));
+                        try {
+                            LoginPanel.bodega.insertEdge(bodegaProcedencia, bodegaDestino);
+                        } catch (GraphException ex) {
+                            Logger.getLogger(PanelLogisticaDeDistribucion.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        this.dispose();
+                        PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(this.JL_User.getText(), Integer.parseInt(this.JL_OrderID.getText()));
+                        p.show();
                     }
-                    this.dispose();
-                    PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(this.JL_User.getText(), Integer.parseInt(this.JL_OrderID.getText()));
-                    p.show();
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Faltan valores para completar la orden con exito");
         }
     }//GEN-LAST:event_JB_ConfirmacionActionPerformed
 

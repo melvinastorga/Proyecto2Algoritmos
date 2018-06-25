@@ -17,10 +17,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 /**
- *
- * @author Melvin
+ * Clase donde se borra y modifica las categorias
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class DeleteUpdateCategoria extends javax.swing.JFrame {
 
@@ -189,7 +188,10 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Metodo que carga un atabla con los valores de los productos con sus categorias
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
     public void cargarTablaCategorias(JTable producto, ArrayList<Categoria> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();
         model.setRowCount(0);

@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package Domain;
-
 /**
- *
- * @author deltadragon
+ * CONSTRUCTOR PRODUCTO MAYORISTA POR ORDEN
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class ProductoMayoristaPorOrden {
     

@@ -12,10 +12,9 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
 /**
- *
- * @author Melvin
+ * Clase donde se encuentra el panel de administrador,donde se tiene un menu donde se puede realizr todos los cruds y ver graficas
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class AdministratorPanel extends javax.swing.JFrame {
 

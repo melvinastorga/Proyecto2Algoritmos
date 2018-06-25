@@ -25,8 +25,8 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author Melvin
+ * Clase donde se inserta los productos mayoristas
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class InsertProductoMayorista extends javax.swing.JFrame{
 

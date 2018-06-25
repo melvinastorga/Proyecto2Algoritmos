@@ -18,8 +18,8 @@ import javax.swing.JOptionPane;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- *
- * @author Melvin
+ * Clase donde se inserta las categorias
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class InsertCategoria extends javax.swing.JFrame {
 

@@ -3,7 +3,10 @@ package Domain;
 
 import java.util.Date;
 
-
+/**
+ * Constructor lote
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
 public class Lote {
     
     int id;

@@ -20,9 +20,10 @@ public class InsertUsuario extends javax.swing.JFrame {
 
   
     
-    /**
-     * Creates new form insertUsuario
-     */
+   /**
+ * Clase donde se inserta el usuario
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
     public InsertUsuario() {
         initComponents();
          ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");

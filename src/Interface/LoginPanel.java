@@ -55,7 +55,7 @@ public class LoginPanel extends javax.swing.JFrame {
     public LoginPanel() {
         initComponents();
         this.setLocationRelativeTo(null);
-       ordenDsitribucion();
+        ordenDsitribucion();
     }
 
     /**
@@ -166,13 +166,6 @@ public class LoginPanel extends javax.swing.JFrame {
 
     private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
         DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-        Date n = null;
-        try {
-            n = format.parse("23-10-2018");
-        } catch (ParseException ex) {
-            Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        lote.put(1, new Lote(1, "44", n, n));
         String sql = "delete from categoria\n"
                 + "delete from lote\n"
                 + "delete from unidadTransporte\n"
@@ -216,7 +209,7 @@ public class LoginPanel extends javax.swing.JFrame {
                 try {
                     statement.executeUpdate("insert ordenDistribucion values(" + o.getId() + "," + o.getIdBodegaPocedencia() + "," + o.getIdBodegaDestino() + "," + o.getMontoTotal() + "," + o.getPesoTotal() + "," + o.getIdOperador() + ")");
                     for (ProductoMayoristaPorOrden p : o.getListaProductos()) {
-                        if (p.getIdOrden()==o.getId()) {
+                        if (p.getIdOrden() == o.getId()) {
                             statement.executeUpdate("insert productoMayoristaPorOrden values(" + p.getId() + "," + p.getIdOrden() + ",'" + p.getNombre() + "','" + p.getUnidadMedida() + "'," + p.getValorUnidad() + "," + p.getPesoTotal() + ",'" + p.getDescripcion() + "'," + p.getIdLote() + "," + p.getIdCategoria() + "," + p.getPrecioTotal() + ",'" + p.getUrlFoto() + "')");
                         }
                     }
@@ -273,7 +266,7 @@ public class LoginPanel extends javax.swing.JFrame {
             Object key = it.next();
             listLotes.add(lote.get(key).getCodigoLote());
 
-           // System.out.println(lote.get(key).getCodigoLote());
+            // System.out.println(lote.get(key).getCodigoLote());
         }
         return listLotes;
     }//fin
@@ -290,6 +283,7 @@ public class LoginPanel extends javax.swing.JFrame {
         }
         return listLotes;
     }
+
     
     public ArrayList<Categoria> CategoriaCompleta() {
         ArrayList listLotes = new ArrayList();
@@ -308,12 +302,9 @@ public class LoginPanel extends javax.swing.JFrame {
     public ArrayList ordenDsitribucion(){
         ArrayList A=new ArrayList();
         for(OrdenDistribucion s:orden){
-            A.add(s);
-            
-     
-  }
-        
-   return A;
+        }
+
+        return A;
     }
 
     /**

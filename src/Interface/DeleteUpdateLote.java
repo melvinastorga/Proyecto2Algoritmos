@@ -18,10 +18,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 /**
- *
- * @author Melvin
+ * Clase donde se modifica y se borra los lotes de productos
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class DeleteUpdateLote extends javax.swing.JFrame {
 
@@ -228,7 +227,10 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Metodo  donde se carga una tabla con los productos con su respectivos lotes
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
     public void cargarTablaLote(JTable producto, ArrayList<Lote> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();
         model.setRowCount(0);
