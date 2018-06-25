@@ -153,7 +153,7 @@ public class LoginPanel extends javax.swing.JFrame {
                 this.dispose();
                 break;
             } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == true) {
-                AdministratorPanel a = new AdministratorPanel();
+                AdministratorPanel a = new AdministratorPanel(u.getNombre());
                 a.setVisible(true);
                 this.dispose();
                 break;
@@ -248,7 +248,7 @@ public class LoginPanel extends javax.swing.JFrame {
                 this.dispose();
                 break;
             } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == true) {
-                AdministratorPanel a = new AdministratorPanel();
+                AdministratorPanel a = new AdministratorPanel(u.getNombre());
                 a.setVisible(true);
                 this.dispose();
                 break;

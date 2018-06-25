@@ -48,16 +48,14 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
     public PanelLogisticaDeDistribucion() {
         initComponents();
+        System.out.println("ENTRE AL CONSTRUCTOR 1");
         LoginPanel login = new LoginPanel();
         ArrayList A = login.ordenDsitribucion();
     }
 
     public PanelLogisticaDeDistribucion(String nombre, int operadorId) {
         initComponents();
-        dim = super.getToolkit().getScreenSize();
-        super.setSize(dim);
-        this.jLabel1.setSize(dim);
-        System.out.println(dim);
+        this.setLocationRelativeTo(null);
         //super.setLocationRelativeTo(null);
         cargarTablaProductoMayorista(this.JT_productoMayorista, LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root()));
         cargarBodega(this.JT_bodega, LoginPanel.bodega.recorreGraph());
@@ -176,7 +174,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setSize(new java.awt.Dimension(1366, 768));
+        setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JT_productoMayorista.setModel(new javax.swing.table.DefaultTableModel(
@@ -381,7 +379,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         getContentPane().add(JL_eliminado, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 100, 150, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo1.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 1580, 840));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

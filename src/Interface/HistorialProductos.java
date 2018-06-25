@@ -21,9 +21,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
 /**
  * Clase donde se observa el historial de productos
+ *
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class HistorialProductos extends javax.swing.JFrame {
@@ -66,12 +66,12 @@ public class HistorialProductos extends javax.swing.JFrame {
 
         for (Bodega b : listaBodegas) {
 
-            cb_Bodega.addItem(b.getNombre());
+            cb_Oden.addItem(b.getNombre());
         }
 
         //Aqui trato de meterle productos a la tabla
-         LinkedList listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
-        cargaTablaProductos(tabla_Historial,listaProductos);
+        LinkedList listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
+        cargaTablaProductos(tabla_Historial, listaProductos);
 
     }
 
@@ -99,7 +99,7 @@ public class HistorialProductos extends javax.swing.JFrame {
         cb_Categia = new javax.swing.JComboBox<>();
         cb_Lote = new javax.swing.JComboBox<>();
         cb_Usuario = new javax.swing.JComboBox<>();
-        cb_Bodega = new javax.swing.JComboBox<>();
+        cb_Oden = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         cb_Filtrado = new javax.swing.JComboBox<>();
         lbl_Mensaje = new javax.swing.JLabel();
@@ -175,7 +175,7 @@ public class HistorialProductos extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel7.setText("Digite el nombre de la bodega");
+        jLabel7.setText("Seleccione la orden de distribucion");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 68, 240, -1));
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
@@ -198,8 +198,8 @@ public class HistorialProductos extends javax.swing.JFrame {
         cb_Usuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null" }));
         getContentPane().add(cb_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, -1, -1));
 
-        cb_Bodega.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null" }));
-        getContentPane().add(cb_Bodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 130, -1));
+        cb_Oden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null" }));
+        getContentPane().add(cb_Oden, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 130, -1));
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
 
         cb_Filtrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "Bodega", "Categoria", "Lote", "Usuario" }));
@@ -221,13 +221,13 @@ public class HistorialProductos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void cargaTablaProductos(JTable tabla ,LinkedList list) {
+    public void cargaTablaProductos(JTable tabla, LinkedList list) {
         String nombreCategoria = "";
         DefaultTableModel model = (DefaultTableModel) tabla.getModel();
         model.setRowCount(0);
         Object O[] = null;
         // Arraylist listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root();
-       
+
         for (int i = 0; i < list.size(); i++) {
             model.addRow(O);
             ProductoMayorista producto = (ProductoMayorista) list.get(i);
@@ -241,7 +241,7 @@ public class HistorialProductos extends javax.swing.JFrame {
                 // listLotes.add(LoginPanel.categoria.get(key));
                 Categoria cat = LoginPanel.categoria.get(key);
                 if (idCategoria == cat.getId()) {
-                    
+
                     nombreCategoria = cat.getNombre();
                 }
             }
@@ -267,51 +267,106 @@ public class HistorialProductos extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         String filtrado = (String) cb_Filtrado.getSelectedItem();
-        if(filtrado.equals("null")){
+        if (filtrado.equals("null")) {
+            System.out.println("ENTRE AL NULL");
             lbl_Mensaje.setText("Escoja un filtro");
-        }else{
-        
-        String categoriaAFiltrar = (String) cb_Categia.getSelectedItem();
-       // System.out.println(categoriaAFiltrar+" HAAA");
-        String loteAFiltrat = (String)  cb_Lote.getSelectedItem();
-        String bodegaAFiltrar =(String) cb_Bodega.getSelectedItem();
-        String usuarioAFiltrar = (String) cb_Usuario.getSelectedItem();
-        String fechaInicioAFiltrar = "";
-        String  fechaFinalAFiltrar = "";
-        int idCategoriaAFiltrar = 0;
-        LinkedList<ProductoMayorista> listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
-        LinkedList listaProductosFiltrada = new LinkedList();
-        
-        if(!categoriaAFiltrar.equals("null")){
-         ArrayList<Categoria> listCategoria = new ArrayList();
-        Iterator it = LoginPanel.categoria.keySet().iterator();
-        while (it.hasNext()) {
-            
-            Object key = it.next();
-            listCategoria.add(LoginPanel.categoria.get(key));
-        }
-        
-        for (int i = 0; i < listCategoria.size(); i++) {
-            
-            Categoria cat = listCategoria.get(i);
-            if(cat.getNombre().equals(categoriaAFiltrar)){
-                idCategoriaAFiltrar = cat.getId();
-            }
-        }
-        
-        for (int i = 0; i < listaProductos.size(); i++) {
-            
-            ProductoMayorista producto = listaProductos.get(i);
-            
-            if(producto.getIdCategoria()==  idCategoriaAFiltrar){
-               listaProductosFiltrada.add(producto);
+        } else {
+
+            if (filtrado.equalsIgnoreCase("categoria")) {
+                String categoriaAFiltrar = (String) cb_Categia.getSelectedItem();
+                // System.out.println(categoriaAFiltrar+" HAAA");
+                String loteAFiltrat = (String) cb_Lote.getSelectedItem();
+                String bodegaAFiltrar = (String) cb_Oden.getSelectedItem();
+                String usuarioAFiltrar = (String) cb_Usuario.getSelectedItem();
+                String fechaInicioAFiltrar = "";
+                String fechaFinalAFiltrar = "";
+                int idCategoriaAFiltrar = 0;
+                LinkedList<ProductoMayorista> listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
+                LinkedList listaProductosFiltrada = new LinkedList();
+
+                if (!categoriaAFiltrar.equals("null")) {
+                    ArrayList<Categoria> listCategoria = new ArrayList();
+                    Iterator it = LoginPanel.categoria.keySet().iterator();
+                    while (it.hasNext()) {
+
+                        Object key = it.next();
+                        listCategoria.add(LoginPanel.categoria.get(key));
+                    }
+
+                    for (int i = 0; i < listCategoria.size(); i++) {
+
+                        Categoria cat = listCategoria.get(i);
+                        if (cat.getNombre().equals(categoriaAFiltrar)) {
+                            idCategoriaAFiltrar = cat.getId();
+                        }
+                    }
+
+                    for (int i = 0; i < listaProductos.size(); i++) {
+
+                        ProductoMayorista producto = listaProductos.get(i);
+
+                        if (producto.getIdCategoria() == idCategoriaAFiltrar) {
+                            listaProductosFiltrada.add(producto);
+
+                        }
+                    }
+                    cargaTablaProductos(tabla_Historial, listaProductosFiltrada);
+                } else {
+                    cargaTablaProductos(tabla_Historial, listaProductos);
+                }
 
             }
-        }
-        cargaTablaProductos(tabla_Historial, listaProductosFiltrada);
-        }else{
-           cargaTablaProductos(tabla_Historial, listaProductos); 
-        }
+            if (filtrado.equalsIgnoreCase("lote")) {
+                System.out.println("ENTRE AL LOTE");
+                String categoriaAFiltrar = (String) cb_Categia.getSelectedItem();
+                // System.out.println(categoriaAFiltrar+" HAAA");
+                String loteAFiltrat = (String) cb_Lote.getSelectedItem();
+                String bodegaAFiltrar = (String) cb_Oden.getSelectedItem();
+                String usuarioAFiltrar = (String) cb_Usuario.getSelectedItem();
+                String fechaInicioAFiltrar = "";
+                String fechaFinalAFiltrar = "";
+                System.out.println(loteAFiltrat + " ANDRES");
+                int idCategoriaAFiltrar = 0;
+                LinkedList<ProductoMayorista> listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
+
+                LinkedList listaProductosFiltrada = new LinkedList();
+
+                if (!loteAFiltrat.equals("null")) {
+                    ArrayList<Categoria> listCategoria = new ArrayList();
+                    Iterator it = LoginPanel.categoria.keySet().iterator();
+                    while (it.hasNext()) {
+
+                        Object key = it.next();
+                        listCategoria.add(LoginPanel.categoria.get(key));
+                    }
+
+                    for (int i = 0; i < listCategoria.size(); i++) {
+
+                        Categoria cat = listCategoria.get(i);
+                        if (cat.getNombre().equals(categoriaAFiltrar)) {
+                            idCategoriaAFiltrar = cat.getId();
+                        }
+                    }
+
+                    for (int i = 0; i < listaProductos.size(); i++) {
+
+                        System.out.println("entre al for");
+
+                        ProductoMayorista producto = listaProductos.get(i);
+
+                        if (producto.getIdLote() == Integer.parseInt(loteAFiltrat)) {
+                            System.out.println("entre al if");
+                            listaProductosFiltrada.add(producto);
+
+                        }
+                    }
+                    cargaTablaProductos(tabla_Historial, listaProductosFiltrada);
+                } else {
+                    cargaTablaProductos(tabla_Historial, listaProductos);
+                }
+
+            }
+
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -351,10 +406,10 @@ public class HistorialProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cb_Bodega;
     private javax.swing.JComboBox<String> cb_Categia;
     private javax.swing.JComboBox<String> cb_Filtrado;
     private javax.swing.JComboBox<String> cb_Lote;
+    private javax.swing.JComboBox<String> cb_Oden;
     private javax.swing.JComboBox<String> cb_Usuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

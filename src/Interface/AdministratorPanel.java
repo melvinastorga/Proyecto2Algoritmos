@@ -21,10 +21,25 @@ public class AdministratorPanel extends javax.swing.JFrame {
     /**
      * Creates new form AdministratorPanel
      */
+   
+    
     public AdministratorPanel() {
-        initComponents();
-        //lb_NombreUsuario.setText("Bienvenido "+);
-        this.setLocationRelativeTo(null);
+     initComponents();
+        System.out.println("ENTRE 1");
+   }
+
+    public AdministratorPanel(String name) {
+           initComponents();
+        lb_NombreUsuario.setText("Bienvenido "+ name);
+       imagenes ();
+       System.out.println("ENTRE 2");
+        
+    }
+    
+    
+    
+    public void imagenes (){
+         this.setLocationRelativeTo(null);
         System.out.println(LoginPanel.orden.size());
         
         ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
@@ -36,9 +51,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
         Icon icon4 = new ImageIcon(icon3.getImage().getScaledInstance(lbl_Fondo.getWidth(), lbl_Fondo.getHeight(), Image.SCALE_DEFAULT));
         lbl_Fondo.setIcon(icon4);
         this.repaint();
-        
     }
-    
     
 
     /**
@@ -88,10 +101,9 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jLabel1.setText("Panel del administrador");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 61));
 
-        lb_NombreUsuario.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lb_NombreUsuario.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         lb_NombreUsuario.setForeground(new java.awt.Color(255, 255, 0));
-        lb_NombreUsuario.setText("Bienvenido Nombre Administrador");
-        getContentPane().add(lb_NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        getContentPane().add(lb_NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 350, 50));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
