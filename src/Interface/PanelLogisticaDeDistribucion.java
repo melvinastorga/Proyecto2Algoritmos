@@ -26,8 +26,8 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author deltadragon
+ * Clase donde se escoge la distribucion delos productos a cada bodega
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 

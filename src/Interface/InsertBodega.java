@@ -20,8 +20,8 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author Melvin
+ * Clase dondee se inserta las bodegas
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class InsertBodega extends javax.swing.JFrame {
 
