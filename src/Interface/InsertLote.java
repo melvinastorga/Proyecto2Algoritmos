@@ -212,13 +212,9 @@ public class InsertLote extends javax.swing.JFrame {
         DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
 String fechaHora = (""+hourdateFormat.format(date));
         
-       // tfd_Empacado.setText(getFecha(calendar_Empacado));
        tfd_Empacado.setText(fechaHora);
-       // calendar_Empacado.get
-        tfd_Vencimiento.setText(getFecha(calendar_Vencimiento));
-        System.out.println(date);
-        System.out.println(calendar_Vencimiento.getDate());
-        
+      
+        tfd_Vencimiento.setText(getFecha(calendar_Vencimiento));  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
