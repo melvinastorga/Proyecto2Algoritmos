@@ -33,7 +33,7 @@ import javax.swing.text.MaskFormatter;
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class DeleteUpdateBodega extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form deleteUpdateBodega
      */
@@ -284,7 +284,7 @@ catch (Exception e)
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        AdministratorPanel administradorPanel = new AdministratorPanel();
+        AdministratorPanel administradorPanel = new AdministratorPanel(AdministratorPanel.nombre);
         this.dispose();
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

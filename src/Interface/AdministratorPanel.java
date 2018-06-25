@@ -18,6 +18,8 @@ import javax.swing.JFrame;
  */
 public class AdministratorPanel extends javax.swing.JFrame {
 
+    public static String nombre;
+    
     /**
      * Creates new form AdministratorPanel
      */
@@ -30,6 +32,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
 
     public AdministratorPanel(String name) {
            initComponents();
+           nombre = name;
         lb_NombreUsuario.setText("Bienvenido "+ name);
        imagenes ();
        System.out.println("ENTRE 2");

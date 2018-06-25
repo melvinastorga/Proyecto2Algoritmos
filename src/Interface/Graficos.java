@@ -162,7 +162,7 @@ public class Graficos extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-         AdministratorPanel administradorPanel = new AdministratorPanel();
+         AdministratorPanel administradorPanel = new AdministratorPanel(AdministratorPanel.nombre);
         this.dispose();
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed

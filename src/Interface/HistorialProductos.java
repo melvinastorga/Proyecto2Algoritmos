@@ -8,6 +8,7 @@ package Interface;
 import Domain.Bodega;
 import Domain.Categoria;
 import Domain.Lote;
+import Domain.OrdenDistribucion;
 import Domain.ProductoMayorista;
 import Domain.Usuario;
 import java.awt.Image;
@@ -62,11 +63,11 @@ public class HistorialProductos extends javax.swing.JFrame {
             }
         }
 
-        LinkedList<Bodega> listaBodegas = LoginPanel.bodega.recorreGraph();
+        LinkedList<OrdenDistribucion> listaOrden = LoginPanel.orden;
 
-        for (Bodega b : listaBodegas) {
+        for (OrdenDistribucion b : listaOrden) {
 
-            cb_Oden.addItem(b.getNombre());
+            cb_Oden.addItem(b.getId()+"");
         }
 
         //Aqui trato de meterle productos a la tabla
@@ -254,7 +255,7 @@ public class HistorialProductos extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        AdministratorPanel administradorPanel = new AdministratorPanel();
+        AdministratorPanel administradorPanel = new AdministratorPanel(AdministratorPanel.nombre);
         this.dispose();
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
