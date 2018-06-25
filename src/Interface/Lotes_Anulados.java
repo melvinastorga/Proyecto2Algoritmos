@@ -128,7 +128,6 @@ public class Lotes_Anulados extends javax.swing.JFrame {
         lbl_FechaActual.setText("jLabel4");
         getContentPane().add(lbl_FechaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 260, 40));
 
-        cb_Lotes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cb_Lotes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 250, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
