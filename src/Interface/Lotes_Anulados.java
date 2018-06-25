@@ -58,6 +58,7 @@ public class Lotes_Anulados extends javax.swing.JFrame {
         while (it.hasNext()) {
 
             Object key = it.next();
+            //
            if(LoginPanel.lote.get(key).getFechaVencimiento().compareTo(date)<0){
             listLotes.add(LoginPanel.lote.get(key));
            }
