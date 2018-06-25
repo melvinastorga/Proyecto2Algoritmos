@@ -278,7 +278,7 @@ public class LoginPanel extends javax.swing.JFrame {
         return listLotes;
     }//fin
 
-    public ArrayList Categoria() {
+    public ArrayList<Categoria> Categoria() {
         ArrayList listLotes = new ArrayList();
         Iterator it = categoria.keySet().iterator();
         while (it.hasNext()) {
@@ -290,6 +290,21 @@ public class LoginPanel extends javax.swing.JFrame {
         }
         return listLotes;
     }
+    
+    public ArrayList<Categoria> CategoriaCompleta() {
+        ArrayList listLotes = new ArrayList();
+        Iterator it = categoria.keySet().iterator();
+        while (it.hasNext()) {
+
+            Object key = it.next();
+            listLotes.add(categoria.get(key));
+
+        }
+        return listLotes;
+    }
+  
+    
+    
     public ArrayList ordenDsitribucion(){
         ArrayList A=new ArrayList();
         for(OrdenDistribucion s:orden){

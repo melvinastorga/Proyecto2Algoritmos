@@ -12,8 +12,10 @@ import Domain.ProductoMayoristaPorOrden;
 import static Interface.LoginPanel.productoMayorista;
 import Logica.LinkedBinaryTree;
 import java.awt.Image;
+import java.awt.List;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -47,8 +49,18 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         if(LoginPanel.productoMayorista.isEmpty()){
         lbl_ID2.setText("1");
         }else{
+            
+            LinkedList<Integer> enteros = new LinkedList<Integer>();
+            
             LinkedList<ProductoMayorista> listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
-            id=((listaProductos.getLast().getId()+1));
+            
+            for (int i = 0; i < listaProductos.size(); i++) {
+                enteros.add(listaProductos.get(i).getId());
+            }
+            
+            Collections.sort(enteros);
+            
+            id=((enteros.getLast()+1));
             lbl_ID2.setText(id+"");
         }
         
@@ -195,7 +207,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         lbl_Fotografia.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Fotografia.setText("Fotografia");
         getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 661, -1, -1));
-        getContentPane().add(lbl_FOTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 730, 210, 170));
+        getContentPane().add(lbl_FOTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 730, 210, 170));
 
         btn_BuscarFoto.setBackground(new java.awt.Color(0, 0, 0));
         btn_BuscarFoto.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -222,7 +234,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
                 btn_InsertOProductoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_InsertOProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 760, 276, 63));
+        getContentPane().add(btn_InsertOProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 910, 276, 63));
 
         cb_UnidadMedida.setBackground(new java.awt.Color(0, 0, 0));
         cb_UnidadMedida.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -239,10 +251,10 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 850, 280, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 990, 280, 60));
 
         lbl_LOGO.setText("jLabel2");
-        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 760, 140, 120));
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 870, 190, 170));
 
         cb_IDLote.setBackground(new java.awt.Color(0, 0, 0));
         cb_IDLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -266,7 +278,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 1030));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 1060));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -314,8 +326,17 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
                 this.repaint();
                 tfd_Nombre.requestFocus();
                 
-                LinkedList<ProductoMayorista> listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
-            id=((listaProductos.getLast().getId()+1));
+              LinkedList<Integer> enteros = new LinkedList<Integer>();
+            
+            LinkedList<ProductoMayorista> listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
+            
+            for (int j = 0; j < listaProductos.size(); j++) {
+                enteros.add(listaProductos.get(j).getId());
+            }
+            
+            Collections.sort(enteros);
+            
+            id=((enteros.getLast()+1));
             lbl_ID2.setText(id+"");
                 
             } catch (Exception e) {
@@ -327,6 +348,8 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
 
     }//GEN-LAST:event_btn_InsertOProductoActionPerformed
 
+    
+    
     private void btn_BuscarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscarFotoActionPerformed
         // TODO add your handling code here:
 

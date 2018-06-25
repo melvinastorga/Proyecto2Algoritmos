@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DeleteUpdateCategoria extends javax.swing.JFrame {
 
-    ArrayList listLotes = new ArrayList();
+    
 
     /**
      * Creates new form deleteUpdateCategoria
@@ -37,6 +37,7 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         lbl_LOGO.setIcon(icon2);
         this.repaint();
         
+        ArrayList listLotes = new ArrayList();
         Iterator it = LoginPanel.categoria.keySet().iterator();
         while (it.hasNext()) {
             
@@ -246,6 +247,10 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
             if (Integer.parseInt(tfd_IDCategoriaAEliminar.getText()) == cat.getId()) {
                 LoginPanel.categoria.remove(key);
                 lbl_Mensaje.setText("Categoria eliminada con exito");
+                tfd_IDCategoriaAEliminar.setText("");
+                tfd_IDCategoriaAActualizar.setText("");
+                tfd_DescripcionActualizada.setText("");
+                tfd_NombreActualizado.setText("");
                 break;
             }
         }

@@ -124,7 +124,7 @@ public class InsertCategoria extends javax.swing.JFrame {
                 btn_InsertCategoriaActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_InsertCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 165, 57));
+        getContentPane().add(btn_InsertCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 165, 57));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -135,10 +135,10 @@ public class InsertCategoria extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 180, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 180, 50));
 
         lbl_LOGO.setText("jLabel1");
-        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 110, 80));
+        getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 170, 130));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");

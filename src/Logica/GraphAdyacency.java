@@ -5,6 +5,7 @@
  */
 package Logica;
 
+import Domain.Bodega;
 import Domain.OrdenDistribucion;
 import static Interface.LoginPanel.orden;
 import java.util.ArrayList;
@@ -158,7 +159,7 @@ public class GraphAdyacency implements Graph {
         return output;
     }
 
-    public LinkedList recorreGraph() {
+    public LinkedList<Bodega> recorreGraph() {
         LinkedList list = new LinkedList();
         for (int i = 0; i < this.counter; i++) {
             list.add(this.vertexList[i].element);

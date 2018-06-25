@@ -24,6 +24,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
      */
     public AdministratorPanel() {
         initComponents();
+        //lb_NombreUsuario.setText("Bienvenido "+);
         this.setLocationRelativeTo(null);
         System.out.println(LoginPanel.orden.size());
         
@@ -38,6 +39,8 @@ public class AdministratorPanel extends javax.swing.JFrame {
         this.repaint();
         
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,7 +53,7 @@ public class AdministratorPanel extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lb_NombreUsuario = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         lbl_ICON = new javax.swing.JLabel();
         lbl_Fondo = new javax.swing.JLabel();
@@ -86,10 +89,10 @@ public class AdministratorPanel extends javax.swing.JFrame {
         jLabel1.setText("Panel del administrador");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 61));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel3.setText("Bienvenido Nombre Administrador");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+        lb_NombreUsuario.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        lb_NombreUsuario.setForeground(new java.awt.Color(255, 255, 0));
+        lb_NombreUsuario.setText("Bienvenido Nombre Administrador");
+        getContentPane().add(lb_NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -436,12 +439,12 @@ public class AdministratorPanel extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel lb_NombreUsuario;
     private javax.swing.JLabel lbl_Fondo;
     private javax.swing.JLabel lbl_ICON;
     private javax.swing.JMenuItem menu_DeleteUpdateBodega;
