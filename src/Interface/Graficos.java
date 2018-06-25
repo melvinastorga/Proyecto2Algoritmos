@@ -22,8 +22,8 @@ import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
- *
- * @author UsuarioPC
+ * Clase donde se crea los graficos que muestran la cantidad de pr3oductos entregados a cada bodega
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class Graficos extends javax.swing.JFrame {
     LoginPanel login=new LoginPanel();
@@ -165,7 +165,12 @@ public class Graficos extends javax.swing.JFrame {
         this.dispose();
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
-  private DefaultCategoryDataset createDataset() {
+ /**
+ * Metodo que utiliza la libreia freechart,para mostrar los datos en una grafica
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ * @return DefaultCategoryDataset
+ */
+    private DefaultCategoryDataset createDataset() {
 
      
       DefaultCategoryDataset dataset = new DefaultCategoryDataset();
@@ -239,6 +244,11 @@ public class Graficos extends javax.swing.JFrame {
 
       return dataset;
    }
+    /**
+ * Metodo que ordena el ArrayList de orden de distribucion
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ * @return ArrayList
+ */
    public ArrayList grafic(){
      
         for (int i = 0; i < a.size(); i++) {

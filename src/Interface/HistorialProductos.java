@@ -8,10 +8,9 @@ package Interface;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
 /**
- *
- * @author Melvin
+ * Clase donde se observa el historial de productos
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class HistorialProductos extends javax.swing.JFrame {
 

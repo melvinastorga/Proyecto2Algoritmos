@@ -28,10 +28,9 @@ import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
-
 /**
- *
- * @author Melvin
+ * Clase donde se modifica y borra bodegas
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class DeleteUpdateBodega extends javax.swing.JFrame {
 
@@ -260,7 +259,10 @@ catch (Exception e)
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * se carga una tabla con las bodegas y los productos
+ * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+ */
       public void cargarTablaBodegas(JTable producto, LinkedList<Bodega> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();
         model.setRowCount(0);
