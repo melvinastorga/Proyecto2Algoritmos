@@ -37,7 +37,7 @@ public class Graficos extends javax.swing.JFrame {
         initComponents();
       grafic();
       bodega.toString();
-       
+      this.setLocationRelativeTo(null);
     }
 
     /**
@@ -62,6 +62,7 @@ public class Graficos extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 3, 36)); // NOI18N
