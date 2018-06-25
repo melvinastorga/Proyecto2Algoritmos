@@ -21,33 +21,33 @@ import javax.swing.ImageIcon;
 public class Lotes_Anulados extends javax.swing.JFrame {
 
     SimpleDateFormat formart1 = new SimpleDateFormat("dd-MM-yyyy");
-    LoginPanel login=new LoginPanel();
+    LoginPanel login = new LoginPanel();
+
     /**
      * Creates new form lotes_Anulados
      */
     public Lotes_Anulados() {
         initComponents();
-         ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
+        ImageIcon icon = new ImageIcon("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Logo.PNG");
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_LOGO.getWidth(), lbl_LOGO.getHeight(), Image.SCALE_DEFAULT));
         lbl_LOGO.setIcon(icon2);
         this.repaint();
         this.setLocationRelativeTo(null);
         tablaLotesAnulados.setVisible(false);
-        
-        
-           Date date = new Date();
+
+        Date date = new Date();
         DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy");
-String fechaHora = (""+hourdateFormat.format(date));
-        
-       // tfd_Empacado.setText(getFecha(calendar_Empacado));
-       lbl_FechaActual.setText("Hoy es: "+fechaHora);
-       // calendar_Empacado.get
-          ArrayList<Lote> listaLotes=login.lotes();
-             for (Object i: listaLotes) {
-        
-       cb_Lotes.addItem(i+"");
-    }
-       
+        String fechaHora = ("" + hourdateFormat.format(date));
+
+        // tfd_Empacado.setText(getFecha(calendar_Empacado));
+        lbl_FechaActual.setText("Hoy es: " + fechaHora);
+        // calendar_Empacado.get
+        ArrayList<Lote> listaLotes = login.lotes();
+        for (Object i : listaLotes) {
+
+            cb_Lotes.addItem(i + "");
+        }
+
     }
 
     /**

@@ -166,13 +166,6 @@ public class LoginPanel extends javax.swing.JFrame {
 
     private void JB_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CancelActionPerformed
         DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-        Date n = null;
-        try {
-            n = format.parse("23-10-2018");
-        } catch (ParseException ex) {
-            Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        lote.put(1, new Lote(1, "44", n, n));
         String sql = "delete from categoria\n"
                 + "delete from lote\n"
                 + "delete from unidadTransporte\n"
