@@ -36,7 +36,7 @@ public class Graficos extends javax.swing.JFrame {
     public Graficos() {
         initComponents();
       grafic();
-      bodega.toString();
+      
       this.setLocationRelativeTo(null);
     }
 

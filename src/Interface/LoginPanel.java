@@ -302,6 +302,7 @@ public class LoginPanel extends javax.swing.JFrame {
     public ArrayList ordenDsitribucion(){
         ArrayList A=new ArrayList();
         for(OrdenDistribucion s:orden){
+            A.add(s);
         }
 
         return A;
