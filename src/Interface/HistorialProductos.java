@@ -10,6 +10,7 @@ import Domain.Categoria;
 import Domain.Lote;
 import Domain.OrdenDistribucion;
 import Domain.ProductoMayorista;
+import Domain.ProductoMayoristaPorOrden;
 import Domain.Usuario;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -63,16 +64,19 @@ public class HistorialProductos extends javax.swing.JFrame {
             }
         }
 
-        LinkedList<OrdenDistribucion> listaOrden = LoginPanel.orden;
+        LinkedList<Bodega> listaBodega = LoginPanel.bodega.recorreGraph();
 
-        for (OrdenDistribucion b : listaOrden) {
+        for (Bodega b : listaBodega) {
 
-            cb_Oden.addItem(b.getId()+"");
+            cb_Bodega.addItem(b.getNombre());
         }
 
         //Aqui trato de meterle productos a la tabla
-        LinkedList listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
-        cargaTablaProductos(tabla_Historial, listaProductos);
+        //LinkedList listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
+        
+        
+        
+        //cargaTablaProductos(tabla_Historial, listaProductos);
 
     }
 
@@ -96,11 +100,11 @@ public class HistorialProductos extends javax.swing.JFrame {
         tabla_Historial = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btn_BuscaProductosBodega = new javax.swing.JButton();
         cb_Categia = new javax.swing.JComboBox<>();
         cb_Lote = new javax.swing.JComboBox<>();
         cb_Usuario = new javax.swing.JComboBox<>();
-        cb_Oden = new javax.swing.JComboBox<>();
+        cb_Bodega = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         cb_Filtrado = new javax.swing.JComboBox<>();
         lbl_Mensaje = new javax.swing.JLabel();
@@ -135,7 +139,7 @@ public class HistorialProductos extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Categoria");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 76, 25));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 76, 25));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 0));
@@ -145,7 +149,7 @@ public class HistorialProductos extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 0));
         jLabel6.setText("Usuario Operador");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 150, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, 150, -1));
 
         tabla_Historial.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
         tabla_Historial.setModel(new javax.swing.table.DefaultTableModel(
@@ -176,35 +180,35 @@ public class HistorialProductos extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel7.setText("Seleccione la orden de distribucion");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 68, 240, -1));
+        jLabel7.setText("Seleccione una bodega");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 68, 190, -1));
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 0));
-        jButton4.setText("Buscar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btn_BuscaProductosBodega.setBackground(new java.awt.Color(0, 0, 0));
+        btn_BuscaProductosBodega.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        btn_BuscaProductosBodega.setForeground(new java.awt.Color(255, 255, 0));
+        btn_BuscaProductosBodega.setText("Buscar");
+        btn_BuscaProductosBodega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btn_BuscaProductosBodegaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, -1, -1));
+        getContentPane().add(btn_BuscaProductosBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, -1));
 
-        cb_Categia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null" }));
-        getContentPane().add(cb_Categia, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+        cb_Categia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccione una opcion" }));
+        getContentPane().add(cb_Categia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
 
-        cb_Lote.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null" }));
-        getContentPane().add(cb_Lote, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, -1, -1));
+        cb_Lote.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccione una opcion" }));
+        getContentPane().add(cb_Lote, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, -1, -1));
 
-        cb_Usuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null" }));
-        getContentPane().add(cb_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, -1, -1));
+        cb_Usuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccione una opcion" }));
+        getContentPane().add(cb_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, -1, -1));
 
-        cb_Oden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null" }));
-        getContentPane().add(cb_Oden, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 130, -1));
+        cb_Bodega.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccione una opcion" }));
+        getContentPane().add(cb_Bodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 170, -1));
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
 
-        cb_Filtrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "null", "Bodega", "Categoria", "Lote", "Usuario" }));
-        getContentPane().add(cb_Filtrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 100, -1, -1));
+        cb_Filtrado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccione una opcion", "Fechas", "Bodega", "Categoria", "Lote", "Usuario" }));
+        getContentPane().add(cb_Filtrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 100, -1, -1));
 
         lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         lbl_Mensaje.setForeground(new java.awt.Color(153, 0, 0));
@@ -213,7 +217,7 @@ public class HistorialProductos extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 0));
         jLabel10.setText("Seleccione el tipo de filtrado");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 60, 220, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 70, 220, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel9.setText("jLabel8");
@@ -231,7 +235,7 @@ public class HistorialProductos extends javax.swing.JFrame {
 
         for (int i = 0; i < list.size(); i++) {
             model.addRow(O);
-            ProductoMayorista producto = (ProductoMayorista) list.get(i);
+            ProductoMayoristaPorOrden producto = (ProductoMayoristaPorOrden) list.get(i);
 
             int idCategoria = producto.getIdCategoria();
 
@@ -260,9 +264,42 @@ public class HistorialProductos extends javax.swing.JFrame {
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btn_BuscaProductosBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscaProductosBodegaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        //Crear una lista para meter los productos de la bodega elegida
+        LinkedList<ProductoMayoristaPorOrden> listaProductosBodega = new LinkedList<>();
+        //Obtener la bodega seleccionada
+        String bodegaElegida = (String) cb_Bodega.getSelectedItem();
+        //Recorrer todas las bodega para ver en cual se encuentra una bodega de destino con este nombre para obtener su id
+        int IDBodegaSeleccionada = 0;
+         
+          LinkedList<Bodega> listaBodegas = LoginPanel.bodega.recorreGraph();
+       
+        for (int i = 0; i < listaBodegas.size(); i++) {
+  
+            Bodega bodega = (Bodega) listaBodegas.get(i);
+            if(bodega.getNombre().equals(bodegaElegida)){
+               IDBodegaSeleccionada = bodega.getId();
+              
+                break;
+            }
+            
+         }
+        //fin id bodega
+        //Buscar en todas las ordenes, y obtener su lista de productos donde el id de la bodega destino sea igual a la
+        // id de la bodega buscada.
+        
+        for (int i = 0; i < LoginPanel.orden.size(); i++) {
+               OrdenDistribucion orden = (OrdenDistribucion) LoginPanel.orden.get(i);
+            if(IDBodegaSeleccionada == orden.getIdBodegaDestino()){
+             listaProductosBodega = orden.getListaProductos();
+                break;
+            }
+         }
+        //Fin obtener lista productos de la bodega
+        cargaTablaProductos(tabla_Historial, listaProductosBodega);
+        
+    }//GEN-LAST:event_btn_BuscaProductosBodegaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -277,7 +314,7 @@ public class HistorialProductos extends javax.swing.JFrame {
                 String categoriaAFiltrar = (String) cb_Categia.getSelectedItem();
                 // System.out.println(categoriaAFiltrar+" HAAA");
                 String loteAFiltrat = (String) cb_Lote.getSelectedItem();
-                String bodegaAFiltrar = (String) cb_Oden.getSelectedItem();
+                String bodegaAFiltrar = (String) cb_Bodega.getSelectedItem();
                 String usuarioAFiltrar = (String) cb_Usuario.getSelectedItem();
                 String fechaInicioAFiltrar = "";
                 String fechaFinalAFiltrar = "";
@@ -322,7 +359,7 @@ public class HistorialProductos extends javax.swing.JFrame {
                 String categoriaAFiltrar = (String) cb_Categia.getSelectedItem();
                 // System.out.println(categoriaAFiltrar+" HAAA");
                 String loteAFiltrat = (String) cb_Lote.getSelectedItem();
-                String bodegaAFiltrar = (String) cb_Oden.getSelectedItem();
+                String bodegaAFiltrar = (String) cb_Bodega.getSelectedItem();
                 String usuarioAFiltrar = (String) cb_Usuario.getSelectedItem();
                 String fechaInicioAFiltrar = "";
                 String fechaFinalAFiltrar = "";
@@ -407,15 +444,15 @@ public class HistorialProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_BuscaProductosBodega;
+    private javax.swing.JComboBox<String> cb_Bodega;
     private javax.swing.JComboBox<String> cb_Categia;
     private javax.swing.JComboBox<String> cb_Filtrado;
     private javax.swing.JComboBox<String> cb_Lote;
-    private javax.swing.JComboBox<String> cb_Oden;
     private javax.swing.JComboBox<String> cb_Usuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
