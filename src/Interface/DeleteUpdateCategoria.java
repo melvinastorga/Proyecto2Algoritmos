@@ -140,7 +140,7 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         getContentPane().add(tfd_IDCategoriaAEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 720, 130, -1));
 
         lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
-        lbl_Mensaje.setForeground(new java.awt.Color(255, 255, 0));
+        lbl_Mensaje.setForeground(new java.awt.Color(153, 0, 0));
         getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 610, 620, 40));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N

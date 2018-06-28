@@ -58,10 +58,10 @@ public class InsertUsuario extends javax.swing.JFrame {
         lbl_Usuario = new javax.swing.JLabel();
         tfd_Usuario = new javax.swing.JTextField();
         lbl_Contrasena = new javax.swing.JLabel();
-        tfd_Contrasena = new javax.swing.JTextField();
         btn_InsertUsuario = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         lbl_LOGO = new javax.swing.JLabel();
+        tfd_Contrasena = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,17 +113,12 @@ public class InsertUsuario extends javax.swing.JFrame {
         tfd_Usuario.setBackground(new java.awt.Color(0, 0, 0));
         tfd_Usuario.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         tfd_Usuario.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(tfd_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 321, 110, -1));
+        getContentPane().add(tfd_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 321, 150, -1));
 
         lbl_Contrasena.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         lbl_Contrasena.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Contrasena.setText("Contraseña");
         getContentPane().add(lbl_Contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 396, -1, -1));
-
-        tfd_Contrasena.setBackground(new java.awt.Color(0, 0, 0));
-        tfd_Contrasena.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        tfd_Contrasena.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(tfd_Contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 394, 110, -1));
 
         btn_InsertUsuario.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertUsuario.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -149,6 +144,10 @@ public class InsertUsuario extends javax.swing.JFrame {
 
         lbl_LOGO.setText("jLabel1");
         getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, 130, 110));
+
+        tfd_Contrasena.setBackground(new java.awt.Color(0, 0, 0));
+        tfd_Contrasena.setForeground(new java.awt.Color(255, 255, 0));
+        getContentPane().add(tfd_Contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 150, 30));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
@@ -241,7 +240,7 @@ public class InsertUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Nombre;
     private javax.swing.JLabel lbl_ROL;
     private javax.swing.JLabel lbl_Usuario;
-    private javax.swing.JTextField tfd_Contrasena;
+    private javax.swing.JPasswordField tfd_Contrasena;
     private javax.swing.JTextField tfd_Nombre;
     private javax.swing.JTextField tfd_Usuario;
     // End of variables declaration//GEN-END:variables

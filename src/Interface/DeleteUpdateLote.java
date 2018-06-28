@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DeleteUpdateLote extends javax.swing.JFrame {
 
-    SimpleDateFormat formart1 = new SimpleDateFormat("dd-MM-yyyy");
+    SimpleDateFormat formart1 = new SimpleDateFormat("dd/MM/yyyy");
 
     /**
      * Creates new form deleteUpdateLote
@@ -151,9 +151,9 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
         tfd_IDLoteAEliminar.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         getContentPane().add(tfd_IDLoteAEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 720, 160, -1));
 
-        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_Mensaje.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 650, 360, -1));
+        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        lbl_Mensaje.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 620, 680, 30));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
@@ -329,6 +329,11 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
         }
 
         cargarTablaLote(tabla_Lote, listLotes2);
+        tfd_CodigoActualizado.setText("");
+        tfd_EmpaqueActualizado.setText("");
+        tfd_IDLoteAActualizar.setText("");
+        tfd_IDLoteAEliminar.setText("");
+        tfd_VencimientoActualizado.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public static Date convierteStringADate(String stringFecha, String formato) {
@@ -342,6 +347,19 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
             return null;
         }
     }
+    
+    public static Date convierteStringADateHORA(String stringFecha, String formato) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat(formato);
+            Date fecha = sdf.parse(stringFecha);
+            return fecha;
+        } catch (Exception e) {
+//logger.error("convierteStringADate -- Ha ocurrido un error en la conversion de fechas" + e);
+            System.out.println("ENTRE AL ELSE QUE DEVUELVE UN NULL CUANDO CONVIERTO STRING A DATE");
+            return null;
+        }
+    }
+    
 
 //En el parámetro "formato" le pasas por ejemplo "dd/MM/yyyy"
 
@@ -360,7 +378,7 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
                 if (Integer.parseInt(tfd_IDLoteAActualizar.getText()) == lote.getId()) {
 
                     LoginPanel.lote.get(key).setCodigoLote(tfd_CodigoActualizado.getText());
-                    LoginPanel.lote.get(key).setFechaEmpacado(convierteStringADate(tfd_EmpaqueActualizado.getText(), "dd/MM/yyyy"));
+                    LoginPanel.lote.get(key).setFechaEmpacado(convierteStringADate(tfd_EmpaqueActualizado.getText(), "HH:mm:ss dd/MM/yyyy"));
                     LoginPanel.lote.get(key).setFechaVencimiento(convierteStringADate(tfd_VencimientoActualizado.getText(), "dd/MM/yyyy"));
                     lbl_Mensaje.setText("El lote ha sido actualizado");
                     break;
@@ -380,6 +398,7 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
             tfd_CodigoActualizado.setText("");
             tfd_EmpaqueActualizado.setText("");
             tfd_VencimientoActualizado.setText("");
+            tfd_IDLoteAEliminar.setText("");
 
         }
     }//GEN-LAST:event_btn_ActualizarActionPerformed
