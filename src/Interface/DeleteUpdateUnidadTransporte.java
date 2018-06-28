@@ -148,9 +148,9 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
         tfd_IDTransporteAEliminar.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         getContentPane().add(tfd_IDTransporteAEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 670, 140, -1));
 
-        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_Mensaje.setForeground(new java.awt.Color(255, 255, 0));
-        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 630, 420, -1));
+        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        lbl_Mensaje.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, 650, 20));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
@@ -300,6 +300,11 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
         }
 
         cargarTablaTransporte(tabla_Transporte, listTransportes2);
+        tfd_FotoActualizada.setText("");
+        tfd_IDCamionAActualizar.setText("");
+        tfd_IDTransporteAEliminar.setText("");
+        tfd_PlacaAActualizar.setText("");
+        lbl_FotoActualizada.setIcon(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -376,6 +381,11 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
             cargarTablaTransporte(tabla_Transporte, listTransportes2);
 
         }
+        tfd_FotoActualizada.setText("");
+        tfd_IDCamionAActualizar.setText("");
+        tfd_IDTransporteAEliminar.setText("");
+        tfd_PlacaAActualizar.setText("");
+        lbl_FotoActualizada.setIcon(null);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

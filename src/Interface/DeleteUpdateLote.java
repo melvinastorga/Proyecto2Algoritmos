@@ -401,6 +401,8 @@ public class DeleteUpdateLote extends javax.swing.JFrame {
             tfd_IDLoteAEliminar.setText("");
 
         }
+        
+        
     }//GEN-LAST:event_btn_ActualizarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
