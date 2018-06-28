@@ -111,6 +111,7 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
         jLabel1.setText("Borrar o actualizar Bodega");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, -1, -1));
 
+        table_Bodega.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         table_Bodega.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

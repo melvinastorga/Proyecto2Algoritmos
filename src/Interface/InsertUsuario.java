@@ -36,6 +36,7 @@ public class InsertUsuario extends javax.swing.JFrame {
         lbl_ID2.setText("1");
         }else{
          lbl_ID2.setText(LoginPanel.usuario.getLast().getId()+1+"");
+         
         }
     }
 

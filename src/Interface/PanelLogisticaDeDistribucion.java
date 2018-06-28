@@ -276,7 +276,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
 
         JB_logOut.setBackground(new java.awt.Color(0, 0, 0));
         JB_logOut.setForeground(new java.awt.Color(255, 255, 0));
-        JB_logOut.setText("Log out");
+        JB_logOut.setText("Salir");
         JB_logOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_logOutActionPerformed(evt);
