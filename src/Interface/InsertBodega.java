@@ -165,8 +165,6 @@ public class InsertBodega extends javax.swing.JFrame {
         tfd_Foto.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         tfd_Foto.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 553, 317, 30));
-
-        lbl_Foto.setText("jLabel9");
         getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 270, 98));
 
         btn_InsertBodega.setBackground(new java.awt.Color(0, 0, 0));

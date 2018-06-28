@@ -121,8 +121,6 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
         lbl_Fotografia.setForeground(new java.awt.Color(255, 255, 0));
         lbl_Fotografia.setText("Fotografia");
         getContentPane().add(lbl_Fotografia, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 377, -1, -1));
-
-        lbl_Foto.setText("jLabel7");
         getContentPane().add(lbl_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 340, 180));
 
         btn_BuscarFoto.setBackground(new java.awt.Color(0, 0, 0));

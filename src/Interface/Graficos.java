@@ -55,7 +55,6 @@ public class Graficos extends javax.swing.JFrame {
         scrollPane1 = new java.awt.ScrollPane();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -66,6 +65,7 @@ public class Graficos extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 3, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Gráfico");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 210, 60));
 
@@ -82,6 +82,9 @@ public class Graficos extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 700, 400));
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Ver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,17 +93,20 @@ public class Graficos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 100, 30));
 
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 0));
         jButton2.setText("Exportar PDF");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 100, 30));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 170, 30));
 
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 500, -1, -1));
-
+        jButton4.setBackground(new java.awt.Color(0, 0, 0));
+        jButton4.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 0));
         jButton4.setText("Regresar");
         jButton4.setActionCommand("");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +114,7 @@ public class Graficos extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -305,7 +311,6 @@ public class Graficos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -28,12 +28,14 @@ import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
+
 /**
  * Clase donde se modifica y borra bodegas
+ *
  * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
  */
 public class DeleteUpdateBodega extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form deleteUpdateBodega
      */
@@ -44,30 +46,25 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
         Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_ICON.getWidth(), lbl_ICON.getHeight(), Image.SCALE_DEFAULT));
         lbl_ICON.setIcon(icon2);
         this.repaint();
-        
-        
-        
-         DefaultTableModel model = (DefaultTableModel) this.table_Bodega.getModel();
+
+        DefaultTableModel model = (DefaultTableModel) this.table_Bodega.getModel();
         model.setRowCount(0);
         Object O[] = null;
-        
-             LinkedList<Bodega> listBodega = LoginPanel.bodega.recorreGraph();
+
+        LinkedList<Bodega> listBodega = LoginPanel.bodega.recorreGraph();
         cargarTablaBodegas(table_Bodega, listBodega);
         tfd_IDBodegaAEliminar.setEnabled(false);
         tfd_IDBodegaAActualizar.setEnabled(false);
-      tfd_FotoActualizada.setEnabled(false);
-      
-      try
-{
-   MaskFormatter mascara = new MaskFormatter("##.##");
-   JFormattedTextField textField = new JFormattedTextField(mascara);
-   textField.setValue(new Float("12.34"));
-}
-catch (Exception e)
-{
-  //
-}
-      
+        tfd_FotoActualizada.setEnabled(false);
+
+        try {
+            MaskFormatter mascara = new MaskFormatter("##.##");
+            JFormattedTextField textField = new JFormattedTextField(mascara);
+            textField.setValue(new Float("12.34"));
+        } catch (Exception e) {
+            //
+        }
+
     }
 
     /**
@@ -167,8 +164,8 @@ catch (Exception e)
         tfd_IDBodegaAEliminar.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         getContentPane().add(tfd_IDBodegaAEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 700, 200, 30));
 
-        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
-        lbl_Mensaje.setForeground(new java.awt.Color(255, 255, 0));
+        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        lbl_Mensaje.setForeground(new java.awt.Color(153, 0, 0));
         getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 610, 530, 20));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -224,8 +221,6 @@ catch (Exception e)
             }
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 570, -1, -1));
-
-        lbl_FotoActualizada.setText("jLabel9");
         getContentPane().add(lbl_FotoActualizada, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 610, 150, 90));
 
         tfd_FotoActualizada.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
@@ -260,28 +255,29 @@ catch (Exception e)
         pack();
     }// </editor-fold>//GEN-END:initComponents
 /**
- * se carga una tabla con las bodegas y los productos
- * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
- */
-      public void cargarTablaBodegas(JTable producto, LinkedList<Bodega> list) {
+     * se carga una tabla con las bodegas y los productos
+     *
+     * @author Equipo de trabajo: Melvin Astorga, Andres Coto, Kevin Picado
+     */
+    public void cargarTablaBodegas(JTable producto, LinkedList<Bodega> list) {
         DefaultTableModel model = (DefaultTableModel) producto.getModel();
         model.setRowCount(0);
         Object O[] = null;
         for (int i = 0; i < list.size(); i++) {
-  
+
             model.addRow(O);
             Bodega bodega = (Bodega) list.get(i);
-          Bodega bodega1 = (Bodega) list.get(i);
+            Bodega bodega1 = (Bodega) list.get(i);
             model.setValueAt(bodega1.getId(), i, 0);
             model.setValueAt(bodega1.getNombre(), i, 1);
             model.setValueAt(bodega1.getLatitud(), i, 2);
             model.setValueAt(bodega1.getLongitud(), i, 3);
-             model.setValueAt(bodega1.getDistanciaCentroOperaciones(), i, 4);
+            model.setValueAt(bodega1.getDistanciaCentroOperaciones(), i, 4);
             model.setValueAt(bodega1.getUrlFoto(), i, 5);
 
         }
     }
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         AdministratorPanel administradorPanel = new AdministratorPanel(AdministratorPanel.nombre);
@@ -294,12 +290,11 @@ catch (Exception e)
         this.lbl_Mensaje.setText("");
         int row = this.table_Bodega.getSelectedRow();
         int id = Integer.parseInt(this.table_Bodega.getValueAt(row, 0).toString());
-        tfd_IDBodegaAEliminar.setText(id+"");
-        tfd_IDBodegaAActualizar.setText(id+"");
-        
+        tfd_IDBodegaAEliminar.setText(id + "");
+        tfd_IDBodegaAActualizar.setText(id + "");
+
         //aqui mae
         LinkedList<Bodega> listBodegas = LoginPanel.bodega.recorreGraph();
-        
 
         for (int i = 0; i < listBodegas.size(); i++) {
             Bodega bodega = (Bodega) listBodegas.get(i);
@@ -307,7 +302,7 @@ catch (Exception e)
                 tfd_NombreActualizado.setText(bodega.getNombre());
                 tfd_latitudActualizada.setText(bodega.getLatitud());
                 tfd_longitudActualizada.setText(bodega.getLongitud());
-                tfd_DistanciaActualizada.setText(bodega.getDistanciaCentroOperaciones()+"");
+                tfd_DistanciaActualizada.setText(bodega.getDistanciaCentroOperaciones() + "");
                 tfd_FotoActualizada.setText(bodega.getUrlFoto());
                 ImageIcon icon = new ImageIcon(tfd_FotoActualizada.getText());
                 Icon icon2 = new ImageIcon(icon.getImage().getScaledInstance(lbl_FotoActualizada.getWidth(), lbl_FotoActualizada.getHeight(), Image.SCALE_DEFAULT));
@@ -320,47 +315,54 @@ catch (Exception e)
 
     private void btn_BorrarBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BorrarBodegaActionPerformed
         // TODO add your handling code here:
-        
-            LinkedList<Bodega> listaBodegas = LoginPanel.bodega.recorreGraph();
-        
-         String idBuscada = tfd_IDBodegaAEliminar.getText();
+
+        LinkedList<Bodega> listaBodegas = LoginPanel.bodega.recorreGraph();
+
+        String idBuscada = tfd_IDBodegaAEliminar.getText();
         String miID = "no lo borraste";
         for (int i = 0; i < listaBodegas.size(); i++) {
-  
+
             Bodega bodega = (Bodega) listaBodegas.get(i);
-            if(bodega.getId()== Integer.parseInt(idBuscada)){
+            if (bodega.getId() == Integer.parseInt(idBuscada)) {
                 listaBodegas.remove(bodega);
                 miID = "LO BORRASTE";
+                tfd_DistanciaActualizada.setText("");
+                tfd_FotoActualizada.setText("");
+                tfd_NombreActualizado.setText("");
+                tfd_latitudActualizada.setText("");
+                tfd_longitudActualizada.setText("");
+                lbl_FotoActualizada.setIcon(null);
                 tfd_IDBodegaAEliminar.setText("");
+                tfd_IDBodegaAActualizar.setText("");
                 lbl_Mensaje.setText("La bodega ha sido eliminado con exito");
                 break;
             }
-            
-         }
-        
+
+        }
+
         GraphAdyacency grafoNuevo = new GraphAdyacency(100);
-       // LinkedBinaryTree arbolNuevo = new LinkedBinaryTree();
+        // LinkedBinaryTree arbolNuevo = new LinkedBinaryTree();
         for (int i = 0; i < listaBodegas.size(); i++) {
             try {
                 Bodega bodega = (Bodega) listaBodegas.get(i);
                 grafoNuevo.insertVertex(bodega);
-            }   catch (GraphException ex) {
-                    Logger.getLogger(DeleteUpdateBodega.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            } catch (GraphException ex) {
+                Logger.getLogger(DeleteUpdateBodega.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         LoginPanel.bodega = grafoNuevo;
-        
+
         System.out.println(miID);
-         cargarTablaBodegas(table_Bodega, listaBodegas);
-        
+        cargarTablaBodegas(table_Bodega, listaBodegas);
+
     }//GEN-LAST:event_btn_BorrarBodegaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-                      JFileChooser fileChooser = new JFileChooser("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Bodegas");
+        JFileChooser fileChooser = new JFileChooser("C:\\Users\\Melvin\\Desktop\\RepositorioProyecto2Algoritmos\\src\\Imagenes\\Bodegas");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
-        FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif", "png","jpeg");
+        FileNameExtensionFilter imgFilter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif", "png", "jpeg");
         fileChooser.setFileFilter(imgFilter);
 
         int result = fileChooser.showOpenDialog(this);
@@ -384,50 +386,51 @@ catch (Exception e)
 
     private void btn_ActualizaBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ActualizaBodegaActionPerformed
         // TODO add your handling code here:
-        
-        
-            LinkedList<Bodega> listaBodegas = LoginPanel.bodega.recorreGraph();
-        
-         String idBuscada = tfd_IDBodegaAEliminar.getText();
+
+        LinkedList<Bodega> listaBodegas = LoginPanel.bodega.recorreGraph();
+
+        String idBuscada = tfd_IDBodegaAEliminar.getText();
         String miID = "no lo borraste";
         for (int i = 0; i < listaBodegas.size(); i++) {
-  
+
             Bodega bodega = (Bodega) listaBodegas.get(i);
-            if(bodega.getId()== Integer.parseInt(idBuscada)){
+            if (bodega.getId() == Integer.parseInt(idBuscada)) {
                 listaBodegas.get(i).setNombre(tfd_NombreActualizado.getText());
                 listaBodegas.get(i).setLatitud(tfd_latitudActualizada.getText());
                 listaBodegas.get(i).setLongitud(tfd_longitudActualizada.getText());
-                listaBodegas.get(i).setDistanciaCentroOperaciones( Float.parseFloat(tfd_DistanciaActualizada.getText()));
+                listaBodegas.get(i).setDistanciaCentroOperaciones(Float.parseFloat(tfd_DistanciaActualizada.getText()));
                 listaBodegas.get(i).setUrlFoto(tfd_FotoActualizada.getText());
-                
+
                 miID = "LO BORRASTE";
                 tfd_IDBodegaAActualizar.setText("");
                 lbl_Mensaje.setText("La bodega ha sido actualizada con exito");
                 break;
             }
-            
-         }
-        
+
+        }
+
         GraphAdyacency grafoNuevo = new GraphAdyacency(100);
-       // LinkedBinaryTree arbolNuevo = new LinkedBinaryTree();
+        // LinkedBinaryTree arbolNuevo = new LinkedBinaryTree();
         for (int i = 0; i < listaBodegas.size(); i++) {
             try {
                 Bodega bodega = (Bodega) listaBodegas.get(i);
                 grafoNuevo.insertVertex(bodega);
-            }   catch (GraphException ex) {
-                    Logger.getLogger(DeleteUpdateBodega.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            } catch (GraphException ex) {
+                Logger.getLogger(DeleteUpdateBodega.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         LoginPanel.bodega = grafoNuevo;
-        
+
         System.out.println(miID);
-         cargarTablaBodegas(table_Bodega, listaBodegas);
+        cargarTablaBodegas(table_Bodega, listaBodegas);
         tfd_DistanciaActualizada.setText("");
         tfd_FotoActualizada.setText("");
         tfd_NombreActualizado.setText("");
         tfd_latitudActualizada.setText("");
         tfd_longitudActualizada.setText("");
         lbl_FotoActualizada.setIcon(null);
+        tfd_IDBodegaAEliminar.setText("");
+        tfd_IDBodegaAActualizar.setText("");
     }//GEN-LAST:event_btn_ActualizaBodegaActionPerformed
 
     /**

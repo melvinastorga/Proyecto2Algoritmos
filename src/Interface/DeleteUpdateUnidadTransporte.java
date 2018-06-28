@@ -365,7 +365,7 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
                     LoginPanel.transporte.get(key).setPlaca(tfd_PlacaAActualizar.getText());
                     LoginPanel.transporte.get(key).setUrlFoto(tfd_FotoActualizada.getText());
                     LoginPanel.transporte.get(key).setCapacidad(capacidad);
-                    lbl_Mensaje.setText("Transporte eliminado con exito");
+                    lbl_Mensaje.setText("Transporte actualizado con exito");
                     break;
                 }
             }

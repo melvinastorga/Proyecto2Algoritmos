@@ -149,7 +149,7 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(839, 11, 124, 57));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 124, 57));
 
         lbl_LOGO.setText("jLabel2");
         getContentPane().add(lbl_LOGO, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 670, 190, 181));
@@ -224,10 +224,9 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
         tfd_IDUsuarioAEliminar.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(tfd_IDUsuarioAEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 730, 130, -1));
 
-        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        lbl_Mensaje.setForeground(new java.awt.Color(255, 255, 0));
-        lbl_Mensaje.setText("jLabel7");
-        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 640, 380, -1));
+        lbl_Mensaje.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
+        lbl_Mensaje.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(lbl_Mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 640, 690, 40));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 0));
@@ -308,6 +307,10 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
             
          }
         System.out.println(miID);
+        tfd_IDUsuarioAActualizar.setText("");
+        tfd_NombreActualizado.setText("");
+        tfd_UsuarioActualizado.setText("");
+        tfd_IDUsuarioAEliminar.setText("");
          cargarTablaUsuario(tabla_Usuarios, LoginPanel.usuario);
     }//GEN-LAST:event_btn_EliminarActionPerformed
 
@@ -403,6 +406,7 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
             if(usuario.getId()== Integer.parseInt(tfd_IDUsuarioAActualizar.getText())){
                 LoginPanel.usuario.get(i).setNombre(tfd_NombreActualizado.getText());
                 LoginPanel.usuario.get(i).setUsuario(tfd_UsuarioActualizado.getText());
+                lbl_Mensaje.setText("Usuario actualizado con exito");
                 String rol = "";
             boolean admin = false;
             
@@ -422,6 +426,7 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
         tfd_IDUsuarioAActualizar.setText("");
         tfd_NombreActualizado.setText("");
         tfd_UsuarioActualizado.setText("");
+        tfd_IDUsuarioAEliminar.setText("");
         cargarTablaUsuario(tabla_Usuarios, LoginPanel.usuario);
     }//GEN-LAST:event_btn_ActualizarActionPerformed
     
