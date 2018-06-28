@@ -92,7 +92,7 @@ public class InsertBodega extends javax.swing.JFrame {
 
         lbl_InsertBodega.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         lbl_InsertBodega.setForeground(new java.awt.Color(255, 255, 0));
-        lbl_InsertBodega.setText("Insert Bodega");
+        lbl_InsertBodega.setText("Insertar Bodega");
         getContentPane().add(lbl_InsertBodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 22, -1, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -170,7 +170,7 @@ public class InsertBodega extends javax.swing.JFrame {
         btn_InsertBodega.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertBodega.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         btn_InsertBodega.setForeground(new java.awt.Color(255, 255, 0));
-        btn_InsertBodega.setText("Insert Bodega");
+        btn_InsertBodega.setText("Insertar Bodega");
         btn_InsertBodega.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InsertBodegaActionPerformed(evt);

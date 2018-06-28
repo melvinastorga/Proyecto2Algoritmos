@@ -117,7 +117,7 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel1.setText("Delete or update Usuario");
+        jLabel1.setText("Borrar o Actualizar Usuario");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(296, 29, -1, -1));
 
         tabla_Usuarios.setModel(new javax.swing.table.DefaultTableModel(

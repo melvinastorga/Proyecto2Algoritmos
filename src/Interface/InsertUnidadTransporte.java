@@ -83,7 +83,7 @@ public class InsertUnidadTransporte extends javax.swing.JFrame {
 
         lbl_UnidadTransporte.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         lbl_UnidadTransporte.setForeground(new java.awt.Color(255, 255, 0));
-        lbl_UnidadTransporte.setText("Insert Unidad Transporte");
+        lbl_UnidadTransporte.setText("Insertar Unidad Transporte");
         getContentPane().add(lbl_UnidadTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 33, -1, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N

@@ -83,7 +83,7 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel1.setText("Delete or Update Categoria");
+        jLabel1.setText("Borrar o Actualizar Categoria");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, -1, -1));
 
         tabla_Categoria.setModel(new javax.swing.table.DefaultTableModel(
@@ -109,7 +109,7 @@ public class DeleteUpdateCategoria extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 0));
-        jButton1.setText("Cancel");
+        jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

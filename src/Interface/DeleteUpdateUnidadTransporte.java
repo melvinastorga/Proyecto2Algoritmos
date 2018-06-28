@@ -91,7 +91,7 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel1.setText("Delete or Update Unidad de Transporte");
+        jLabel1.setText("Borrar o Actualizar Unidad de Transporte");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 24, -1, -1));
 
         tabla_Transporte.setModel(new javax.swing.table.DefaultTableModel(
@@ -117,7 +117,7 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 0));
-        jButton1.setText("Cancel");
+        jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -131,7 +131,7 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 0));
-        jButton2.setText("Delete");
+        jButton2.setText("Eliminar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -209,8 +209,6 @@ public class DeleteUpdateUnidadTransporte extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 610, -1, -1));
-
-        lbl_FotoActualizada.setText("jLabel8");
         getContentPane().add(lbl_FotoActualizada, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 480, 180, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo2.jpg"))); // NOI18N

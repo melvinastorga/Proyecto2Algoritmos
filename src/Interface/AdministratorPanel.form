@@ -15,7 +15,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CRUDS"/>
+            <Property name="text" type="java.lang.String" value="Manejo de datos"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="3"/>
             </Property>
@@ -26,7 +26,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Insert Product"/>
+                <Property name="text" type="java.lang.String" value="Insertar producto"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_InsertProductActionPerformed"/>
@@ -37,7 +37,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Delete/Update Product"/>
+                <Property name="text" type="java.lang.String" value="Borrar/Actualizar producto"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_DeleteUpdateProductActionPerformed"/>
@@ -48,7 +48,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Insert Categoria"/>
+                <Property name="text" type="java.lang.String" value="Insertar categoria"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_InsertCategoriaActionPerformed"/>
@@ -59,7 +59,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Delete/Update Categoria"/>
+                <Property name="text" type="java.lang.String" value="Borrar/Actualizar Categoria"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_DeleteUpdateCategoriaActionPerformed"/>
@@ -70,7 +70,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Insert Lote"/>
+                <Property name="text" type="java.lang.String" value="Insertar Lote"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_InsertLoteActionPerformed"/>
@@ -81,7 +81,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Delete/Update Lote"/>
+                <Property name="text" type="java.lang.String" value="Borrar/Actualizar Lote"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_DeleteUpdateLoteActionPerformed"/>
@@ -92,7 +92,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Insert Transporte"/>
+                <Property name="text" type="java.lang.String" value="Insertar Transporte"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_InsertTransporteActionPerformed"/>
@@ -103,7 +103,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Delete/Update Transporte"/>
+                <Property name="text" type="java.lang.String" value="Borrar/Actualizar Transporte"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_DeleteUpdateTransporteActionPerformed"/>
@@ -114,7 +114,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Insert Bodega"/>
+                <Property name="text" type="java.lang.String" value="Insertar Bodega"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_InsertBodegaActionPerformed"/>
@@ -125,7 +125,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Delete/Update Bodega"/>
+                <Property name="text" type="java.lang.String" value="Borrar/Actualizar Bodega"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_DeleteUpdateBodegaActionPerformed"/>
@@ -135,7 +135,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Users"/>
+            <Property name="text" type="java.lang.String" value="Usuarios"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="3"/>
             </Property>
@@ -146,7 +146,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Insert User"/>
+                <Property name="text" type="java.lang.String" value="Insertar Usuario"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_InsertUsuarioActionPerformed"/>
@@ -157,7 +157,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Delete/Update User"/>
+                <Property name="text" type="java.lang.String" value="Borrar/Actualizar usuario"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_DeleteUpdateUsuarioActionPerformed"/>
@@ -279,7 +279,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Log Out"/>
+        <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>

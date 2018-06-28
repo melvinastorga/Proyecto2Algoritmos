@@ -70,7 +70,7 @@ public class InsertUsuario extends javax.swing.JFrame {
 
         lbl_InsertUsuario.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         lbl_InsertUsuario.setForeground(new java.awt.Color(255, 255, 0));
-        lbl_InsertUsuario.setText("Insert Usuario");
+        lbl_InsertUsuario.setText("Insertar Usuario");
         getContentPane().add(lbl_InsertUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 33, -1, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -123,7 +123,7 @@ public class InsertUsuario extends javax.swing.JFrame {
         btn_InsertUsuario.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertUsuario.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         btn_InsertUsuario.setForeground(new java.awt.Color(255, 255, 0));
-        btn_InsertUsuario.setText("Insert Usuario");
+        btn_InsertUsuario.setText("Insertar Usuario");
         btn_InsertUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InsertUsuarioActionPerformed(evt);

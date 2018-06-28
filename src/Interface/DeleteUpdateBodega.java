@@ -108,7 +108,7 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel1.setText("Delete or Update Bodega");
+        jLabel1.setText("Borrar o actualizar Bodega");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, -1, -1));
 
         table_Bodega.setModel(new javax.swing.table.DefaultTableModel(
@@ -134,7 +134,7 @@ public class DeleteUpdateBodega extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 0));
-        jButton1.setText("Cancel");
+        jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

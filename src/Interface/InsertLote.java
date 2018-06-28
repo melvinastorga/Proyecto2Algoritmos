@@ -87,7 +87,7 @@ public class InsertLote extends javax.swing.JFrame {
 
         lbl_InsertLote.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         lbl_InsertLote.setForeground(new java.awt.Color(255, 255, 0));
-        lbl_InsertLote.setText("Insert Lote");
+        lbl_InsertLote.setText("Insertar Lote");
         getContentPane().add(lbl_InsertLote, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 39, 215, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -123,7 +123,7 @@ public class InsertLote extends javax.swing.JFrame {
         btn_InsertLote.setBackground(new java.awt.Color(0, 0, 0));
         btn_InsertLote.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         btn_InsertLote.setForeground(new java.awt.Color(255, 255, 0));
-        btn_InsertLote.setText("Insert Lote");
+        btn_InsertLote.setText("Insertar Lote");
         btn_InsertLote.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_InsertLoteActionPerformed(evt);

@@ -130,7 +130,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
 
         lbl_InsertProduct.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         lbl_InsertProduct.setForeground(new java.awt.Color(255, 255, 0));
-        lbl_InsertProduct.setText("Insert Producto Mayorista");
+        lbl_InsertProduct.setText("Insertar Producto Mayorista");
         getContentPane().add(lbl_InsertProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 465, 51));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
@@ -250,7 +250,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 0));
-        jButton1.setText("Cancel");
+        jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

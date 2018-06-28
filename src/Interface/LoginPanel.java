@@ -84,7 +84,7 @@ public class LoginPanel extends javax.swing.JFrame {
         JB_Enter.setBackground(new java.awt.Color(255, 0, 0));
         JB_Enter.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
         JB_Enter.setForeground(new java.awt.Color(255, 255, 0));
-        JB_Enter.setText("Enter");
+        JB_Enter.setText("Entrar");
         JB_Enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_EnterActionPerformed(evt);
@@ -99,12 +99,12 @@ public class LoginPanel extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel3.setText("User");
+        jLabel3.setText("Usuario");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel4.setText("Password");
+        jLabel4.setText("Contraseña");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 150, -1));
 
         JT_user.setBackground(new java.awt.Color(0, 0, 0));
@@ -115,13 +115,13 @@ public class LoginPanel extends javax.swing.JFrame {
         JB_Cancel.setBackground(new java.awt.Color(255, 0, 0));
         JB_Cancel.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 24)); // NOI18N
         JB_Cancel.setForeground(new java.awt.Color(255, 255, 0));
-        JB_Cancel.setText("Cancel");
+        JB_Cancel.setText("Cancelar");
         JB_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JB_CancelActionPerformed(evt);
             }
         });
-        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 130, 40));
+        getContentPane().add(JB_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 200, 40));
 
         JT_pass.setBackground(new java.awt.Color(0, 0, 0));
         JT_pass.setFont(new java.awt.Font("Arial Rounded MT Bold", 3, 18)); // NOI18N

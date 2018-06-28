@@ -83,7 +83,7 @@ public class InsertCategoria extends javax.swing.JFrame {
 
         lbl_InsertCategoria.setFont(new java.awt.Font("Dialog", 3, 30)); // NOI18N
         lbl_InsertCategoria.setForeground(new java.awt.Color(255, 255, 0));
-        lbl_InsertCategoria.setText("Insert Categoria");
+        lbl_InsertCategoria.setText("Insertar Categoria");
         getContentPane().add(lbl_InsertCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 12, -1, -1));
 
         lbl_ID1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
