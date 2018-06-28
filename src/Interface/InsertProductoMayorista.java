@@ -16,6 +16,7 @@ import java.awt.List;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.LinkedList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -33,6 +34,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
     
     String elegido;
     String categoria;
+    int idCategoria;
     int id;
       LoginPanel login=new LoginPanel();
     /**
@@ -73,13 +75,16 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         
        cb_IDLote.addItem(i+"");
     }
-         ArrayList<Categoria> listaCategoria=login.Categoria();
+        // ArrayList<Categoria> listaCategoria=login.Categoria();
          
 
-          for (Object j: listaCategoria) {
-        
-       cb_IDCategoria.addItem(j+"");
-          }
+           ArrayList<Categoria> listaCategoria = login.CategoriaCompleta();
+        // ArrayList<Categoria> listaCategoria=login.;
+
+        for (Categoria j : listaCategoria) {
+
+            cb_IDCategoria.addItem(j.getNombre() + "");
+        }
    }
 
     /**
@@ -309,7 +314,7 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
         } else {
 
             try {
-                ProductoMayorista producto = new ProductoMayorista(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), unidadMedida, Integer.parseInt(tfd_ValorUnidad.getText()), Integer.parseInt(tfd_PesoTotal.getText()), tfd_Descripcion.getText(), Integer.parseInt(elegido), Integer.parseInt(categoria), Double.parseDouble(tfd_precioTotal.getText()), tfd_URLFoto.getText());
+                ProductoMayorista producto = new ProductoMayorista(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), unidadMedida, Integer.parseInt(tfd_ValorUnidad.getText()), Integer.parseInt(tfd_PesoTotal.getText()), tfd_Descripcion.getText(), Integer.parseInt(elegido), idCategoria, Double.parseDouble(tfd_precioTotal.getText()), tfd_URLFoto.getText());
 
                 LoginPanel.productoMayorista.insert(producto);
                 
@@ -392,7 +397,22 @@ public class InsertProductoMayorista extends javax.swing.JFrame{
     }//GEN-LAST:event_cb_IDLoteActionPerformed
 
     private void cb_IDCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_IDCategoriaActionPerformed
-       categoria=cb_IDCategoria.getSelectedItem().toString();
+     
+        categoria=cb_IDCategoria.getSelectedItem().toString();
+        ArrayList<Categoria> listCategorias = new ArrayList();
+            Iterator it2 = LoginPanel.categoria.keySet().iterator();
+            while (it2.hasNext()) {
+                
+                Object key = it2.next();
+                listCategorias.add(LoginPanel.categoria.get(key));
+            }
+            for (int i = 0; i < listCategorias.size(); i++) {
+            Categoria cat = listCategorias.get(i);
+            if(cat.getNombre().equalsIgnoreCase(categoria)){
+                idCategoria = cat.getId();
+            }
+        }
+        
     }//GEN-LAST:event_cb_IDCategoriaActionPerformed
 
        

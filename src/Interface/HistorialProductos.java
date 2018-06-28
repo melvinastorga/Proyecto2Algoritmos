@@ -293,6 +293,9 @@ public class HistorialProductos extends javax.swing.JFrame {
                OrdenDistribucion orden = (OrdenDistribucion) LoginPanel.orden.get(i);
             if(IDBodegaSeleccionada == orden.getIdBodegaDestino()){
              listaProductosBodega = orden.getListaProductos();
+                System.out.println(LoginPanel.orden.get(i).getListaProductos().size());
+//                System.out.println(listaProductosBodega.get(0).getNombre());
+//                System.out.println(listaProductosBodega.get(1).getNombre());
                 break;
             }
          }

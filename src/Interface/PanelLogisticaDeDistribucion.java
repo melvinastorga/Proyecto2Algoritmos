@@ -552,6 +552,7 @@ public class PanelLogisticaDeDistribucion extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Faltan valores para completar la orden con exito");
         }
+        System.out.println(LoginPanel.orden.size());
     }//GEN-LAST:event_JB_ConfirmacionActionPerformed
 
     private void JT_productoMayoristaOrdenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JT_productoMayoristaOrdenMouseClicked
