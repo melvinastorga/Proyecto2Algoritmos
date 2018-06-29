@@ -5,13 +5,20 @@
  */
 package Interface;
 
+import Domain.Bodega;
 import Domain.Lote;
+import Domain.OrdenDistribucion;
+import Domain.ProductoMayorista;
+import Domain.ProductoMayoristaPorOrden;
 import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
+import static javax.management.Query.lt;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
@@ -24,6 +31,9 @@ public class Lotes_Anulados extends javax.swing.JFrame {
 
     SimpleDateFormat formart1 = new SimpleDateFormat("dd-MM-yyyy");
     LoginPanel login = new LoginPanel();
+    
+    ArrayList<OrdenDistribucion> ordenDistribucion= login.ordenDsitribucion();
+     ArrayList<Bodega>bodega=login.bodega.valoresBodega();
 
     /**
      * Creates new form lotes_Anulados
@@ -124,13 +134,13 @@ public class Lotes_Anulados extends javax.swing.JFrame {
 
         tablaLotesAnulados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Codigo Lote", "Fecha de vencimiento"
+                "Codigo Lote", "Fecha de vencimiento", "Producto"
             }
         ));
         jScrollPane1.setViewportView(tablaLotesAnulados);
@@ -163,9 +173,19 @@ public class Lotes_Anulados extends javax.swing.JFrame {
            // String fechaEmpaque = ("" + hourdateFormat.format(lote1.getFechaEmpacado()));
             String fechaEmpaque = getFecha(lote1.getFechaEmpacado());
             String fechaVencimiento = getFecha(lote1.getFechaVencimiento());
-
+           LinkedList<ProductoMayorista> listaProductos = LoginPanel.productoMayorista.preOrder(LoginPanel.productoMayorista.root());
+          for (int j = 0; j < listaProductos.size(); j++) {
+            if(listaProductos.get(j).getIdLote()== Integer.parseInt(list.get(i).getCodigoLote())){
+               
+              String nombreBodega= buscarBodega(listaProductos.get(j).getIdLote());
+               
             model.setValueAt(lote1.getCodigoLote(), i, 0);
-            model.setValueAt(lote1.getFechaVencimiento(), i, 1);
+            model.setValueAt(lote1.getFechaVencimiento(), i, 1); 
+            model.setValueAt(listaProductos.get(j).getNombre(), i, 2);
+           //  model.setValueAt(nombreBodega, i, 3);
+            }
+        }
+           
             //model.setValueAt(fechaEmpaque, i, 2);
            // model.setValueAt(fechaVencimiento, i, 3);
         }
@@ -178,9 +198,54 @@ public class Lotes_Anulados extends javax.swing.JFrame {
         }
         return null;
     }
+    public String buscarBodega(int valor){
+        int Idbodega = 0;
+        ArrayList repetidasBodegas=new ArrayList();
+       String bodegaNombre="";
+       for(int i=0;i<ordenDistribucion.size();i++){
+                      for(int j=0;j<ordenDistribucion.get(i).getListaProductos().size();j++){
+           if(ordenDistribucion.get(i).getListaProductos().get(j).getIdLote()==valor){
+//               Idbodega=ordenDistribucion.get(i).getIdBodegaDestino();
+                repetidasBodegas.add(BodegaNombre(ordenDistribucion.get(i).getIdBodegaDestino()));
+               break;
+                       }
+           }
+//               for (ProductoMayoristaPorOrden p : ordenDistribucion.get(i).getListaProductos()) {
+//                   if(p.getIdLote()==valor){
+//                     repetidasBodegas.add(BodegaNombre(ordenDistribucion.get(i).getIdBodegaDestino()));
+//                     
+//                     
+//               }
+//             
+//       }
+                 HashSet hs = new HashSet();
+         hs.addAll(repetidasBodegas);
+         repetidasBodegas.clear();
+          repetidasBodegas.addAll(hs);
+          for (int j = 0;j< repetidasBodegas.size(); j++) {
+
+           bodegaNombre=bodegaNombre+","+ repetidasBodegas.get(j);
+
+        }
+               repetidasBodegas.clear();
+               }
+     
+        
+    return bodegaNombre;
+    }
+    public String BodegaNombre(int id){
+         String nombreBodega="";
+    
+        for(int i=0;i<bodega.size();i++){
+            if(bodega.get(i).getId()==id){
+               nombreBodega=this.bodega.get(i).getNombre();
+            }
+    }
+     return nombreBodega;  
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        AdministratorPanel administradorPanel = new AdministratorPanel(AdministratorPanel.nombre);
+        AdministratorPanel administradorPanel = new AdministratorPanel();
         this.dispose();
         administradorPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
