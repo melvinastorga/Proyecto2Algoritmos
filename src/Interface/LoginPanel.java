@@ -21,6 +21,7 @@ import Logica.GraphAdyacency;
 import Logica.GraphException;
 import Logica.LinkedBinaryTree;
 import Logica.TreeExceptions;
+import Seguridad.EncriptMD5;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -147,12 +148,12 @@ public class LoginPanel extends javax.swing.JFrame {
     private void JB_EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_EnterActionPerformed
         for (Usuario u : usuario) {
 
-            if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == false) {
+            if (this.JT_user.getText().equals(u.getUsuario()) && EncriptMD5.getMD5(this.JT_pass.getText()).equals(u.getContraseña()) && u.getAdministrador() == false) {
                 PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre(), u.getId());
                 p.setVisible(true);
                 this.dispose();
                 break;
-            } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == true) {
+            } else if (this.JT_user.getText().equals(u.getUsuario()) && EncriptMD5.getMD5(this.JT_pass.getText()).equals(u.getContraseña()) && u.getAdministrador() == true) {
                 AdministratorPanel a = new AdministratorPanel(u.getNombre());
                 a.setVisible(true);
                 this.dispose();
@@ -242,12 +243,12 @@ public class LoginPanel extends javax.swing.JFrame {
 
     private void JT_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JT_passActionPerformed
         for (Usuario u : usuario) {
-            if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == false) {
+            if (this.JT_user.getText().equals(u.getUsuario()) && EncriptMD5.getMD5(this.JT_pass.getText()).equals(u.getContraseña()) && u.getAdministrador() == false) {
                 PanelLogisticaDeDistribucion p = new PanelLogisticaDeDistribucion(u.getNombre(), u.getId());
                 p.setVisible(true);
                 this.dispose();
                 break;
-            } else if (this.JT_user.getText().equals(u.getUsuario()) && this.JT_pass.getText().equals(u.getContraseña()) && u.getAdministrador() == true) {
+            } else if (this.JT_user.getText().equals(u.getUsuario()) && EncriptMD5.getMD5(this.JT_pass.getText()).equals(u.getContraseña()) && u.getAdministrador() == true) {
                 AdministratorPanel a = new AdministratorPanel(u.getNombre());
                 a.setVisible(true);
                 this.dispose();

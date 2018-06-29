@@ -204,6 +204,11 @@ public class HistorialProductos extends javax.swing.JFrame {
         getContentPane().add(cb_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, -1, -1));
 
         cb_Bodega.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "seleccione una opcion" }));
+        cb_Bodega.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_BodegaActionPerformed(evt);
+            }
+        });
         getContentPane().add(cb_Bodega, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 170, -1));
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
 
@@ -266,49 +271,20 @@ public class HistorialProductos extends javax.swing.JFrame {
 
     private void btn_BuscaProductosBodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_BuscaProductosBodegaActionPerformed
         // TODO add your handling code here:
-        //Crear una lista para meter los productos de la bodega elegida
-        LinkedList<ProductoMayoristaPorOrden> listaProductosBodega = new LinkedList<>();
-        //Obtener la bodega seleccionada
-        String bodegaElegida = (String) cb_Bodega.getSelectedItem();
-        //Recorrer todas las bodega para ver en cual se encuentra una bodega de destino con este nombre para obtener su id
-        int IDBodegaSeleccionada = 0;
-         
-          LinkedList<Bodega> listaBodegas = LoginPanel.bodega.recorreGraph();
        
-        for (int i = 0; i < listaBodegas.size(); i++) {
-  
-            Bodega bodega = (Bodega) listaBodegas.get(i);
-            if(bodega.getNombre().equals(bodegaElegida)){
-               IDBodegaSeleccionada = bodega.getId();
-              
-                break;
-            }
-            
-         }
-        //fin id bodega
-        //Buscar en todas las ordenes, y obtener su lista de productos donde el id de la bodega destino sea igual a la
-        // id de la bodega buscada.
-        
-        for (int i = 0; i < LoginPanel.orden.size(); i++) {
-               OrdenDistribucion orden = (OrdenDistribucion) LoginPanel.orden.get(i);
-            if(IDBodegaSeleccionada == orden.getIdBodegaDestino()){
-             listaProductosBodega = orden.getListaProductos();
-                System.out.println(LoginPanel.orden.get(i).getListaProductos().size());
-//                System.out.println(listaProductosBodega.get(0).getNombre());
-//                System.out.println(listaProductosBodega.get(1).getNombre());
-                break;
-            }
-         }
-        //Fin obtener lista productos de la bodega
-        cargaTablaProductos(tabla_Historial, listaProductosBodega);
-        
     }//GEN-LAST:event_btn_BuscaProductosBodegaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
 
-        String filtrado = (String) cb_Filtrado.getSelectedItem();
-        if (filtrado.equals("null")) {
+         String filtradoBodega = (String) cb_Bodega.getSelectedItem();
+         System.out.println(filtradoBodega);
+        if(filtradoBodega.equals("seleccione una opcion")){
+         
+            lbl_Mensaje.setText("Escoja una bodega");
+        }else{
+           String filtrado = (String) cb_Filtrado.getSelectedItem();
+        if (filtrado.equals("seleccione una opcion")) {
             System.out.println("ENTRE AL NULL");
             lbl_Mensaje.setText("Escoja un filtro");
         } else {
@@ -408,8 +384,51 @@ public class HistorialProductos extends javax.swing.JFrame {
 
             }
 
+        }  
         }
+        
+       
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void cb_BodegaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_BodegaActionPerformed
+        // TODO add your handling code here:
+         //Crear una lista para meter los productos de la bodega elegida
+        LinkedList<ProductoMayoristaPorOrden> listaProductosBodega = new LinkedList<>();
+        //Obtener la bodega seleccionada
+        String bodegaElegida = (String) cb_Bodega.getSelectedItem();
+        //Recorrer todas las bodega para ver en cual se encuentra una bodega de destino con este nombre para obtener su id
+        int IDBodegaSeleccionada = 0;
+         
+          LinkedList<Bodega> listaBodegas = LoginPanel.bodega.recorreGraph();
+       
+        for (int i = 0; i < listaBodegas.size(); i++) {
+  
+            Bodega bodega = (Bodega) listaBodegas.get(i);
+            if(bodega.getNombre().equals(bodegaElegida)){
+               IDBodegaSeleccionada = bodega.getId();
+              
+                break;
+            }
+            
+         }
+        //fin id bodega
+        //Buscar en todas las ordenes, y obtener su lista de productos donde el id de la bodega destino sea igual a la
+        // id de la bodega buscada.
+        
+        for (int i = 0; i < LoginPanel.orden.size(); i++) {
+               OrdenDistribucion orden = (OrdenDistribucion) LoginPanel.orden.get(i);
+            if(IDBodegaSeleccionada == orden.getIdBodegaDestino()){
+             listaProductosBodega = orden.getListaProductos();
+                System.out.println(LoginPanel.orden.get(i).getListaProductos().size());
+//                System.out.println(listaProductosBodega.get(0).getNombre());
+//                System.out.println(listaProductosBodega.get(1).getNombre());
+                break;
+            }
+         }
+        //Fin obtener lista productos de la bodega
+        cargaTablaProductos(tabla_Historial, listaProductosBodega);
+        
+    }//GEN-LAST:event_cb_BodegaActionPerformed
 
     /**
      * @param args the command line arguments

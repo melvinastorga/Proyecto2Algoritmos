@@ -6,6 +6,7 @@
 package Interface;
 
 import Domain.Usuario;
+import Seguridad.EncriptMD5;
 import java.awt.Image;
 import java.util.LinkedList;
 import javax.swing.Icon;
@@ -175,7 +176,7 @@ public class InsertUsuario extends javax.swing.JFrame {
                   admin = false;
             }
             
-            Usuario usuario = new Usuario(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), admin, tfd_Usuario.getText(), tfd_Contrasena.getText());
+            Usuario usuario = new Usuario(Integer.parseInt(lbl_ID2.getText()), tfd_Nombre.getText(), admin, tfd_Usuario.getText(), EncriptMD5.getMD5(tfd_Contrasena.getText()) );
             LoginPanel.usuario.add(usuario);
             lbl_ID2.setText(LoginPanel.usuario.getLast().getId()+1+"");
             tfd_Nombre.setText("");

@@ -5,6 +5,7 @@
  */
 package Interface;
 
+import Domain.Categoria;
 import Domain.ProductoMayorista;
 import Domain.ProductoMayoristaPorOrden;
 import Domain.Usuario;
@@ -12,6 +13,7 @@ import Logica.BinaryTree;
 import Logica.LinkedBinaryTree;
 import Logica.TreeExceptions;
 import java.awt.Image;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +28,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DeleteUpdateProductoMayorista extends javax.swing.JFrame {
 
+    String nombreCategoria = "";
+    
     /**
      * Creates new form deleteUpdateProductoMayorista
      */
@@ -383,6 +387,26 @@ public class DeleteUpdateProductoMayorista extends javax.swing.JFrame {
         model.setRowCount(0);
         Object O[] = null;
         for (int i = 0; i < list.size(); i++) {
+            
+            ProductoMayorista producto2 = (ProductoMayorista) list.get(i);
+            
+             int idCategoria = producto2.getIdCategoria();
+
+            Iterator it = LoginPanel.categoria.keySet().iterator();
+            while (it.hasNext()) {
+
+                Object key = it.next();
+                // listLotes.add(LoginPanel.categoria.get(key));
+                Categoria cat = LoginPanel.categoria.get(key);
+                if (idCategoria == cat.getId()) {
+
+                   nombreCategoria = cat.getNombre();
+                }
+            }
+           
+           // model.setValueAt(nombreCategoria, i, 3);
+            
+            
             model.addRow(O);
             ProductoMayorista getP = list.get(i);
             model.setValueAt(getP.getId(), i, 0);
@@ -392,7 +416,7 @@ public class DeleteUpdateProductoMayorista extends javax.swing.JFrame {
             model.setValueAt(getP.getPesoTotal(), i, 4);
             model.setValueAt(getP.getDescripcion(), i, 5);
             model.setValueAt(getP.getIdLote(), i, 6);
-            model.setValueAt(getP.getIdCategoria(), i, 7);
+            model.setValueAt(nombreCategoria, i, 7);
             model.setValueAt(getP.getPrecioTotal(), i, 8);
             model.setValueAt(getP.getUrlFoto(), i, 9);
 

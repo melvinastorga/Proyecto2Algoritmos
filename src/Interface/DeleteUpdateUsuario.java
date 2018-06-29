@@ -9,6 +9,7 @@ import Domain.ProductoMayorista;
 import Domain.ProductoMayoristaPorOrden;
 import Domain.UnidadTransporte;
 import Domain.Usuario;
+import Seguridad.EncriptMD5;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -339,12 +340,12 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
                 lbl_MensajeContraseña.setText("El usuario no existe");
             }else{
                 
-                String contrasenaIngresada = tfd_ContraseñaVieja.getText();
+                String contrasenaIngresada = EncriptMD5.getMD5(tfd_ContraseñaVieja.getText()) ;
                 boolean esLaMismaContrasena = false;
                 for (int i = 0; i < LoginPanel.usuario.size(); i++) {
                 Usuario user = (Usuario) LoginPanel.usuario.get(i);
                 
-                if(user.getContraseña().equals(contrasenaIngresada)){
+                if(EncriptMD5.getMD5(user.getContraseña()).equals(EncriptMD5.getMD5(contrasenaIngresada) )){
                     esLaMismaContrasena = true;
                 }
 
@@ -358,8 +359,8 @@ public class DeleteUpdateUsuario extends javax.swing.JFrame {
                       for (int i = 0; i < LoginPanel.usuario.size(); i++) {
                 Usuario user = (Usuario) LoginPanel.usuario.get(i);
                 
-                if(user.getContraseña().equals(contrasenaIngresada)){
-                    user.setContraseña(tfd_ContraseñaNueva.getText());
+                if(EncriptMD5.getMD5(user.getContraseña()).equals(EncriptMD5.getMD5(contrasenaIngresada) )){
+                    user.setContraseña(EncriptMD5.getMD5(tfd_ContraseñaNueva.getText()) );
                     System.out.println("su nueva contrasena es: "+user.getContraseña());
                     lbl_MensajeContraseña.setText("Su contraseña ha sido cambiada con exito");
                     tfd_DigiteID.setText("");
